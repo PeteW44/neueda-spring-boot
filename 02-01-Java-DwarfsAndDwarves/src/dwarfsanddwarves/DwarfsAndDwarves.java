@@ -12,7 +12,6 @@
 package dwarfsanddwarves;
 // Import Packages
 import java.util.ArrayList;
-import java.awt.Image;
 import java.io.File;
 
 public class DwarfsAndDwarves 
