@@ -42,7 +42,7 @@ public class BuildingService
 		final String build09 = "images/Buildings/Building09.jpg";
 		final String build10 = "images/Buildings/Building10.jpg";
 				
-		// Create The Seven Dwarfs (Disney)
+		// Create The Buildings
 		Building building01 = new Building("Boeing Everett Factory", "United States", "Everett, Washington", "398,000 m2", "13.3 million m3", build01);
 		Building building02 = new Building("Great Mosque of Mecca", "Saudi Arabia", "Hijaz-Saudi Arabia", "356,000  m2", "8  million m3", build02);
 		Building building03 = new Building("Jean-Luc Lagardère Plant", "France", "Toulouse-Blagnac", "122,500  m2", "5.6 million m3", build03);
@@ -54,7 +54,7 @@ public class BuildingService
 		Building building09 = new Building("Tesco Ireland Distribution Centre", "Ireland", "Donabate, Fingal", "80,194 m2", "1.55 million m3", build09);
 		Building building10 = new Building("Target Import Warehouse", "United States", "Savannah, Georgia", "187,664 m2", "1.5 million m3", build10);
 		
-		// Add The Seven Dwarfs To ArrayList
+		// Add The Buildings To ArrayList
 		buildings.add(building01);
 		buildings.add(building02);
 		buildings.add(building03);

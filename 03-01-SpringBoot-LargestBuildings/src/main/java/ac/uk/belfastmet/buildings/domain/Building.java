@@ -50,7 +50,8 @@ public class Building
 		this.name = name;
 	}
 
-	public String getCountry() {
+	public String getCountry()
+	{
 		return country;
 	}
 

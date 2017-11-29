@@ -15,7 +15,7 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" ></script>
 	</head>
 	<body class="content">
-		<header class="jumbotron text-center">
+		<header class="jumbotron text-center" style="background-color: #808080;">
 			<h1>Largest Buildings</h1>
 			<h2>Top Ten</h2>
 		</header>
@@ -35,10 +35,10 @@
 				</thead>
 				<tbody>
 					<tr th:each="building : ${buildings}">
-						<td th:text="${building.name}">BuildingName</td>
+						<td th:text="${building.name}">Building Name</td>
 						<td th:text="${building.country}">Country</td>
 						<td th:text="${building.place}">Place</td>
-						<td th:text="${building.floorArea}">FloorArea</td>
+						<td th:text="${building.floorArea}">Floor Area</td>
 						<td th:text="${building.volume}">Volume</td>
 						<td><img class="image" src="../static/images/Buildings/building01.jpg" th:src="@{/} + ${building.image}" /></td>
 					</tr>

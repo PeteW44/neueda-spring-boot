@@ -29,7 +29,7 @@ public class BuildingController
 	public String building(Model model)
 	{
 		this.buildingService = new BuildingService();
-		model.addAttribute("dwarves", this.buildingService.getBuildings());
+		model.addAttribute("buildings", this.buildingService.getBuildings());
 		return "buildingPage";
 	}
 }
