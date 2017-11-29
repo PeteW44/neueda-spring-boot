@@ -4,14 +4,12 @@
  * Package:         ac.uk.belfastmet.dwarfs.domain
  * Version:         1.0
  * Created:         28/10/2017
- * Updated:         28/10/2017 16.00
+ * Updated:         29/10/2017 13.00
  * Author:          Peter Wightman
  * Description:     This is the Dwarve Class
  */
 
 package ac.uk.belfastmet.dwarfs.domain;
-//Import Packages
-import java.io.File;
 
 public class Dwarve extends MythicalCreature
 {
@@ -22,7 +20,7 @@ public class Dwarve extends MythicalCreature
 	}
 	
 	// Parameterised Dwarve Constructor
-	public Dwarve(String name, String author, File image)
+	public Dwarve(String name, String author, String image)
 	{
 		super(name, author, image);
 	}

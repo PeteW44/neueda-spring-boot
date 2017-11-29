@@ -1,0 +1,21 @@
+<!--/*
+    HTML NAV
+  */-->
+
+<html lang="en" xmlns:th="Http:thymeleaf.org">
+	<body>
+		<nav class="navbar navbar-expand-xl bg-light navbar-dark" th:fragment="navFragment">
+			<div class="container-fluid">
+			    <div class="navbar-header">
+			    	<a href="/home/" class="logo-link">
+			    		<img title="Home Page" src="../images/home.jpg" alt="Home" class="navbar-brand" height="35px" width="35px" />
+					</a>
+			    </div>
+			    <ul class="nav navbar-nav">
+			    	<li class="nav-item"><a class="nav-item" href="../disney/"><span>Disney Dwarfs</span></a></li>
+			    	<li class="nav-item"><a class="nav-item" href="../tolkien/"><span>Tolkien Dwarves</span></a></li>
+			    </ul>
+			</div>
+		</nav>
+	</body>
+</html>

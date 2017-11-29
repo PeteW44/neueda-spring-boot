@@ -2,7 +2,7 @@
 
 <html lang="en" xmlns:th="Http:thymeleaf.org">
 	<head>
-		<title th:text="${pageTitle}">Disney Dwarfs</title>
+		<title th:text="${pageTitle}">Buildings</title>
 		
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -16,8 +16,8 @@
 	</head>
 	<body class="content">
 		<header class="jumbotron text-center">
-			<h1>Disney Dwarfs</h1>
-			<h2>The Seven Dwarfs</h2>
+			<h1>Largest Buildings</h1>
+			<h2>Top Ten</h2>
 		</header>
 		<nav th:replace="layouts/nav :: navFragment"></nav>
 		<br />
@@ -25,14 +25,22 @@
 			<table class="table table-striped">
 				<thead>
 					<tr>
-						<th>Dwarf</th>
+						<th>Name</th>
+						<th>Country</th>
+						<th>Place</th>
+						<th>Floor Area</th>
+						<th>Volume</th>
 						<th>Photo</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr th:each="dwarf : ${dwarfs}">
-						<td th:text="${dwarf.name}">Happy</td>
-						<td><img class="image" src="../static/images/TheSevenDwarfs/happy.jpg" th:src="@{/} + ${dwarf.image}" /></td>
+					<tr th:each="building : ${buildings}">
+						<td th:text="${building.name}">BuildingName</td>
+						<td th:text="${building.country}">Country</td>
+						<td th:text="${building.place}">Place</td>
+						<td th:text="${building.floorArea}">FloorArea</td>
+						<td th:text="${building.volume}">Volume</td>
+						<td><img class="image" src="../static/images/Buildings/building01.jpg" th:src="@{/} + ${building.image}" /></td>
 					</tr>
 				</tbody>
 			</table>

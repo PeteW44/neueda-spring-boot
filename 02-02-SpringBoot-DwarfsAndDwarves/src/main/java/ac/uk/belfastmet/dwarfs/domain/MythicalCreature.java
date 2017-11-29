@@ -4,21 +4,19 @@
  * Package:         ac.uk.belfastmet.dwarfs.domain
  * Version:         1.0
  * Created:         28/10/2017
- * Updated:         28/10/2017 16.00
+ * Updated:         29/10/2017 13.00
  * Author:          Peter Wightman
  * Description:     This is the MythicalCreature Class
  */
 
 package ac.uk.belfastmet.dwarfs.domain;
-// Import Packages
-import java.io.File;
 
 public abstract class MythicalCreature 
 {
 	// Instance Variables
 	private String name;
 	private String author;
-	private File image;
+	private String image;
 	
 	// Default Mythical Creature Constructor
 	public MythicalCreature()
@@ -26,7 +24,7 @@ public abstract class MythicalCreature
 	}
 	
 	// Parameterised Mythical Creature Constructor
-	public MythicalCreature(String name, String author, File image)
+	public MythicalCreature(String name, String author, String image)
 	{
 		this.setName(name);
 		this.setAuthor(author);
@@ -57,12 +55,12 @@ public abstract class MythicalCreature
 		this.author = author;
 	}
 	
-	public File getImage() 
+	public String getImage() 
 	{
 		return image;
 	}
 
-	public void setImage(File image) 
+	public void setImage(String image) 
 	{
 		this.image = image;
 	}

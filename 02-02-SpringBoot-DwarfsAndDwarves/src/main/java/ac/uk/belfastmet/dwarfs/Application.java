@@ -4,17 +4,16 @@
  * Package:         ac.uk.belfastmet.dwarfs
  * Version:         1.0
  * Created:         28/10/2017
- * Updated:         28/10/2017 16.00
+ * Updated:         29/10/2017 13.00
  * Author:          Peter Wightman
  * Description:     This is the Application Class
  */
 
 package ac.uk.belfastmet.dwarfs;
-import java.io.File;
+// Import Packages
 import java.util.ArrayList;
 
 //Import Packages
-import javax.annotation.PostConstruct;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import ac.uk.belfastmet.dwarfs.domain.Dwarf;
@@ -35,28 +34,28 @@ public class Application
 		// Image Files
 		
 		// The Seven Dwarfs
-		final File happyImage = new File("H:/Neueda Tech Academy/Neueda Spring Boot/02-02-JSpringBoot-DwarfsAndDwarves/src/main/resources/static/Images/TheSevenDwarfs/happy.jpg");
-		final File sleepyImage = new File("H:/Neueda Tech Academy/Neueda Spring Boot/02-02-JSpringBoot-DwarfsAndDwarves/src/main/resources/static/Images/TheSevenDwarfs/sleepy.jpg");
-		final File dopeyImage = new File("H:/Neueda Tech Academy/Neueda Spring Boot/02-02-JSpringBoot-DwarfsAndDwarves/src/main/resources/static/Images/TheSevenDwarfs/dopey.jpg");
-		final File bashfulImage = new File("H:/Neueda Tech Academy/Neueda Spring Boot/02-02-JSpringBoot-DwarfsAndDwarves/src/main/resources/static/Images/TheSevenDwarfs/bashful.jpg");
-		final File sneezyImage = new File("H:/Neueda Tech Academy/Neueda Spring Boot/02-02-JSpringBoot-DwarfsAndDwarves/src/main/resources/static/Images/TheSevenDwarfs/sneezy.jpg");
-		final File docImage = new File("H:/Neueda Tech Academy/Neueda Spring Boot/02-02-JSpringBoot-DwarfsAndDwarves/src/main/resources/static/Images/TheSevenDwarfs/doc.jpg");
-		final File grumpyImage = new File("H:/Neueda Tech Academy/Neueda Spring Boot/02-02-JSpringBoot-DwarfsAndDwarves/src/main/resources/static/Images/TheSevenDwarfs/grumpy.jpg");
+		final String happyImage = "images/TheSevenDwarfs/happy.jpg";
+		final String sleepyImage = "images/TheSevenDwarfs/sleepy.jpg";
+		final String dopeyImage = "images/TheSevenDwarfs/dopey.jpg";
+		final String bashfulImage = "images/TheSevenDwarfs/bashful.jpg";
+		final String sneezyImage = "images/TheSevenDwarfs/sneezy.jpg";
+		final String docImage = "images/TheSevenDwarfs/doc.jpg";
+		final String grumpyImage = "images/TheSevenDwarfs/grumpy.jpg";
 		
 		// The Company of Thorin
-		final File thorinImage = new File("H:/Neueda Tech Academy/Neueda Spring Boot/02-02-JSpringBoot-DwarfsAndDwarves/src/main/resources/static/Images/TheCompanyOfThorin/thorin.jpg");
-		final File balinImage = new File("H:/Neueda Tech Academy/Neueda Spring Boot/02-02-JSpringBoot-DwarfsAndDwarves/src/main/resources/static/Images/TheCompanyOfThorin/balin.jpg");
-		final File dwalinImage = new File("H:/Neueda Tech Academy/Neueda Spring Boot/02-02-JSpringBoot-DwarfsAndDwarves/src/main/resources/static/Images/TheCompanyOfThorin/dwalin.jpg");
-		final File filiImage = new File("H:/Neueda Tech Academy/Neueda Spring Boot/02-02-JSpringBoot-DwarfsAndDwarves/src/main/resources/static/Images/TheCompanyOfThorin/fili.jpg");
-		final File kiliImage = new File("H:/Neueda Tech Academy/Neueda Spring Boot/02-02-JSpringBoot-DwarfsAndDwarves/src/main/resources/static/Images/TheCompanyOfThorin/kili.jpg");
-		final File doriImage = new File("H:/Neueda Tech Academy/Neueda Spring Boot/02-02-JSpringBoot-DwarfsAndDwarves/src/main/resources/static/Images/TheCompanyOfThorin/dori.jpg");
-		final File noriImage = new File("H:/Neueda Tech Academy/Neueda Spring Boot/02-02-JSpringBoot-DwarfsAndDwarves/src/main/resources/static/Images/TheCompanyOfThorin/nori.jpg");
-		final File oriImage = new File("H:/Neueda Tech Academy/Neueda Spring Boot/02-02-JSpringBoot-DwarfsAndDwarves/src/main/resources/static/Images/TheCompanyOfThorin/ori.jpg");
-		final File oinImage = new File("H:/Neueda Tech Academy/Neueda Spring Boot/02-02-JSpringBoot-DwarfsAndDwarves/src/main/resources/static/Images/TheCompanyOfThorin/oin.jpg");
-		final File gloinImage = new File("H:/Neueda Tech Academy/Neueda Spring Boot/02-02-JSpringBoot-DwarfsAndDwarves/src/main/resources/static/Images/TheCompanyOfThorin/gloin.jpg");
-		final File bifurImage = new File("H:/Neueda Tech Academy/Neueda Spring Boot/02-02-JSpringBoot-DwarfsAndDwarves/src/main/resources/static/Images/TheCompanyOfThorin/bifur.jpg");
-		final File bofurImage = new File("H:/Neueda Tech Academy/Neueda Spring Boot/02-02-JSpringBoot-DwarfsAndDwarves/src/main/resources/static/Images/TheCompanyOfThorin/bofur.jpg");
-		final File bombuImage = new File("H:/Neueda Tech Academy/Neueda Spring Boot/02-02-JSpringBoot-DwarfsAndDwarves/src/main/resources/static/Images/TheCompanyOfThorin/bombu.jpg");
+		final String thorinImage = "images/TheCompanyOfThorin/thorin.jpg";
+		final String balinImage = "images/TheCompanyOfThorin/balin.jpg";
+		final String dwalinImage = "images/TheCompanyOfThorin/dwalin.jpg";
+		final String filiImage = "images/TheCompanyOfThorin/fili.jpg";
+		final String kiliImage = "images/TheCompanyOfThorin/kili.jpg";
+		final String doriImage = "images/TheCompanyOfThorin/dori.jpg";
+		final String noriImage = "images/TheCompanyOfThorin/nori.jpg";
+		final String oriImage = "images/TheCompanyOfThorin/ori.jpg";
+		final String oinImage = "images/TheCompanyOfThorin/oin.jpg";
+		final String gloinImage = "images/TheCompanyOfThorin/gloin.jpg";
+		final String bifurImage = "images/TheCompanyOfThorin/bifur.jpg";
+		final String bofurImage = "images/TheCompanyOfThorin/bofur.jpg";
+		final String bombuImage = "images/TheCompanyOfThorin/bombu.jpg";
 		
 		// Local Variables
 		ArrayList<MythicalCreature> dwarfs = new ArrayList<MythicalCreature>();
