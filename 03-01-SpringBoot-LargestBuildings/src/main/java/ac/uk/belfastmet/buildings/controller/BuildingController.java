@@ -25,11 +25,27 @@ public class BuildingController
 	@Autowired
 	private BuildingService buildingService;
 	
-	@GetMapping("/")
+	@GetMapping("/floorarea/")
+	public String buildingArea(Model model)
+	{
+		this.buildingService = new BuildingService();
+		model.addAttribute("buildings", this.buildingService.getLargestFloorArea());
+		return "floorAreaPage";
+	}
+	
+	@GetMapping("/footprint/")
+	public String buildingVolume(Model model)
+	{
+		this.buildingService = new BuildingService();
+		model.addAttribute("buildings", this.buildingService.getLargestFootprint());
+		return "footprintPage";
+	}
+	
+	@GetMapping("/volume/")
 	public String building(Model model)
 	{
 		this.buildingService = new BuildingService();
-		model.addAttribute("buildings", this.buildingService.getBuildings());
-		return "buildingPage";
+		model.addAttribute("buildings", this.buildingService.getBuildingsLargestVolume());
+		return "volumePage";
 	}
 }

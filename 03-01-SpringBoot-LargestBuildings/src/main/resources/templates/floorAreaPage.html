@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="Http:thymeleaf.org">
+	<head>
+		<title th:text="${pageTitle}">Buildings</title>
+		
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="../static/css/Style.css" th:attr="href='/css/Style.css'" />
+		
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" ></script>
+	</head>
+	<body class="content">
+		<header class="jumbotron text-center" style="background-color: #808080;">
+			<h1>Largest Buildings</h1>
+			<h2>Floor Area</h2>
+		</header>
+		<nav th:replace="layouts/nav :: navFragment"></nav>
+		<br />
+		<section>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Country</th>
+						<th>Place</th>
+						<th>Floor Area</th>
+						<th>Volume</th>
+						<th>Photo</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="building : ${buildings}">
+						<td th:text="${building.name}">Building Name</td>
+						<td th:text="${building.country}">Country</td>
+						<td th:text="${building.place}">Place</td>
+						<td th:text="${building.floorArea}">Floor Area</td>
+						<td th:text="${building.volume}">Volume</td>
+						<td><img class="image" src="../static/images/Buildings/building01.jpg" th:src="@{/} + ${building.image}" /></td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+		<br />
+		<footer th:replace="layouts/footer :: footFragment"></footer>
+	</body>
+</html>
