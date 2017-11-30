@@ -30,6 +30,7 @@ public class BuildingController
 	{
 		this.buildingService = new BuildingService();
 		model.addAttribute("areaBuildings", this.buildingService.getByFloorArea());
+		model.addAttribute("pageTitle", "Floor Areas");
 		return "floorAreaPage";
 	}
 	
@@ -38,6 +39,7 @@ public class BuildingController
 	{
 		this.buildingService = new BuildingService();
 		model.addAttribute("footBuildings", this.buildingService.getByFootprint());
+		model.addAttribute("pageTitle", "Footprint");
 		return "footprintPage";
 	}
 	
@@ -46,6 +48,7 @@ public class BuildingController
 	{
 		this.buildingService = new BuildingService();
 		model.addAttribute("volumeBuildings", this.buildingService.getByVolume());
+		model.addAttribute("pageTitle", "Volume");
 		return "volumePage";
 	}
 }
