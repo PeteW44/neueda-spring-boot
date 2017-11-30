@@ -13,15 +13,18 @@ package ac.uk.belfastmet.buildings.service;
 // Import Packages
 import java.util.ArrayList;
 import org.springframework.stereotype.Service;
-import ac.uk.belfastmet.buildings.domain.Building;
+
+import ac.uk.belfastmet.buildings.domain.AreaBuilding;
+import ac.uk.belfastmet.buildings.domain.FootBuilding;
+import ac.uk.belfastmet.buildings.domain.VolumeBuilding;
 
 @Service
 public class BuildingService 
 {
 	// Instance Variables
-	private ArrayList<Building> areaBuildings;
-	private ArrayList<Building> footBuildings;
-	private ArrayList<Building> volumeBuildings;
+	private ArrayList<AreaBuilding> areaBuildings;
+	private ArrayList<FootBuilding> footBuildings;
+	private ArrayList<VolumeBuilding> volumeBuildings;
 	
 	// Default Constructor
 	public BuildingService() 
@@ -32,10 +35,10 @@ public class BuildingService
 	// ##########
 	// FLOOR AREA
 	// ##########
-	public ArrayList<Building> getLargestFloorArea()
+	public ArrayList<AreaBuilding> getByFloorArea()
 	{
 		// Local Variables
-		ArrayList<Building> areaBuildings = new ArrayList<Building>();
+		ArrayList<AreaBuilding> areaBuildings = new ArrayList<AreaBuilding>();
 		
 		// Building Image Files
 		final String build01 = "images/Buildings/NewCenturyGlobalCenter.jpg";
@@ -50,16 +53,16 @@ public class BuildingService
 		final String build10 = "images/Buildings/BerjayaTimesSquare.jpg";
 				
 		// Create The Buildings
-		Building building01 = new Building("New Century Global Center", "China", "Chengdu", "1,760,000 m2", "N/A", build01);
-		Building building02 = new Building("Dubai International Airport Terminal 3", "United Arab Emirates", "Dubai", "1,713,000 m2", "N/A", build02);
-		Building building03 = new Building("Abraj Al-Bait Endowment", "Saudi Arabia", "Mecca", "1,575,815 m2", "N/A", build03);
-		Building building04 = new Building("CentralWorld", "Thailand", "Bangkok", "1,024,000 m2", "N/A", build04);
-		Building building05 = new Building("Aalsmeer Flower Auction", "Netherlands", "Aalsmeer", "990,000 m2", "N/A", build05);
-		Building building06 = new Building("Beijing Capital International Airport Terminal 3", "China", "Beijing", "986,000 m2", "N/A", build06);
-		Building building07 = new Building("The Venetian Macao", "Macau", "Macau", "980,000 m2", "N/A", build07);
-		Building building08 = new Building("Sands Cotai Central", "Macau", "Macau", "890,000 m2", "N/A", build08);
-		Building building09 = new Building("Ciputra World Surabaya", "Indonesia", "Surabaya", "750,000 m2", "N/A", build09);
-		Building building10 = new Building("Berjaya Times Square", "Malaysia", "Kuala Lumpur", "700,000 m2", "N/A", build10);
+		AreaBuilding building01 = new AreaBuilding("New Century Global Center", "China", "Chengdu", "1,760,000 m2", build01);
+		AreaBuilding building02 = new AreaBuilding("Dubai International Airport Terminal 3", "United Arab Emirates", "Dubai", "1,713,000 m2", build02);
+		AreaBuilding building03 = new AreaBuilding("Abraj Al-Bait Endowment", "Saudi Arabia", "Mecca", "1,575,815 m2", build03);
+		AreaBuilding building04 = new AreaBuilding("CentralWorld", "Thailand", "Bangkok", "1,024,000 m2", build04);
+		AreaBuilding building05 = new AreaBuilding("Aalsmeer Flower Auction", "Netherlands", "Aalsmeer", "990,000 m2", build05);
+		AreaBuilding building06 = new AreaBuilding("Beijing Capital International Airport Terminal 3", "China", "Beijing", "986,000 m2", build06);
+		AreaBuilding building07 = new AreaBuilding("The Venetian Macao", "Macau", "Macau", "980,000 m2", build07);
+		AreaBuilding building08 = new AreaBuilding("Sands Cotai Central", "Macau", "Macau", "890,000 m2", build08);
+		AreaBuilding building09 = new AreaBuilding("Ciputra World Surabaya", "Indonesia", "Surabaya", "750,000 m2", build09);
+		AreaBuilding building10 = new AreaBuilding("Berjaya Times Square", "Malaysia", "Kuala Lumpur", "700,000 m2",  build10);
 		
 		// Add The Buildings To ArrayList
 		areaBuildings.add(building01);
@@ -79,10 +82,10 @@ public class BuildingService
 	// #########
 	// FOOTPRINT
 	// #########
-	public ArrayList<Building> getLargestFootprint()
+	public ArrayList<FootBuilding> getByFootprint()
 	{
 		// Local Variables
-		ArrayList<Building> footBuildings = new ArrayList<Building>();
+		ArrayList<FootBuilding> footBuildings = new ArrayList<FootBuilding>();
 		
 		// Building Image Files
 		final String build01 = "images/Buildings/AalsmeerFlowerAuction.jpg";
@@ -97,16 +100,16 @@ public class BuildingService
 		final String build10 = "images/Buildings/IndonesiaConventionExhibition.jpg";
 				
 		// Create The Buildings
-		Building building01 = new Building("Aalsmeer Flower Auction", "Netherlands", "Aalsmeer", "518,000 m2", "N/A", build01);
-		Building building02 = new Building("Tesla Factory", "United States", "Fremont, California", "427,354 m2", "N/A", build02);
-		Building building03 = new Building("Boeing Everett Factory", "United States", "Everett, Washington", "398,000 m2", "N/A", build03);
-		Building building04 = new Building("Michelin Distribution Center", "United States", "Spartanburg, South Carolina", "371,612 m2", "N/A", build04);
-		Building building05 = new Building("Great Mosque of Mecca", "Saudi Arabia", "Hijaz-Saudi Arabia", "356,000  m2", "N/A", build05);
-		Building building06 = new Building("Nike - North America Logistics Center", "United States", "Memphis, Tennessee", "260,000 m2", "N/A", build06);
-		Building building07 = new Building("John Deere North American Parts Distribution Center", "United States", "Milan, Illinois", "246,000 m2", "N/A", build07);
-		Building building08 = new Building("Mall of Dubai", "United Arab Emirates", "Dubai", "500,000 m2", "N/A", build08);	
-		Building building09 = new Building("Mitsubishi Motors North America", "United States", "Normal, Illinois", "220,000 m2", "N/A", build09);
-		Building building10 = new Building("Indonesia Convention Exhibition", "Indonesia", "Bumi Serpong Damai", "220,000 m2", "N/A", build10);
+		FootBuilding building01 = new FootBuilding("Aalsmeer Flower Auction", "Netherlands", "Aalsmeer", "518,000 m2", build01);
+		FootBuilding building02 = new FootBuilding("Tesla Factory", "United States", "Fremont, California", "427,354 m2", build02);
+		FootBuilding building03 = new FootBuilding("Boeing Everett Factory", "United States", "Everett, Washington", "398,000 m2", build03);
+		FootBuilding building04 = new FootBuilding("Michelin Distribution Center", "United States", "Spartanburg, South Carolina", "371,612 m2", build04);
+		FootBuilding building05 = new FootBuilding("Great Mosque of Mecca", "Saudi Arabia", "Hijaz-Saudi Arabia", "356,000  m2", build05);
+		FootBuilding building06 = new FootBuilding("Nike - North America Logistics Center", "United States", "Memphis, Tennessee", "260,000 m2", build06);
+		FootBuilding building07 = new FootBuilding("John Deere North American Parts Distribution Center", "United States", "Milan, Illinois", "246,000 m2", build07);
+		FootBuilding building08 = new FootBuilding("Mall of Dubai", "United Arab Emirates", "Dubai", "500,000 m2", build08);	
+		FootBuilding building09 = new FootBuilding("Mitsubishi Motors North America", "United States", "Normal, Illinois", "220,000 m2", build09);
+		FootBuilding building10 = new FootBuilding("Indonesia Convention Exhibition", "Indonesia", "Bumi Serpong Damai", "220,000 m2", build10);
 		
 		// Add The Buildings To ArrayList
 		footBuildings.add(building01);
@@ -126,10 +129,10 @@ public class BuildingService
 	// ######
 	// VOLUME
 	// ######
-	public ArrayList<Building> getBuildingsLargestVolume()
+	public ArrayList<VolumeBuilding> getByVolume()
 	{
 		// Local Variables
-		ArrayList<Building> volumeBuildings = new ArrayList<Building>();
+		ArrayList<VolumeBuilding> volumeBuildings = new ArrayList<VolumeBuilding>();
 		
 		// Building Image Files
 		final String build01 = "images/Buildings/BoeingEverettFactory.jpg";
@@ -144,16 +147,16 @@ public class BuildingService
 		final String build10 = "images/Buildings/TargetImportWarehouse.jpg";
 				
 		// Create The Buildings
-		Building building01 = new Building("Boeing Everett Factory", "United States", "Everett, Washington", "398,000 m2", "13.3 million m3", build01);
-		Building building02 = new Building("Great Mosque of Mecca", "Saudi Arabia", "Hijaz-Saudi Arabia", "356,000  m2", "8  million m3", build02);
-		Building building03 = new Building("Jean-Luc Lagardère Plant", "France", "Toulouse-Blagnac", "122,500  m2", "5.6 million m3", build03);
-		Building building04 = new Building("Boeing Composite Wing Center", "United States", "Everett, Washington", "111,500 m2", "3.7 million m3", build04);
-		Building building05 = new Building("Aerium", "Germany", "Halbe, Brandenburg", "70,000 m2", "5.2 million m3", build05);
-		Building building06 = new Building("Meyer Werft Dockhalle 2", "Germany", "Papenburg, Niedersachsen", "63,000 m2", "4.72 million m3", build06);
-		Building building07 = new Building("NASA Vehicle Assembly Building", "United States", "Brevard County, Florida", "232,374 m2", "3.66 million m3", build07);
-		Building building08 = new Building("The O2", "United Kingdom", "London", "104,634 m2", "2.79 million m3", build08);
-		Building building09 = new Building("Tesco Ireland Distribution Centre", "Ireland", "Donabate, Fingal", "80,194 m2", "1.55 million m3", build09);
-		Building building10 = new Building("Target Import Warehouse", "United States", "Savannah, Georgia", "187,664 m2", "1.5 million m3", build10);
+		VolumeBuilding building01 = new VolumeBuilding("Boeing Everett Factory", "United States", "Everett, Washington", "13.3 million m3", build01);
+		VolumeBuilding building02 = new VolumeBuilding("Great Mosque of Mecca", "Saudi Arabia", "Hijaz-Saudi Arabia", "8  million m3", build02);
+		VolumeBuilding building03 = new VolumeBuilding("Jean-Luc Lagardère Plant", "France", "Toulouse-Blagnac", "5.6 million m3", build03);
+		VolumeBuilding building04 = new VolumeBuilding("Boeing Composite Wing Center", "United States", "Everett, Washington", "3.7 million m3", build04);
+		VolumeBuilding building05 = new VolumeBuilding("Aerium", "Germany", "Halbe, Brandenburg", "5.2 million m3", build05);
+		VolumeBuilding building06 = new VolumeBuilding("Meyer Werft Dockhalle 2", "Germany", "Papenburg, Niedersachsen", "4.72 million m3", build06);
+		VolumeBuilding building07 = new VolumeBuilding("NASA Vehicle Assembly Building", "United States", "Brevard County, Florida",  "3.66 million m3", build07);
+		VolumeBuilding building08 = new VolumeBuilding("The O2", "United Kingdom", "London", "2.79 million m3", build08);
+		VolumeBuilding building09 = new VolumeBuilding("Tesco Ireland Distribution Centre", "Ireland", "Donabate, Fingal", "1.55 million m3", build09);
+		VolumeBuilding building10 = new VolumeBuilding("Target Import Warehouse", "United States", "Savannah, Georgia", "1.5 million m3", build10);
 		
 		// Add The Buildings To ArrayList
 		volumeBuildings.add(building01);

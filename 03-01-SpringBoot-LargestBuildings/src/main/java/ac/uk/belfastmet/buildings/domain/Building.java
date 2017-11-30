@@ -4,20 +4,19 @@
  * Package:         ac.uk.belfastmet.buildings.domain
  * Version:         1.0
  * Created:         29/10/2017
- * Updated:         29/10/2017 16.30
+ * Updated:         30/10/2017 13.00
  * Author:          Peter Wightman
  * Description:     This is the Building Class
  */
 
 package ac.uk.belfastmet.buildings.domain;
 
-public class Building 
+public abstract class Building 
 {
+	// Instance Variables
 	private String name;
 	private String country;
 	private String place;
-	private String floorArea;
-	private String volume;
 	private String image;
 
 	// Default Mythical Creature Constructor
@@ -26,13 +25,11 @@ public class Building
 	}
 	
 	// Parameterised Mythical Creature Constructor
-	public Building(String name, String country, String place, String floorArea, String volume, String image)
+	public Building(String name, String country, String place, String image)
 	{
 		this.setName(name);
 		this.setCountry(country);
 		this.setPlace(place);
-		this.setFloorArea(floorArea);
-		this.setVolume(volume);
 		this.setImage(image);
 	}
 	
@@ -68,26 +65,6 @@ public class Building
 	public void setPlace(String place) 
 	{
 		this.place = place;
-	}
-
-	public String getFloorArea() 
-	{
-		return floorArea;
-	}
-
-	public void setFloorArea(String floorArea) 
-	{
-		this.floorArea = floorArea;
-	}
-
-	public String getVolume() 
-	{
-		return volume;
-	}
-
-	public void setVolume(String volume) 
-	{
-		this.volume = volume;
 	}
 
 	public String getImage() 

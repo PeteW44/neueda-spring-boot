@@ -4,7 +4,7 @@
  * Package:         ac.uk.belfastmet.buildings.domain
  * Version:         1.0
  * Created:         29/10/2017
- * Updated:         29/10/2017 16.30
+ * Updated:         30/10/2017 13.00
  * Author:          Peter Wightman
  * Description:     This is the BuildingController Class
  */
@@ -29,7 +29,7 @@ public class BuildingController
 	public String buildingArea(Model model)
 	{
 		this.buildingService = new BuildingService();
-		model.addAttribute("buildings", this.buildingService.getLargestFloorArea());
+		model.addAttribute("areaBuildings", this.buildingService.getByFloorArea());
 		return "floorAreaPage";
 	}
 	
@@ -37,7 +37,7 @@ public class BuildingController
 	public String buildingVolume(Model model)
 	{
 		this.buildingService = new BuildingService();
-		model.addAttribute("buildings", this.buildingService.getLargestFootprint());
+		model.addAttribute("footBuildings", this.buildingService.getByFootprint());
 		return "footprintPage";
 	}
 	
@@ -45,7 +45,7 @@ public class BuildingController
 	public String building(Model model)
 	{
 		this.buildingService = new BuildingService();
-		model.addAttribute("buildings", this.buildingService.getBuildingsLargestVolume());
+		model.addAttribute("volumeBuildings", this.buildingService.getByVolume());
 		return "volumePage";
 	}
 }
