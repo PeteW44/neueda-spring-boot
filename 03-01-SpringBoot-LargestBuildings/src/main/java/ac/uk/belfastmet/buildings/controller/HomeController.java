@@ -23,6 +23,7 @@ public class HomeController
 	@GetMapping("/")
 	public String home(Model model)
 	{
+		model.addAttribute("pageTitle", "The Largest Buildings");
 		return "indexPage";
 	}
 }
