@@ -7,7 +7,7 @@
 
 .content 
 {
-	background-color: black;
+	background-color: #000000;
 	max-width: 1000px;
     margin: auto;
     padding: 10px;
@@ -54,6 +54,7 @@ table
     border-style: solid;
     border-width: thin;
     border-color: white;
+    background-color: #000000;
 }
 
 td, th 
@@ -68,16 +69,21 @@ tr:nth-child(even)
     background-color: #808080;
 }
 
-.image
+tr:nth-child(odd) 
 {
-	width: 300px;
-	height: 200px;
+    background-color: #000000;
+}
+
+.aimage
+{
+	width: 250px;
+	height: 250px;
 }
 
 .cImage
 {
 	width: 900px;
-	height: 500px;
+	height: 600px;
 }
 
 .bImage
@@ -95,6 +101,12 @@ tr:nth-child(even)
 {
 	background-color: #808080;
 }
+
+.blackBackGround
+{
+	background-color: #000000;
+}
+
 /* Headings */
 
 h1

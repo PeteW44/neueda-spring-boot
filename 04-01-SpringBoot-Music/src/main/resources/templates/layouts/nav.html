@@ -1,0 +1,43 @@
+<!--/*
+    HTML NAV
+  */-->
+
+<html lang="en" xmlns:th="Http:thymeleaf.org">
+	<body>
+		<nav class="navbar navbar-expand-xl navbar-dark greyBackGround" th:fragment="navFragment">
+			<div class="container-fluid">
+			    <div class="navbar-header">
+			    	<a href="/home/" class="logo-link">
+			    		<img title="Home Page" src="/images/home.jpg" alt="Home" class="navbar-brand bImage"/>
+					</a>
+			    </div>
+			    <ul class="navbar-nav mr-auto">
+			    	<li class="dropdown">
+			        	<a href="/brmc/" class="dropdown-toggle text-black" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">BRMC<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="/brmc/home/">Home</a></li>
+				            <li><a href="/brmc/bio/">Bio</a></li>
+				            <li><a href="/brmc/albums/">Albums</a></li>
+				        </ul>
+			        </li>
+			    	<li class="dropdown">
+			        	<a href="/pinkfloyd/" class="dropdown-toggle text-black" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pink Floyd<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+				            <li><a href="/pinkfloyd/home/">Home</a></li>
+				            <li><a href="/pinkfloyd/bio/">Bio</a></li>
+				            <li><a href="/pinkfloyd/albums/">Albums</a></li>
+				        </ul>
+			        </li>
+			        <li class="dropdown">
+			        	<a href="spacemen3" class="dropdown-toggle text-black" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Spacemen 3<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+				            <li><a href="/spacemen3/home/">Home</a></li>
+				            <li><a href="/spacemen3/bio/">Bio</a></li>
+				            <li><a href="/spacemen3/albums/">Albums</a></li>
+				        </ul>
+			        </li>
+			    </ul>
+			</div>
+		</nav>
+	</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="Http:thymeleaf.org">
+	<head th:replace="layouts/header :: headFragment"></head>
+	<body class="content">
+		<header class="jumbotron text-center geryBackGround">
+			<h1 class="text-center text-black">Black Rebel Motorcycle Club</h1>
+			<h2 class="text-center text-black">Albums</h2>
+		</header>
+		<nav th:replace="layouts/nav :: navFragment"></nav>
+		<br />
+		<section>
+			<h3 class="text-center text-white">Studio and Live Albums</h3>
+			<table class="table table-striped">
+				<thead>
+					<tr class="text-white">
+						<th>Album</th>
+						<th>Released</th>
+						<th>Number of Tracks</th>
+						<th>Cover</th>
+						<th>Tracks</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="text-white" th:each="album : ${brmcAlbums}">
+						<td th:text="${album.albumTitle}">Title</td>
+						<td th:text="${album.releaseYear}">Released</td>
+						<td th:text="${album.numTracks}">Tracks</td>
+						<td><img class="image" th:src="@{/} + ${album.albumArt}" /></td>
+						<td>
+							<table style="background-color: black;" class="table table-striped">
+								<thead>
+									<tr class="text-white">
+										<th>Track Number</th>
+										<th>Title</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr class="text-white " th:each="track : ${album.albumTracks}">
+										<td th:text="${track.trackNum}">Number</td>
+										<td th:text="${track.trackTitle}">Title</td>
+									</tr>
+								</tbody>
+							</table>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+		<br />
+		<footer th:replace="layouts/footer :: footFragment"></footer>
+		<br />
+	</body>
+</html>
