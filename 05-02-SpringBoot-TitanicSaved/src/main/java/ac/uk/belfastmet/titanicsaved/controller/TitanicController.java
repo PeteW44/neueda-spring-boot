@@ -33,10 +33,28 @@ public class TitanicController
 	}
 	
 	@GetMapping("/")
-	public String disney(Model model)
+	public String passengers(Model model)
 	{
 		model.addAttribute("pageTitle", "Titanic Passengers");
 		model.addAttribute("passengers", titanicRepository.findAll());
+		
+		return "passengerPage";
+	}
+	
+	@GetMapping("/firstclass/")
+	public String firstClassPassengers(Model model)
+	{
+		model.addAttribute("pageTitle", "Titanic Passengers");
+		model.addAttribute("passengers", titanicRepository.findBypClass(1));
+		
+		return "passengerPage";
+	}
+	
+	@GetMapping("/survivors/")
+	public String survivorPassengers(Model model)
+	{
+		model.addAttribute("pageTitle", "Titanic Passengers");
+		model.addAttribute("passengers", titanicRepository.findBySurvived(1));
 		
 		return "passengerPage";
 	}

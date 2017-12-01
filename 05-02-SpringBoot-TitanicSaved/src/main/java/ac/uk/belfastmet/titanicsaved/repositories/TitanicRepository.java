@@ -17,4 +17,8 @@ import ac.uk.belfastmet.titanicsaved.domain.Passenger;
 public interface TitanicRepository extends CrudRepository<Passenger, Integer>
 {
 	Iterable<Passenger> findAll();
+	
+	Iterable<Passenger> findBypClass(int pClass);
+	
+	Iterable<Passenger> findBySurvived(int survived);
 }

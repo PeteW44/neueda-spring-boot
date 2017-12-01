@@ -4,7 +4,7 @@
 
 <html lang="en" xmlns:th="Http:thymeleaf.org">
 	<body>
-		<nav class="navbar navbar-expand-xl navbar-dark" th:fragment="navFragment" style="background-color: #808080;">
+		<nav class="navbar navbar-expand-xl navbar-dark greyBackGround" th:fragment="navFragment">
 			<div class="container-fluid">
 			    <div class="navbar-header">
 			    	<a href="/" class="logo-link">
@@ -15,6 +15,16 @@
 			    	<li class="navbar-item">
 			    		<a class="nav-link text-black" href="/passengers/">
 			    			<span class="text-black">Passengers</span>
+			    		</a>
+			    	</li>
+			    	<li class="navbar-item">
+			    		<a class="nav-link text-black" href="/passengers/firstclass/">
+			    			<span class="text-black">First Class</span>
+			    		</a>
+			    	</li>
+			    	<li class="navbar-item">
+			    		<a class="nav-link text-black" href="/passengers/survivors/">
+			    			<span class="text-black">Survivors</span>
 			    		</a>
 			    	</li>
 			    </ul>
