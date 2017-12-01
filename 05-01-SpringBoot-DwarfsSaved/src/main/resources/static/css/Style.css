@@ -1,0 +1,86 @@
+/* 
+	Neueda Tech Academy
+	CSS Style Sheet
+*/
+
+/* Center Page on Screen */
+
+.content 
+{
+	background-color: black;
+	max-width: 1000px;
+    margin: auto;
+    padding: 10px;
+}
+
+/* HTML Elements */
+
+body
+{
+	font-family: Calibri, Arial, Verdana;
+}
+
+.row:after
+{
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.left
+{
+	color: white;
+	text-align: left;
+	font-size: 12px;
+	padding-left: 35px;
+}
+
+.center
+{
+	color: white;
+	text-align: center;
+	font-size: 12px;
+}
+
+.right
+{
+	color: white;
+	text-align: right;
+	font-size: 12px;
+	padding-right: 35px;
+}
+
+table 
+{
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    border-style: solid;
+    border-width: thin;
+    border-color: white;
+}
+
+td, th 
+{
+	color: white;
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) 
+{
+    background-color: #808080;
+}
+
+.image
+{
+	width: 150px;
+	height: 150px;
+}
+
+/* Headings */
+
+h1, h2, h3, h4, h5, h6
+{
+	color: black;
+}

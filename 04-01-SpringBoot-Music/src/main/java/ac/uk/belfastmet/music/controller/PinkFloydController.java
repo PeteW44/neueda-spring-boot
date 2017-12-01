@@ -3,8 +3,8 @@
  * Project:         Music Demo
  * Package:         ac.uk.belfastmet.controller
  * Version:         1.0
- * Created:         29/10/2017
- * Updated:         30/10/2017 16.30
+ * Created:         31/11/2017
+ * Updated:         01/12/2017 16.30
  * Author:          Peter Wightman
  * Description:     This is the PinkFloydController Class
  */
@@ -25,7 +25,7 @@ public class PinkFloydController
 	@Autowired
 	private PinkFloydAlbumService pinkFloydAlbumService;
 	
-	@GetMapping("/home/")
+	@GetMapping("/")
 	public String pinkFloydHome(Model model)
 	{
 		model.addAttribute("pageTitle", "Pink Floyd Home");
@@ -45,7 +45,7 @@ public class PinkFloydController
 	public String pinkFloydAlbums(Model model)
 	{
 		this.pinkFloydAlbumService = new PinkFloydAlbumService();
-		model.addAttribute("pinkfloydAlbums", this.pinkFloydAlbumService.getPinkFloydAlbums());
+		model.addAttribute("pinkFloydAlbums", this.pinkFloydAlbumService.getPinkFloydAlbums());
 		model.addAttribute("pageTitle", "Pink Floyd Albums");
 		
 		return "pinkFloydAlbumPage";

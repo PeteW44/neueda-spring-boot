@@ -3,8 +3,8 @@
  * Project:         Music Demo
  * Package:         ac.uk.belfastmet.controller
  * Version:         1.0
- * Created:         29/10/2017
- * Updated:         30/10/2017 16.30
+ * Created:         31/11/2017
+ * Updated:         01/12/2017 16.30
  * Author:          Peter Wightman
  * Description:     This is the BRMCController Class
  */
@@ -25,7 +25,7 @@ public class BRMCController
 	@Autowired
 	private BrmcAlbumService brmcAlbumService;
 	
-	@GetMapping("/home/")
+	@GetMapping("/")
 	public String brmcHome(Model model)
 	{
 		model.addAttribute("pageTitle", "BRMC Home");
