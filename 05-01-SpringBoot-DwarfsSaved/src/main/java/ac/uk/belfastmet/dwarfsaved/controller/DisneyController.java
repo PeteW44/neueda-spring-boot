@@ -17,7 +17,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import ac.uk.belfastmet.dwarfsaved.repositories.DwarfRepository;
 
 @Controller
@@ -38,6 +37,12 @@ public class DisneyController
 	{
 		model.addAttribute("pageTitle", "Disney Dwarfs!");
 		model.addAttribute("dwarfs", dwarfRepository.findByAuthor("Disney"));
+		//model.addAttribute("dwarfs", dwarfRepository.findByDwarfIdBefore(4));
+		//model.addAttribute("dwarfs", dwarfRepository.findByName("Sleepy"));
+		//model.addAttribute("dwarfs", dwarfRepository.findByDwarfId(4));
+		//model.addAttribute("dwarfs", dwarfRepository.findByOrderByNameAsc());
+		//model.addAttribute("dwarfs", dwarfRepository.findByAuthorOrName("Disney", "Thorin"));
+		
 		return "disneyPage";
 	}
 }

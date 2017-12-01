@@ -1,0 +1,146 @@
+/* 
+	Neueda Tech Academy
+	CSS Style Sheet
+*/
+
+/* Center Page on Screen */
+
+.content 
+{
+	background-color: #000000;
+	max-width: 1000px;
+    margin: auto;
+    padding: 10px;
+}
+
+/* HTML Elements */
+
+body
+{
+	font-family: Calibri, Arial, Verdana;
+}
+
+.row:after
+{
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.left
+{
+	text-align: left;
+	font-size: 12px;
+	padding-left: 35px;
+}
+
+.center
+{
+	text-align: center;
+	font-size: 12px;
+}
+
+.right
+{
+	text-align: right;
+	font-size: 12px;
+	padding-right: 35px;
+}
+
+table 
+{
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    border-style: solid;
+    border-width: thin;
+    border-color: white;
+    background-color: #000000;
+}
+
+td, th 
+{
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) 
+{
+    background-color: #808080;
+}
+
+tr:nth-child(odd) 
+{
+    background-color: #000000;
+}
+
+.aimage
+{
+	width: 250px;
+	height: 250px;
+}
+
+.cImage
+{
+	width: 900px;
+	height: 600px;
+}
+
+.bImage
+{
+	width: 35px;
+	height: 35px;
+}
+
+.text-black
+{
+	color: black;
+}
+
+.greyBackGround
+{
+	background-color: #808080;
+}
+
+.blackBackGround
+{
+	background-color: #000000;
+}
+
+/* Headings */
+
+h1
+{
+	font-size: 50px;
+	line-height: 70px;
+}
+
+h2
+{
+	font-size: 40px;
+	line-height: 60px;
+}
+
+h3
+{
+	font-size: 30px;
+	line-height: 40px;
+}
+
+h4
+{
+	font-size: 25px;
+	line-height: 35px;
+}
+
+h5
+{
+	font-size: 20px;
+	line-height: 30px;
+}
+
+h6
+{
+	font-size: 18px;
+	line-height: 28px;
+}
