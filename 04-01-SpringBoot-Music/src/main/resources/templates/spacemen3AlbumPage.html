@@ -4,7 +4,7 @@
 	<head th:replace="layouts/header :: headFragment"></head>
 	<body class="content">
 		<header class="jumbotron text-center greyBackGround">
-			<h1 class="text-center text-black">Black Rebel Motorcycle Club</h1>
+			<h1 class="text-center text-black">Spacemen 3</h1>
 			<h2 class="text-center text-black">Albums</h2>
 		</header>
 		<nav th:replace="layouts/nav :: navFragment"></nav>
@@ -21,7 +21,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr class="text-white" th:each="album : ${brmcAlbums}">
+					<tr class="text-white" th:each="album : ${spacemen3Albums}">
 						<td th:text="${album.albumTitle}"></td>
 						<td th:text="${album.releaseYear}"></td>
 						<td><img class="image" th:src="@{/} + ${album.albumArt}" /></td>

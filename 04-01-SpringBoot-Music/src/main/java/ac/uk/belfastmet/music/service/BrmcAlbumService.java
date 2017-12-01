@@ -4,7 +4,7 @@
  * Package:         ac.uk.belfastmet.Service
  * Version:         1.0
  * Created:         31/11/2017
- * Updated:         01/12/2017 16.30
+ * Updated:         01/12/2017 23.30
  * Author:          Peter Wightman
  * Description:     This is the BrmcAlbumService Class
  */
@@ -19,19 +19,6 @@ import ac.uk.belfastmet.music.domain.Song;
 @Service
 public class BrmcAlbumService 
 {
-	// Instance Variables
-	private ArrayList<Song> brmcDemos;
-	private ArrayList<Song> brmcBlackRebelMotorcycleClub;
-	private ArrayList<Song> brmcTakeThemOnOnYourOwn;
-	private ArrayList<Song> brmcHowl;
-	private ArrayList<Song> brmcBaby81;
-	private ArrayList<Song> brmcTheEffectsOf333;
-	private ArrayList<Song> brmcBeatTheDevilsTattoo;
-	private ArrayList<Song> brmcBrmcSpecterAtTheFeast;
-	private ArrayList<Song> brmcLive;
-	private ArrayList<Song> brmcLiveInLondon;
-	private ArrayList<Song> brmcLiveInParis;
-	
 	// Default Constructor
 	public BrmcAlbumService() 
 	{
@@ -77,7 +64,7 @@ public class BrmcAlbumService
 		brmcDemosAlbumTracks = getBrmcDemosTracks();
 		
 		// Create Album Object
-		Album brmcDemosAlbum = new Album("Black Rebel Motorcycle Club", "Demos", 1999, 13, brmcDemosAlbumTracks, brmcDemosCover);
+		Album brmcDemosAlbum = new Album("Black Rebel Motorcycle Club", "Demos", 1999, brmcDemosAlbumTracks, brmcDemosCover);
 		
 		return brmcDemosAlbum;
 	}
@@ -136,7 +123,7 @@ public class BrmcAlbumService
 		final String brmcBlackRebelMotorcycleClubCover = "images/albumCovers/BRMC/BRMC-BlackRebelMotorcycleClub.jpg";
 		
 		// Create Album Object
-		Album brmcDemosAlbum = new Album("Black Rebel Motorcycle Club", "BRMC", 2001, 11, getBrmcBlackRebelMotorcycleClubTracks(), brmcBlackRebelMotorcycleClubCover);
+		Album brmcDemosAlbum = new Album("Black Rebel Motorcycle Club", "BRMC", 2001, getBrmcBlackRebelMotorcycleClubTracks(), brmcBlackRebelMotorcycleClubCover);
 		
 		return brmcDemosAlbum;
 	}
@@ -191,7 +178,7 @@ public class BrmcAlbumService
 		final String brmcTakeThemOnOnYourOwnCover = "images/albumCovers/BRMC/BRMC-TakeThemOnOnYourOwn.jpg";
 		
 		// Create Album Object
-		Album brmcTakeThemOnOnYourOwnAlbum = new Album("Black Rebel Motorcycle Club", "Take Them On, On Your Own", 2003, 12, getBrmcBlackRebelMotorcycleClubTracks(), brmcTakeThemOnOnYourOwnCover);
+		Album brmcTakeThemOnOnYourOwnAlbum = new Album("Black Rebel Motorcycle Club", "Take Them On, On Your Own", 2003, getBrmcBlackRebelMotorcycleClubTracks(), brmcTakeThemOnOnYourOwnCover);
 		
 		return brmcTakeThemOnOnYourOwnAlbum;
 	}
@@ -248,7 +235,7 @@ public class BrmcAlbumService
 		final String brmcHowlCover = "images/albumCovers/BRMC/BRMC-Howl.jpg";
 		
 		// Create Album Object
-		Album brmcHowlAlbum = new Album("Black Rebel Motorcycle Club", "Howl", 2005, 14, getBrmcHowlTracks(), brmcHowlCover);
+		Album brmcHowlAlbum = new Album("Black Rebel Motorcycle Club", "Howl", 2005, getBrmcHowlTracks(), brmcHowlCover);
 		
 		return brmcHowlAlbum;
 	}
@@ -309,7 +296,7 @@ public class BrmcAlbumService
 		final String brmcBaby81Cover = "images/albumCovers/BRMC/BRMC-Baby81.jpg";
 		
 		// Create Album Object
-		Album brmcBaby81Album = new Album("Black Rebel Motorcycle Club", "Baby 81", 2007, 14, getBrmcBaby81Tracks(), brmcBaby81Cover);
+		Album brmcBaby81Album = new Album("Black Rebel Motorcycle Club", "Baby 81", 2007, getBrmcBaby81Tracks(), brmcBaby81Cover);
 		
 		return brmcBaby81Album;
 	}
@@ -370,7 +357,7 @@ public class BrmcAlbumService
 		final String brmcTheEffectsOf333Cover = "images/albumCovers/BRMC/BRMC-TheEffectsOf333.jpg";
 		
 		// Create Album Object
-		Album brmcTheEffectsOf333Album = new Album("Black Rebel Motorcycle Club", "The Effects Of 333", 2009, 10, getBrmcTheEffectsOf333Tracks(), brmcTheEffectsOf333Cover);
+		Album brmcTheEffectsOf333Album = new Album("Black Rebel Motorcycle Club", "The Effects Of 333", 2009, getBrmcTheEffectsOf333Tracks(), brmcTheEffectsOf333Cover);
 		
 		return brmcTheEffectsOf333Album;
 	}
@@ -423,7 +410,7 @@ public class BrmcAlbumService
 		final String brmcBeatTheDevilsTattooCover = "images/albumCovers/BRMC/BRMC-BeatTheDevilsTattoo.jpg";
 		
 		// Create Album Object
-		Album brmcBeatTheDevilsTattooAlbum = new Album("Black Rebel Motorcycle Club", "Beat The Devils Tattoo", 2010, 13, getBrmcBeatTheDevilsTattooTracks(), brmcBeatTheDevilsTattooCover);
+		Album brmcBeatTheDevilsTattooAlbum = new Album("Black Rebel Motorcycle Club", "Beat The Devils Tattoo", 2010, getBrmcBeatTheDevilsTattooTracks(), brmcBeatTheDevilsTattooCover);
 		
 		return brmcBeatTheDevilsTattooAlbum;
 	}
@@ -482,7 +469,7 @@ public class BrmcAlbumService
 		final String brmcSpecterAtTheFeastCover = "images/albumCovers/BRMC/BRMC-SpecterAtTheFeast.jpg";
 		
 		// Create Album Object
-		Album brmcSpecterAtTheFeastAlbum = new Album("Black Rebel Motorcycle Club", "SpecterAtTheFeast", 2013, 12, getBrmcSpecterAtTheFeastTracks(), brmcSpecterAtTheFeastCover);
+		Album brmcSpecterAtTheFeastAlbum = new Album("Black Rebel Motorcycle Club", "Specter At The Feast", 2013, getBrmcSpecterAtTheFeastTracks(), brmcSpecterAtTheFeastCover);
 		
 		return brmcSpecterAtTheFeastAlbum;
 	}
@@ -539,7 +526,7 @@ public class BrmcAlbumService
 		final String brmcLiveCover = "images/albumCovers/BRMC/BRMC-Live.jpg";
 		
 		// Create Album Object
-		Album brmcLiveAlbum = new Album("Black Rebel Motorcycle Club", "Live", 2009, 22, getBrmcLiveTracks(), brmcLiveCover);
+		Album brmcLiveAlbum = new Album("Black Rebel Motorcycle Club", "Live", 2009, getBrmcLiveTracks(), brmcLiveCover);
 		
 		return brmcLiveAlbum;
 	}
@@ -616,7 +603,7 @@ public class BrmcAlbumService
 		final String brmcLiveInLondonCover = "images/albumCovers/BRMC/BRMC-LiveInLondon.jpg";
 		
 		// Create Album Object
-		Album brmcLiveInLondonAlbum = new Album("Black Rebel Motorcycle Club", "Live", 2010, 20, getBrmcLiveInLondonTracks(), brmcLiveInLondonCover);
+		Album brmcLiveInLondonAlbum = new Album("Black Rebel Motorcycle Club", "Live", 2010, getBrmcLiveInLondonTracks(), brmcLiveInLondonCover);
 		
 		return brmcLiveInLondonAlbum;
 	}
@@ -689,7 +676,7 @@ public class BrmcAlbumService
 		final String brmcLiveInParisCover = "images/albumCovers/BRMC/BRMC-LiveInParis.jpg";
 		
 		// Create Album Object
-		Album brmcLiveInParisAlbum = new Album("Black Rebel Motorcycle Club", "Live In Paris", 2015, 24, getBrmcLiveInParisTracks(), brmcLiveInParisCover);
+		Album brmcLiveInParisAlbum = new Album("Black Rebel Motorcycle Club", "Live In Paris", 2015, getBrmcLiveInParisTracks(), brmcLiveInParisCover);
 		
 		return brmcLiveInParisAlbum;
 	}

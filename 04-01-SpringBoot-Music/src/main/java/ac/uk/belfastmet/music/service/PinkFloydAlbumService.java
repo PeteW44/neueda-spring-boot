@@ -4,7 +4,7 @@
  * Package:         ac.uk.belfastmet.Service
  * Version:         1.0
  * Created:         31/11/2017
- * Updated:         01/12/2017 16.30
+ * Updated:         01/12/2017 23.30
  * Author:          Peter Wightman
  * Description:     This is the PinkFloydAlbumService Class
  */
@@ -19,25 +19,6 @@ import ac.uk.belfastmet.music.domain.Song;
 @Service
 public class PinkFloydAlbumService 
 {
-	// Instance Variables
-	private ArrayList<Song> pinkFloydThePiperAtTheGatesOfDawn;
-	private ArrayList<Song> pinkFloydASaucerfulOfSecrets;
-	private ArrayList<Song> pinkFloydUmmagumma;
-	private ArrayList<Song> pinkFloydAtomHeartMother;
-	private ArrayList<Song> pinkFloydMeddle;
-	private ArrayList<Song> pinkFloydObscuredByClouds;
-	private ArrayList<Song> pinkFloydTheDarkSideOfTheMoon;
-	private ArrayList<Song> pinkFloydWishYouWereHere;
-	private ArrayList<Song> pinkFloydAnimals;
-	private ArrayList<Song> pinkFloydTheWall;
-	private ArrayList<Song> pinkFloydTheFinalCut;
-	private ArrayList<Song> pinkFloydAMomentaryLapseOfReason;
-	private ArrayList<Song> pinkFloydTheDivisionBell;
-	private ArrayList<Song> pinkFloydTheEndlessRiver;
-//	private ArrayList<Song> pinkFloydDelicateSoundOfThunder;
-//	private ArrayList<Song> pinkFloydPulse;
-//	private ArrayList<Song> pinkFloydIsThereAnybodyOutThereTheWallLive;
-	
 	// Default Constructor
 	public PinkFloydAlbumService() 
 	{
@@ -64,12 +45,12 @@ public class PinkFloydAlbumService
 		pinkFloydAlbums.add(getPinkFloydTheWall());
 		pinkFloydAlbums.add(getPinkFloydTheFinalCut());
 		pinkFloydAlbums.add(getPinkFloydAMomentaryLapseOfReason());
+		pinkFloydAlbums.add(getPinkFloydDelicateSoundOfThunder());
 		pinkFloydAlbums.add(getPinkFloydTheDivisionBell());
-//		pinkFloydAlbums.add(getPinkFloydTheEndlessRiver());
-//		pinkFloydAlbums.add(getPinkFloydDelicateSoundOfThunder());
-//		pinkFloydAlbums.add(getPinkFloydPulse());
-//		pinkFloydAlbums.add(getPinkFloydIsThereAnybodyOutThereTheWallLive());
-		
+		pinkFloydAlbums.add(getPinkFloydPulse());
+		pinkFloydAlbums.add(getPinkFloydIsThereAnybodyOutThereTheWallLive());
+		pinkFloydAlbums.add(getPinkFloydTheEndlessRiver());
+
 		return pinkFloydAlbums;
 	}
 	
@@ -86,7 +67,7 @@ public class PinkFloydAlbumService
 		final String pinkFloydThePiperAtTheGatesOfDawnCover = "images/albumCovers/PinkFloyd/PinkFloyd-ThePiperAtTheGatesOfDawn.jpg";
 		
 		// Create Album Object
-		Album pinkFloydThePiperAtTheGatesOfDawnAlbum = new Album("Pink Floyd", "The Piper At The Gates Of Dawn", 1967, 11, getPinkFloydThePiperAtTheGatesOfDawnTracks(), pinkFloydThePiperAtTheGatesOfDawnCover);
+		Album pinkFloydThePiperAtTheGatesOfDawnAlbum = new Album("Pink Floyd", "The Piper At The Gates Of Dawn", 1967, getPinkFloydThePiperAtTheGatesOfDawnTracks(), pinkFloydThePiperAtTheGatesOfDawnCover);
 		
 		return pinkFloydThePiperAtTheGatesOfDawnAlbum;
 	}
@@ -141,7 +122,7 @@ public class PinkFloydAlbumService
 		final String pinkFloydASaucerfulOfSecretsCover = "images/albumCovers/PinkFloyd/PinkFloyd-ASaucerfulOfSecrets.jpg";
 		
 		// Create Album Object
-		Album pinkFloydASaucerfulOfSecretsAlbum = new Album("Pink Floyd", "A Saucerful Of Secrets", 1968, 7, getPinkFloydASaucerfulOfSecretsTracks(), pinkFloydASaucerfulOfSecretsCover);
+		Album pinkFloydASaucerfulOfSecretsAlbum = new Album("Pink Floyd", "A Saucerful Of Secrets", 1968, getPinkFloydASaucerfulOfSecretsTracks(), pinkFloydASaucerfulOfSecretsCover);
 		
 		return pinkFloydASaucerfulOfSecretsAlbum;
 	}
@@ -188,7 +169,7 @@ public class PinkFloydAlbumService
 		final String pinkFloydMoreCover = "images/albumCovers/PinkFloyd/PinkFloyd-More.jpg";
 		
 		// Create Album Object
-		Album pinkFloydMoreAlbum = new Album("Pink Floyd", "More", 1969, 12, getPinkFloydMoreTracks(), pinkFloydMoreCover);
+		Album pinkFloydMoreAlbum = new Album("Pink Floyd", "More", 1969, getPinkFloydMoreTracks(), pinkFloydMoreCover);
 		
 		return pinkFloydMoreAlbum;
 	}
@@ -245,7 +226,7 @@ public class PinkFloydAlbumService
 		final String pinkFloydUmmagummaCover = "images/albumCovers/PinkFloyd/PinkFloyd-Ummagumma.jpg";
 		
 		// Create Album Object
-		Album pinkFloydUmmagummaAlbum = new Album("Pink Floyd", "Ummagumma", 1969, 11, getPinkFloydUmmagummaTracks(), pinkFloydUmmagummaCover);
+		Album pinkFloydUmmagummaAlbum = new Album("Pink Floyd", "Ummagumma", 1969, getPinkFloydUmmagummaTracks(), pinkFloydUmmagummaCover);
 		
 		return pinkFloydUmmagummaAlbum;
 	}
@@ -300,7 +281,7 @@ public class PinkFloydAlbumService
 		final String pinkFloydAtomHeartMotherCover = "images/albumCovers/PinkFloyd/PinkFloyd-AtomHeartMother.jpg";
 		
 		// Create Album Object
-		Album pinkFloydAtomHeartMotherAlbum = new Album("Pink Floyd", "Atom Heart Mother", 1970, 5, getPinkFloydAtomHeartMotherTracks(), pinkFloydAtomHeartMotherCover);
+		Album pinkFloydAtomHeartMotherAlbum = new Album("Pink Floyd", "Atom Heart Mother", 1970, getPinkFloydAtomHeartMotherTracks(), pinkFloydAtomHeartMotherCover);
 		
 		return pinkFloydAtomHeartMotherAlbum;
 	}
@@ -343,7 +324,7 @@ public class PinkFloydAlbumService
 		final String pinkFloydMeddleCover = "images/albumCovers/PinkFloyd/PinkFloyd-Meddle.jpg";
 		
 		// Create Album Object
-		Album pinkFloydMeddleAlbum = new Album("Pink Floyd", "Meddle", 1971, 6, getPinkFloydMeddleTracks(), pinkFloydMeddleCover);
+		Album pinkFloydMeddleAlbum = new Album("Pink Floyd", "Meddle", 1971, getPinkFloydMeddleTracks(), pinkFloydMeddleCover);
 		
 		return pinkFloydMeddleAlbum;
 	}
@@ -388,7 +369,7 @@ public class PinkFloydAlbumService
 		final String pinkFloydObscuredByCloudsCover = "images/albumCovers/PinkFloyd/PinkFloyd-ObscuredByClouds.jpg";
 		
 		// Create Album Object
-		Album pinkFloydObscuredByCloudsAlbum = new Album("Pink Floyd", "Obscured By Clouds", 1972, 10, getPinkFloydObscuredByCloudsTracks(), pinkFloydObscuredByCloudsCover);
+		Album pinkFloydObscuredByCloudsAlbum = new Album("Pink Floyd", "Obscured By Clouds", 1972, getPinkFloydObscuredByCloudsTracks(), pinkFloydObscuredByCloudsCover);
 		
 		return pinkFloydObscuredByCloudsAlbum;
 	}
@@ -441,7 +422,7 @@ public class PinkFloydAlbumService
 		final String pinkFloydTheDarkSideOfTheMoonCover = "images/albumCovers/PinkFloyd/PinkFloyd-TheDarkSideOfTheMoon.jpg";
 		
 		// Create Album Object
-		Album pinkFloydTheDarkSideOfTheMoonAlbum = new Album("Pink Floyd", "The Dark Side Of The Moon", 1973, 10, getPinkFloydTheDarkSideOfTheMoonTracks(), pinkFloydTheDarkSideOfTheMoonCover);
+		Album pinkFloydTheDarkSideOfTheMoonAlbum = new Album("Pink Floyd", "The Dark Side Of The Moon", 1973, getPinkFloydTheDarkSideOfTheMoonTracks(), pinkFloydTheDarkSideOfTheMoonCover);
 		
 		return pinkFloydTheDarkSideOfTheMoonAlbum;
 	}
@@ -494,7 +475,7 @@ public class PinkFloydAlbumService
 		final String pinkFloydWishYouWereHereCover = "images/albumCovers/PinkFloyd/PinkFloyd-WishYouWereHere.jpg";
 		
 		// Create Album Object
-		Album pinkFloydWishYouWereHereAlbum = new Album("Pink Floyd", "Wish You Were Here", 1975, 5, getPinkFloydWishYouWereHereTracks(), pinkFloydWishYouWereHereCover);
+		Album pinkFloydWishYouWereHereAlbum = new Album("Pink Floyd", "Wish You Were Here", 1975, getPinkFloydWishYouWereHereTracks(), pinkFloydWishYouWereHereCover);
 		
 		return pinkFloydWishYouWereHereAlbum;
 	}
@@ -537,7 +518,7 @@ public class PinkFloydAlbumService
 		final String pinkFloydAnimalsCover = "images/albumCovers/PinkFloyd/PinkFloyd-Animals.jpg";
 		
 		// Create Album Object
-		Album pinkFloydAnimalsAlbum = new Album("Pink Floyd", "Animals", 1977, 5, getPinkFloydAnimalsTracks(), pinkFloydAnimalsCover);
+		Album pinkFloydAnimalsAlbum = new Album("Pink Floyd", "Animals", 1977, getPinkFloydAnimalsTracks(), pinkFloydAnimalsCover);
 		
 		return pinkFloydAnimalsAlbum;
 	}
@@ -580,7 +561,7 @@ public class PinkFloydAlbumService
 		final String pinkFloydTheWallCover = "images/albumCovers/PinkFloyd/PinkFloyd-TheWall.jpg";
 		
 		// Create Album Object
-		Album pinkFloydTheWallAlbum = new Album("Pink Floyd", "The Wall", 1979, 26, getPinkFloydTheWallTracks(), pinkFloydTheWallCover);
+		Album pinkFloydTheWallAlbum = new Album("Pink Floyd", "The Wall", 1979, getPinkFloydTheWallTracks(), pinkFloydTheWallCover);
 		
 		return pinkFloydTheWallAlbum;
 	}
@@ -665,7 +646,7 @@ public class PinkFloydAlbumService
 		final String pinkFloydTheFinalCutCover = "images/albumCovers/PinkFloyd/PinkFloyd-ObscuredByClouds.jpg";
 		
 		// Create Album Object
-		Album pinkFloydTheFinalCutAlbum = new Album("Pink Floyd", "The Final Cut", 1982, 12, getPinkFloydTheFinalCutTracks(), pinkFloydTheFinalCutCover);
+		Album pinkFloydTheFinalCutAlbum = new Album("Pink Floyd", "The Final Cut", 1982, getPinkFloydTheFinalCutTracks(), pinkFloydTheFinalCutCover);
 		
 		return pinkFloydTheFinalCutAlbum;
 	}
@@ -722,7 +703,7 @@ public class PinkFloydAlbumService
 		final String pinkFloydAMomentaryLapseOfReasonCover = "images/albumCovers/PinkFloyd/PinkFloyd-AMomentaryLapseOfReason.jpg";
 		
 		// Create Album Object
-		Album pinkFloydAMomentaryLapseOfReasonAlbum = new Album("Pink Floyd", "A Momentary Lapse Of Reason", 1987, 11, getPinkFloydAMomentaryLapseOfReasonTracks(), pinkFloydAMomentaryLapseOfReasonCover);
+		Album pinkFloydAMomentaryLapseOfReasonAlbum = new Album("Pink Floyd", "A Momentary Lapse Of Reason", 1987, getPinkFloydAMomentaryLapseOfReasonTracks(), pinkFloydAMomentaryLapseOfReasonCover);
 		
 		return pinkFloydAMomentaryLapseOfReasonAlbum;
 	}
@@ -764,6 +745,67 @@ public class PinkFloydAlbumService
 		return pinkFloydAMomentaryLapseOfReasonTracks;
 	}
 	
+	// ####################################
+	// Pink Floyd Delicate Sound Of Thunder
+	// ####################################
+	
+	// #####
+	// ALBUM
+	// #####
+	public Album getPinkFloydDelicateSoundOfThunder()
+	{
+		// Album Cover Image File
+		final String pinkFloydDelicateSoundOfThunderCover = "images/albumCovers/PinkFloyd/PinkFloyd-DelicateSoundOfThunder.jpg";
+		
+		// Create Album Object
+		Album pinkFloydDelicateSoundOfThunderAlbum = new Album("Pink Floyd", "Delicate Sound Of Thunder", 1988, getPinkFloydDelicateSoundOfThunderTracks(), pinkFloydDelicateSoundOfThunderCover);
+		
+		return pinkFloydDelicateSoundOfThunderAlbum;
+	}
+	
+	// ######
+	// TRACKS
+	// ######
+	public ArrayList<Song> getPinkFloydDelicateSoundOfThunderTracks()
+	{
+		// Local Variables
+		ArrayList<Song> pinkFloydDelicateSoundOfThunderTracks = new ArrayList<Song>();
+		
+		// Create Pink Floyd Delicate Sound Of Thunder Songs
+		Song pinkFloydDelicateSoundOfThunder01 = new Song(1, "Shine On You Crazy Diamond");
+		Song pinkFloydDelicateSoundOfThunder02 = new Song(2, "Learning To Fly");
+		Song pinkFloydDelicateSoundOfThunder03 = new Song(3, "Yet Another Movie");
+		Song pinkFloydDelicateSoundOfThunder04 = new Song(4, "Round And Around");
+		Song pinkFloydDelicateSoundOfThunder05 = new Song(5, "Sorrow");
+		Song pinkFloydDelicateSoundOfThunder06 = new Song(6, "The Dogs Of War");
+		Song pinkFloydDelicateSoundOfThunder07 = new Song(7, "On The Turning Away");
+		Song pinkFloydDelicateSoundOfThunder08 = new Song(8, "One Of These Days");
+		Song pinkFloydDelicateSoundOfThunder09 = new Song(9, "Time");
+		Song pinkFloydDelicateSoundOfThunder10 = new Song(10, "Wish You Were Here");
+		Song pinkFloydDelicateSoundOfThunder11 = new Song(11, "Money");
+		Song pinkFloydDelicateSoundOfThunder12 = new Song(12, "Another Brick In The Wall, Part 2");
+		Song pinkFloydDelicateSoundOfThunder13 = new Song(13, "Comfortably Numb");
+		Song pinkFloydDelicateSoundOfThunder14 = new Song(14, "Run Like Hell");
+		
+		// Add The Songs To ArrayList
+		pinkFloydDelicateSoundOfThunderTracks.add(pinkFloydDelicateSoundOfThunder01);
+		pinkFloydDelicateSoundOfThunderTracks.add(pinkFloydDelicateSoundOfThunder02);
+		pinkFloydDelicateSoundOfThunderTracks.add(pinkFloydDelicateSoundOfThunder03);
+		pinkFloydDelicateSoundOfThunderTracks.add(pinkFloydDelicateSoundOfThunder04);
+		pinkFloydDelicateSoundOfThunderTracks.add(pinkFloydDelicateSoundOfThunder05);
+		pinkFloydDelicateSoundOfThunderTracks.add(pinkFloydDelicateSoundOfThunder06);
+		pinkFloydDelicateSoundOfThunderTracks.add(pinkFloydDelicateSoundOfThunder07);
+		pinkFloydDelicateSoundOfThunderTracks.add(pinkFloydDelicateSoundOfThunder08);
+		pinkFloydDelicateSoundOfThunderTracks.add(pinkFloydDelicateSoundOfThunder09);
+		pinkFloydDelicateSoundOfThunderTracks.add(pinkFloydDelicateSoundOfThunder10);
+		pinkFloydDelicateSoundOfThunderTracks.add(pinkFloydDelicateSoundOfThunder11);
+		pinkFloydDelicateSoundOfThunderTracks.add(pinkFloydDelicateSoundOfThunder12);
+		pinkFloydDelicateSoundOfThunderTracks.add(pinkFloydDelicateSoundOfThunder13);
+		pinkFloydDelicateSoundOfThunderTracks.add(pinkFloydDelicateSoundOfThunder14);
+			
+		return pinkFloydDelicateSoundOfThunderTracks;
+	}
+	
 	// ############################
 	// Pink Floyd The Division Bell
 	// ############################
@@ -777,7 +819,7 @@ public class PinkFloydAlbumService
 		final String pinkFloydTheDivisionBellCover = "images/albumCovers/PinkFloyd/PinkFloyd-TheDivisionBell.jpg";
 		
 		// Create Album Object
-		Album pinkFloydTheDivisionBellAlbum = new Album("Pink Floyd", "The Division Bell", 1994, 11, getPinkFloydTheDivisionBellTracks(), pinkFloydTheDivisionBellCover);
+		Album pinkFloydTheDivisionBellAlbum = new Album("Pink Floyd", "The Division Bell", 1994, getPinkFloydTheDivisionBellTracks(), pinkFloydTheDivisionBellCover);
 		
 		return pinkFloydTheDivisionBellAlbum;
 	}
@@ -819,25 +861,208 @@ public class PinkFloydAlbumService
 		return pinkFloydTheDivisionBellTracks;
 	}
 	
+	// ################
+	// Pink Floyd Pulse
+	// ################
 	
+	// #####
+	// ALBUM
+	// #####
+	public Album getPinkFloydPulse()
+	{
+		// Album Cover Image File
+		final String pinkFloydPulseCover = "images/albumCovers/PinkFloyd/PinkFloyd-Pulse.jpg";
+		
+		// Create Album Object
+		Album pinkFloydPulseAlbum = new Album("Pink Floyd", "Pulse", 1995, getPinkFloydPulseTracks(), pinkFloydPulseCover);
+		
+		return pinkFloydPulseAlbum;
+	}
 	
+	// ######
+	// TRACKS
+	// ######
+	public ArrayList<Song> getPinkFloydPulseTracks()
+	{
+		// Local Variables
+		ArrayList<Song> pinkFloydPulseTracks = new ArrayList<Song>();
+		
+		// Create Pink Floyd Pulse Songs
+		Song pinkFloydPulse01 = new Song(1, "Shine On You Crazy Diamond");
+		Song pinkFloydPulse02 = new Song(2, "Astronomy Domine");
+		Song pinkFloydPulse03 = new Song(3, "What Do You Want From Me");
+		Song pinkFloydPulse04 = new Song(4, "Learning To Fly");
+		Song pinkFloydPulse05 = new Song(5, "Keep Talking");
+		Song pinkFloydPulse06 = new Song(6, "Coming Back To Life");
+		Song pinkFloydPulse07 = new Song(7, "Hey You");
+		Song pinkFloydPulse08 = new Song(8, "A Great Day For Freedom");
+		Song pinkFloydPulse09 = new Song(9, "Sorrow");
+		Song pinkFloydPulse10 = new Song(10, "High Hopes");
+		Song pinkFloydPulse11 = new Song(11, "Another Brick In The Wall, Part 2");
+		Song pinkFloydPulse12 = new Song(12, "Speak To Me");
+		Song pinkFloydPulse13 = new Song(13, "Breathe (In The Air)");
+		Song pinkFloydPulse14 = new Song(14, "On The Run");
+		Song pinkFloydPulse15 = new Song(15, "Time");
+		Song pinkFloydPulse16 = new Song(16, "The Great Gig In The Sky");
+		Song pinkFloydPulse17 = new Song(17, "Money");
+		Song pinkFloydPulse18 = new Song(18, "Us And Them");
+		Song pinkFloydPulse19 = new Song(19, "Any Colour You Like");
+		Song pinkFloydPulse20 = new Song(20, "Brain Damage");
+		Song pinkFloydPulse21 = new Song(21, "Eclipse");
+		Song pinkFloydPulse22 = new Song(22, "Wish You Were Here");
+		Song pinkFloydPulse23 = new Song(23, "Comfortably Numb");
+		Song pinkFloydPulse24 = new Song(24, "Run Like Hell");
+		
+		// Add The Songs To ArrayList
+		pinkFloydPulseTracks.add(pinkFloydPulse01);
+		pinkFloydPulseTracks.add(pinkFloydPulse02);
+		pinkFloydPulseTracks.add(pinkFloydPulse03);
+		pinkFloydPulseTracks.add(pinkFloydPulse04);
+		pinkFloydPulseTracks.add(pinkFloydPulse05);
+		pinkFloydPulseTracks.add(pinkFloydPulse06);
+		pinkFloydPulseTracks.add(pinkFloydPulse07);
+		pinkFloydPulseTracks.add(pinkFloydPulse08);
+		pinkFloydPulseTracks.add(pinkFloydPulse09);
+		pinkFloydPulseTracks.add(pinkFloydPulse10);
+		pinkFloydPulseTracks.add(pinkFloydPulse11);
+		pinkFloydPulseTracks.add(pinkFloydPulse12);
+		pinkFloydPulseTracks.add(pinkFloydPulse13);
+		pinkFloydPulseTracks.add(pinkFloydPulse14);
+		pinkFloydPulseTracks.add(pinkFloydPulse15);
+		pinkFloydPulseTracks.add(pinkFloydPulse16);
+		pinkFloydPulseTracks.add(pinkFloydPulse17);
+		pinkFloydPulseTracks.add(pinkFloydPulse18);
+		pinkFloydPulseTracks.add(pinkFloydPulse19);
+		pinkFloydPulseTracks.add(pinkFloydPulse20);
+		pinkFloydPulseTracks.add(pinkFloydPulse21);
+		pinkFloydPulseTracks.add(pinkFloydPulse22);
+		pinkFloydPulseTracks.add(pinkFloydPulse23);
+		pinkFloydPulseTracks.add(pinkFloydPulse24);
+			
+		return pinkFloydPulseTracks;
+	}
 	
-//		Things Left Unsaid
-//		Its What We Do
-//		Ebb and Flow
-//		Sum
-//		Skins
-//		Unsung
-//		Anisina
-//		The Lost Art of Conversation
-//		On Noodle Street
-//		Night Light
-//		Allons-y (1)
-//		Autumn 68
-//		Allons-y (2)
-//		Talkin Hawkin
-//		Calling
-//		Eyes to Pearls
-//		Surfacing
-//		Louder Than Words
+	// ###################################################
+	// Pink Floyd Is There Anybody Out There The Wall Live
+	// ###################################################
+	
+	// #####
+	// ALBUM
+	// #####
+	public Album getPinkFloydIsThereAnybodyOutThereTheWallLive()
+	{
+		// Album Cover Image File
+		final String pinkFloydIsThereAnybodyOutThereTheWallLiveCover = "images/albumCovers/PinkFloyd/PinkFloyd-IsThereAnybodyOutThereTheWallLive.jpg";
+		
+		// Create Album Object
+		Album pinkFloydIsThereAnybodyOutThereTheWallLiveAlbum = new Album("Pink Floyd", "There Anybody Out There The Wall Live", 2000, getPinkFloydIsThereAnybodyOutThereTheWallLiveTracks(), pinkFloydIsThereAnybodyOutThereTheWallLiveCover);
+		
+		return pinkFloydIsThereAnybodyOutThereTheWallLiveAlbum;
+	}
+	
+	// ######
+	// TRACKS
+	// ######
+	public ArrayList<Song> getPinkFloydIsThereAnybodyOutThereTheWallLiveTracks()
+	{
+		// Local Variables
+		ArrayList<Song> pinkFloydTheDivisionBellTracks = new ArrayList<Song>();
+		
+		// Create Pink Floyd Is There Anybody Out There The Wall Live Songs
+		Song pinkFloydTheDivisionBell01 = new Song(1, "Cluster One");
+		Song pinkFloydTheDivisionBell02 = new Song(2, "What Do You Want From Me");
+		Song pinkFloydTheDivisionBell03 = new Song(3, "Poles Apart");
+		Song pinkFloydTheDivisionBell04 = new Song(4, "Marooned");
+		Song pinkFloydTheDivisionBell05 = new Song(5, "A Great Day For Freedom");
+		Song pinkFloydTheDivisionBell06 = new Song(6, "Wearing The Inside Out");
+		Song pinkFloydTheDivisionBell07 = new Song(7, "Take It Back");
+		Song pinkFloydTheDivisionBell08 = new Song(8, "Coming Back To Life");
+		Song pinkFloydTheDivisionBell09 = new Song(9, "Keep Talking");
+		Song pinkFloydTheDivisionBell10 = new Song(10, "Lost For Words");
+		Song pinkFloydTheDivisionBell11 = new Song(11, "High Hopes");
+		
+		// Add The Songs To ArrayList
+		pinkFloydTheDivisionBellTracks.add(pinkFloydTheDivisionBell01);
+		pinkFloydTheDivisionBellTracks.add(pinkFloydTheDivisionBell02);
+		pinkFloydTheDivisionBellTracks.add(pinkFloydTheDivisionBell03);
+		pinkFloydTheDivisionBellTracks.add(pinkFloydTheDivisionBell04);
+		pinkFloydTheDivisionBellTracks.add(pinkFloydTheDivisionBell05);
+		pinkFloydTheDivisionBellTracks.add(pinkFloydTheDivisionBell06);
+		pinkFloydTheDivisionBellTracks.add(pinkFloydTheDivisionBell07);
+		pinkFloydTheDivisionBellTracks.add(pinkFloydTheDivisionBell08);
+		pinkFloydTheDivisionBellTracks.add(pinkFloydTheDivisionBell09);
+		pinkFloydTheDivisionBellTracks.add(pinkFloydTheDivisionBell10);
+		pinkFloydTheDivisionBellTracks.add(pinkFloydTheDivisionBell11);
+			
+		return pinkFloydTheDivisionBellTracks;
+	}
+		
+	// ############################
+	// Pink Floyd The Endless River
+	// ############################
+	
+	// #####
+	// ALBUM
+	// #####
+	public Album getPinkFloydTheEndlessRiver()
+	{
+		// Album Cover Image File
+		final String pinkFloydTheEndlessRiverCover = "images/albumCovers/PinkFloyd/PinkFloyd-TheEndlessRiver.jpg";
+		
+		// Create Album Object
+		Album pinkFloydTheEndlessRiverAlbum = new Album("Pink Floyd", "The Endless River", 2014, getPinkFloydTheEndlessRiverTracks(), pinkFloydTheEndlessRiverCover);
+		
+		return pinkFloydTheEndlessRiverAlbum;
+	}
+	
+	// ######
+	// TRACKS
+	// ######
+	public ArrayList<Song> getPinkFloydTheEndlessRiverTracks()
+	{
+		// Local Variables
+		ArrayList<Song> pinkFloydTheEndlessRiverTracks = new ArrayList<Song>();
+		
+		// Create Pink Floyd The Endless River Songs
+		Song pinkFloydTheEndlessRiver01 = new Song(1, "Things Left Unsaid");
+		Song pinkFloydTheEndlessRiver02 = new Song(2, "Its What We Do");
+		Song pinkFloydTheEndlessRiver03 = new Song(3, "Ebb and Flow");
+		Song pinkFloydTheEndlessRiver04 = new Song(4, "Sum");
+		Song pinkFloydTheEndlessRiver05 = new Song(5, "Skins");
+		Song pinkFloydTheEndlessRiver06 = new Song(6, "Unsung");
+		Song pinkFloydTheEndlessRiver07 = new Song(7, "Anisina");
+		Song pinkFloydTheEndlessRiver08 = new Song(8, "The Lost Art of Conversation");
+		Song pinkFloydTheEndlessRiver09 = new Song(9, "On Noodle Street");
+		Song pinkFloydTheEndlessRiver10 = new Song(10, "Night Light");
+		Song pinkFloydTheEndlessRiver11 = new Song(11, "Allons-y (1)");
+		Song pinkFloydTheEndlessRiver12 = new Song(12, "Autumn 68");
+		Song pinkFloydTheEndlessRiver13 = new Song(13, "Allons-y (2)");
+		Song pinkFloydTheEndlessRiver14 = new Song(14, "Talkin Hawkin");
+		Song pinkFloydTheEndlessRiver15 = new Song(15, "Calling");
+		Song pinkFloydTheEndlessRiver16 = new Song(16, "Eyes to Pearls");
+		Song pinkFloydTheEndlessRiver17 = new Song(17, "Surfacing");
+		Song pinkFloydTheEndlessRiver18 = new Song(18, "Louder Than Words");
+		
+		// Add The Songs To ArrayList");
+		pinkFloydTheEndlessRiverTracks.add(pinkFloydTheEndlessRiver01);
+		pinkFloydTheEndlessRiverTracks.add(pinkFloydTheEndlessRiver02);
+		pinkFloydTheEndlessRiverTracks.add(pinkFloydTheEndlessRiver03);
+		pinkFloydTheEndlessRiverTracks.add(pinkFloydTheEndlessRiver04);
+		pinkFloydTheEndlessRiverTracks.add(pinkFloydTheEndlessRiver05);
+		pinkFloydTheEndlessRiverTracks.add(pinkFloydTheEndlessRiver06);
+		pinkFloydTheEndlessRiverTracks.add(pinkFloydTheEndlessRiver07);
+		pinkFloydTheEndlessRiverTracks.add(pinkFloydTheEndlessRiver08);
+		pinkFloydTheEndlessRiverTracks.add(pinkFloydTheEndlessRiver09);
+		pinkFloydTheEndlessRiverTracks.add(pinkFloydTheEndlessRiver10);
+		pinkFloydTheEndlessRiverTracks.add(pinkFloydTheEndlessRiver11);
+		pinkFloydTheEndlessRiverTracks.add(pinkFloydTheEndlessRiver12);
+		pinkFloydTheEndlessRiverTracks.add(pinkFloydTheEndlessRiver13);
+		pinkFloydTheEndlessRiverTracks.add(pinkFloydTheEndlessRiver14);
+		pinkFloydTheEndlessRiverTracks.add(pinkFloydTheEndlessRiver15);
+		pinkFloydTheEndlessRiverTracks.add(pinkFloydTheEndlessRiver16);
+		pinkFloydTheEndlessRiverTracks.add(pinkFloydTheEndlessRiver17);
+		pinkFloydTheEndlessRiverTracks.add(pinkFloydTheEndlessRiver18);
+			
+		return pinkFloydTheEndlessRiverTracks;
+	}
 }

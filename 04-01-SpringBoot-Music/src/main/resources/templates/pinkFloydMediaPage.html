@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="Http:thymeleaf.org">
+	<head th:replace="layouts/header :: headFragment"></head>
+	<body class="content">
+		<header class="jumbotron text-center greyBackGround">
+			<h1 class="text-center text-black">Pink Floyd</h1>
+			<h2 class="text-center text-black">Media</h2>
+		</header>
+		<nav th:replace="layouts/nav :: navFragment"></nav>
+		<br />
+		<section>
+			<h3 class="text-center text-white">Video</h3>
+			<h4 class="text-center text-white">Live 8 Reunion 2nd July 2005</h4>
+			<div class="text-center">
+				<iframe width="800" height="450" src="https://www.youtube.com/embed/Twb65Ov67ZA"></iframe>
+			</div>
+			<h4 class="text-center text-white">One Of These Days</h4>
+			<div class="text-center text-white">
+				<iframe width="800" height="450" src="https://www.youtube.com/embed/D1kZ6M2aMvw"></iframe>
+			</div>
+			<h4 class="text-center text-white">Run Like Hell (Pulse) (Live)</h4>
+			<div class="text-center text-white">
+				<iframe width="800" height="450" src="https://www.youtube.com/embed/G2n9_AmDTqY"></iframe>
+			</div>
+			<h4 class="text-center text-white">Money</h4>
+			<div class="text-center text-white">
+				<iframe width="800" height="450" src="https://www.youtube.com/embed/-0kcet4aPpQ"></iframe>
+			</div>
+			<div>			
+		</div>
+		</section>
+		<br />
+		<footer th:replace="layouts/footer :: footFragment"></footer>
+		<br />
+	</body>
+</html>

@@ -4,7 +4,7 @@
  * Package:         ac.uk.belfastmet.domain
  * Version:         1.0
  * Created:         31/11/2017
- * Updated:         01/12/2017 16.30
+ * Updated:         01/12/2017 23.30
  * Author:          Peter Wightman
  * Description:     This is the Album Class
  */
@@ -19,7 +19,6 @@ public class Album
 	private String artist;
 	private String albumTitle;
 	private int releaseYear;
-	private int numTracks;
 	private ArrayList<Song> albumTracks;
 	private String albumArt;
 	
@@ -29,12 +28,11 @@ public class Album
 	}
 	
 	// Parameterised Mythical Creature Constructor
-	public Album(String artist, String albumTitle, int releaseYear, int numTracks, ArrayList<Song> albumTracks, String albumArt)
+	public Album(String artist, String albumTitle, int releaseYear, ArrayList<Song> albumTracks, String albumArt)
 	{
 		this.setArtist(artist);
 		this.setAlbumTitle(albumTitle);
 		this.setReleaseYear(releaseYear);
-		this.setNumTracks(numTracks);
 		this.setAlbumTracks(albumTracks);
 		this.setAlbumArt(albumArt);
 	}
@@ -71,16 +69,6 @@ public class Album
 	public void setReleaseYear(int releaseYear) 
 	{
 		this.releaseYear = releaseYear;
-	}
-	
-	public int getNumTracks() 
-	{
-		return numTracks;
-	}
-
-	public void setNumTracks(int numTracks) 
-	{
-		this.numTracks = numTracks;
 	}
 	
 	public ArrayList<Song> getAlbumTracks() 

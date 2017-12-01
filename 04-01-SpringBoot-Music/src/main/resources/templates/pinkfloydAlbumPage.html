@@ -16,29 +16,27 @@
 					<tr class="text-white">
 						<th>Album</th>
 						<th>Released</th>
-						<th>Number of Tracks</th>
-						<th>Cover</th>
+						<th>Art</th>
 						<th>Tracks</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr class="text-white" th:each="album : ${pinkFloydAlbums}">
-						<td th:text="${album.albumTitle}">Title</td>
-						<td th:text="${album.releaseYear}">Released</td>
-						<td th:text="${album.numTracks}">Tracks</td>
+						<td th:text="${album.albumTitle}"></td>
+						<td th:text="${album.releaseYear}"></td>
 						<td><img class="image" th:src="@{/} + ${album.albumArt}" /></td>
 						<td>
 							<table style="background-color: black;" class="table table-striped">
 								<thead>
 									<tr class="text-white">
-										<th>Track Number</th>
+										<th>Track</th>
 										<th>Title</th>
 									</tr>
 								</thead>
 								<tbody>
 									<tr class="text-white" th:each="track : ${album.albumTracks}">
-										<td th:text="${track.trackNum}">Number</td>
-										<td th:text="${track.trackTitle}">Title</td>
+										<td th:text="${track.trackNum}"></td>
+										<td th:text="${track.trackTitle}"></td>
 									</tr>
 								</tbody>
 							</table>

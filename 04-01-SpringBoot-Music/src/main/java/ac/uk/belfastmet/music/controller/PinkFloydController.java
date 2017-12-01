@@ -4,7 +4,7 @@
  * Package:         ac.uk.belfastmet.controller
  * Version:         1.0
  * Created:         31/11/2017
- * Updated:         01/12/2017 16.30
+ * Updated:         01/12/2017 23.30
  * Author:          Peter Wightman
  * Description:     This is the PinkFloydController Class
  */
@@ -49,5 +49,13 @@ public class PinkFloydController
 		model.addAttribute("pageTitle", "Pink Floyd Albums");
 		
 		return "pinkFloydAlbumPage";
+	}
+	
+	@GetMapping("/media/")
+	public String pinkfloydMedia(Model model)
+	{
+		model.addAttribute("pageTitle", "Pink Floyd Media");
+		
+		return "pinkFloydMediaPage";
 	}
 }
