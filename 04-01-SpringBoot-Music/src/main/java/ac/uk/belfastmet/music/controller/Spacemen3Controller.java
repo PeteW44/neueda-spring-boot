@@ -4,7 +4,7 @@
  * Package:         ac.uk.belfastmet.controller
  * Version:         1.0
  * Created:         01/12/2017
- * Updated:         01/12/2017 23.30
+ * Updated:         02/12/2017 18.30
  * Author:          Peter Wightman
  * Description:     This is the BRMCController Class
  */
@@ -44,8 +44,6 @@ public class Spacemen3Controller
 	@GetMapping("/albums/")
 	public String spacemen3Albums(Model model)
 	{
-		this.spacemen3AlbumService = new Spacemen3AlbumService();
-		model.addAttribute("spacemen3Albums", this.spacemen3AlbumService.getSpacemen3Albums());
 		model.addAttribute("pageTitle", "Spacemen 3 Albums");
 		
 		return "spacemen3AlbumPage";
@@ -57,5 +55,69 @@ public class Spacemen3Controller
 		model.addAttribute("pageTitle", "Spacemen 3 Media");
 		
 		return "spacemen3MediaPage";
+	}
+	
+	//############
+	// Album Pages
+	//############
+	
+	@GetMapping("/albums/soundofconfusion/")
+	public String spacemen3SoundOfConfusion(Model model)
+	{
+		this.spacemen3AlbumService = new Spacemen3AlbumService();
+		model.addAttribute("album", this.spacemen3AlbumService.getSpacemen3AlbumSoundOfConfusion());
+		model.addAttribute("pageTitle", "Sound Of Confusion");
+		
+		return "albumPage";
+	}
+	
+	@GetMapping("/albums/theperfectprescription/")
+	public String spacemen3ThePerfectPrescription(Model model)
+	{
+		this.spacemen3AlbumService = new Spacemen3AlbumService();
+		model.addAttribute("album", this.spacemen3AlbumService.getSpacemen3AlbumThePerfectPrescription());
+		model.addAttribute("pageTitle", "The Perfect Prescription");
+		
+		return "albumPage";
+	}
+	
+	@GetMapping("/albums/playingwithfire/")
+	public String spacemen3PlayingWithFire(Model model)
+	{
+		this.spacemen3AlbumService = new Spacemen3AlbumService();
+		model.addAttribute("album", this.spacemen3AlbumService.getSpacemen3AlbumPlayingWithFire());
+		model.addAttribute("pageTitle", "Playing With Fire");
+		
+		return "albumPage";
+	}
+	
+	@GetMapping("/albums/liveineurope1989/")
+	public String spacemen3LiveInEurope1989(Model model)
+	{
+		this.spacemen3AlbumService = new Spacemen3AlbumService();
+		model.addAttribute("album", this.spacemen3AlbumService.getSpacemen3AlbumLiveInEurope1989());
+		model.addAttribute("pageTitle", "Live In Europe 1989");
+		
+		return "albumPage";
+	}
+	
+	@GetMapping("/albums/recurring/")
+	public String spacemen3Recurring(Model model)
+	{
+		this.spacemen3AlbumService = new Spacemen3AlbumService();
+		model.addAttribute("album", this.spacemen3AlbumService.getSpacemen3AlbumRecurring());
+		model.addAttribute("pageTitle", "Recurring");
+		
+		return "albumPage";
+	}
+	
+	@GetMapping("/albums/dreamweapon/")
+	public String spacemen3Dreamweapon(Model model)
+	{
+		this.spacemen3AlbumService = new Spacemen3AlbumService();
+		model.addAttribute("album", this.spacemen3AlbumService.getSpacemen3AlbumDreamweapon());
+		model.addAttribute("pageTitle", "Dreamweapon");
+		
+		return "albumPage";
 	}
 }

@@ -4,7 +4,7 @@
  * Package:         ac.uk.belfastmet.Service
  * Version:         1.0
  * Created:         01/12/2017
- * Updated:         01/12/2017 23.30
+ * Updated:         02/12/2017 18.30
  * Author:          Peter Wightman
  * Description:     This is the BrmcAlbumService Class
  */
@@ -25,22 +25,6 @@ public class Spacemen3AlbumService
 		super();
 	}
 	
-	// Get All Spacemen 3 Albums
-	public ArrayList<Album> getSpacemen3Albums()
-	{
-		// Local Variables
-		ArrayList<Album> spacemen3Albums = new ArrayList<Album>();
-		
-		// Add BRMC Albums
-		spacemen3Albums.add(getSpacemen3AlbumSoundOfConfusion());
-		spacemen3Albums.add(getSpacemen3AlbumThePerfectPrescription());
-		spacemen3Albums.add(getSpacemen3AlbumPlayingWithFire());
-		spacemen3Albums.add(getSpacemen3AlbumLiveInEurope1989());
-		spacemen3Albums.add(getSpacemen3AlbumRecurring());
-
-		return spacemen3Albums;
-	}
-	
 	// #############################
 	// Spacemen 3 Sound Of Confusion
 	// #############################
@@ -51,7 +35,7 @@ public class Spacemen3AlbumService
 	public Album getSpacemen3AlbumSoundOfConfusion()
 	{
 		// Album Cover Image File
-		final String spacemen3SoundOfConfusionCover = "images/albumCovers/Spacemen3/Spacemen3-SoundOfConfusion.jpg";
+		final String spacemen3SoundOfConfusionCover = "images/albumCovers/Spacemen3/HiRes/Spacemen3-SoundOfConfusion.jpg";
 		
 		// Get Album Tracks
 		ArrayList<Song> spacemen3SoundOfConfusionAlbumTracks = new ArrayList<Song>();
@@ -102,7 +86,7 @@ public class Spacemen3AlbumService
 	public Album getSpacemen3AlbumThePerfectPrescription()
 	{
 		// Album Cover Image File
-		final String spacemen3ThePerfectPrescriptionCover = "images/albumCovers/Spacemen3/Spacemen3-ThePerfectPrescription.jpg";
+		final String spacemen3ThePerfectPrescriptionCover = "images/albumCovers/Spacemen3/HiRes/Spacemen3-ThePerfectPrescription.jpg";
 		
 		// Get Album Tracks
 		ArrayList<Song> spacemen3ThePerfectPrescriptionAlbumTracks = new ArrayList<Song>();
@@ -157,7 +141,7 @@ public class Spacemen3AlbumService
 	public Album getSpacemen3AlbumPlayingWithFire()
 	{
 		// Album Cover Image File
-		final String spacemen3PlayingWithFireCover = "images/albumCovers/Spacemen3/Spacemen3-PlayingWithFire.jpg";
+		final String spacemen3PlayingWithFireCover = "images/albumCovers/Spacemen3/HiRes/Spacemen3-PlayingWithFire.jpg";
 		
 		// Get Album Tracks
 		ArrayList<Song> spacemen3PlayingWithFireAlbumTracks = new ArrayList<Song>();
@@ -216,7 +200,7 @@ public class Spacemen3AlbumService
 	public Album getSpacemen3AlbumLiveInEurope1989()
 	{
 		// Album Cover Image File
-		final String spacemen3LiveInEurope1989Cover = "images/albumCovers/Spacemen3/Spacemen3-LiveInEurope1989.jpg";
+		final String spacemen3LiveInEurope1989Cover = "images/albumCovers/Spacemen3/HiRes/Spacemen3-LiveInEurope1989.jpg";
 		
 		// Get Album Tracks
 		ArrayList<Song> spacemen3LiveInEurope1989AlbumTracks = new ArrayList<Song>();
@@ -280,7 +264,7 @@ public class Spacemen3AlbumService
 	public Album getSpacemen3AlbumRecurring()
 	{
 		// Album Cover Image File
-		final String spacemen3RecurringCover = "images/albumCovers/Spacemen3/Spacemen3-Recurring.jpg";
+		final String spacemen3RecurringCover = "images/albumCovers/Spacemen3/HiRes/Spacemen3-Recurring.jpg";
 		
 		// Get Album Tracks
 		ArrayList<Song> spacemen3RecurringAlbumTracks = new ArrayList<Song>();
@@ -335,5 +319,50 @@ public class Spacemen3AlbumService
 		spacemen3Recurring.add(spacemen3Recurring15);
 		
 		return spacemen3Recurring;
+	}
+	
+	// ######################
+	// Spacemen 3 Dreamweapon
+	// ######################
+	
+	// #####
+	// ALBUM
+	// #####
+	public Album getSpacemen3AlbumDreamweapon()
+	{
+		// Album Cover Image File
+		final String spacemen3DreamweaponCover = "images/albumCovers/Spacemen3/HiRes/Spacemen3-Dreamweapon.jpg";
+		
+		// Get Album Tracks
+		ArrayList<Song> spacemen3DreamweaponAlbumTracks = new ArrayList<Song>();
+		spacemen3DreamweaponAlbumTracks = getSpacemen3DreamweaponTracks();
+		
+		// Create Album Object
+		Album spacemen3DreamweaponAlbum = new Album("Spacemen 3", "Dreamweapon", 1992, spacemen3DreamweaponAlbumTracks, spacemen3DreamweaponCover);
+		
+		return spacemen3DreamweaponAlbum;
+	}
+	
+	// ######
+	// TRACKS
+	// ######
+	public ArrayList<Song> getSpacemen3DreamweaponTracks()
+	{
+		// Local Variables
+		ArrayList<Song> spacemen3Dreamweapon = new ArrayList<Song>();
+		
+		// Create Spacemen 3 Dreamweapon Songs
+		Song spacemen3Dreamweapon01 = new Song(1, "An Evening Of Contemporary Sitar Music");
+		Song spacemen3Dreamweapon02 = new Song(2, "Ecstasy Live Intro Theme");
+		Song spacemen3Dreamweapon03 = new Song(3, "Ecstasy In Slow Motion");
+		Song spacemen3Dreamweapon04 = new Song(4, "Spacemen Jam");
+
+		// Add The Songs To ArrayList
+		spacemen3Dreamweapon.add(spacemen3Dreamweapon01);
+		spacemen3Dreamweapon.add(spacemen3Dreamweapon02);
+		spacemen3Dreamweapon.add(spacemen3Dreamweapon03);
+		spacemen3Dreamweapon.add(spacemen3Dreamweapon04);
+		
+		return spacemen3Dreamweapon;
 	}
 }

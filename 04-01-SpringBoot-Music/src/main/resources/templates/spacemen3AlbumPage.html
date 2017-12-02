@@ -6,44 +6,68 @@
 		<header class="jumbotron text-center greyBackGround">
 			<h1 class="text-center text-black">Spacemen 3</h1>
 			<h2 class="text-center text-black">Albums</h2>
+			<h3 class="text-center text-black">Studio and Live</h3>
 		</header>
 		<nav th:replace="layouts/nav :: navFragment"></nav>
 		<br />
 		<section>
-			<h3 class="text-center text-white">Studio and Live Albums</h3>
-			<table class="table table-striped">
-				<thead>
-					<tr class="text-white">
-						<th>Album</th>
-						<th>Released</th>
-						<th>Art</th>
-						<th>Tracks</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr class="text-white" th:each="album : ${spacemen3Albums}">
-						<td th:text="${album.albumTitle}"></td>
-						<td th:text="${album.releaseYear}"></td>
-						<td><img class="image" th:src="@{/} + ${album.albumArt}" /></td>
-						<td>
-							<table style="background-color: black;" class="table table-striped">
-								<thead>
-									<tr class="text-white">
-										<th>Track</th>
-										<th>Title</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr class="text-white" th:each="track : ${album.albumTracks}">
-										<td th:text="${track.trackNum}"></td>
-										<td th:text="${track.trackTitle}"></td>
-									</tr>
-								</tbody>
-							</table>
-						</td>
-					</tr>
-				</tbody>
-			</table>
+			<div class="container">
+				<!-- ROW 1 -->
+				<div class="row">
+			    	<div class="col center">
+			    		<h6 class="text-center text-white">Sound Of Confusion</h6>
+			    		<a class="btn" href="/spacemen3/albums/soundofconfusion/">
+			    			<button type="button" name="spacemen3SoundOfConfusion" >
+								<img src="/images/albumCovers/Spacemen3/Spacemen3-SoundOfConfusion.jpg" />
+							</button>
+						</a>
+			    	</div>
+			    	<div class="col center">
+			    		<h6 class="text-center text-white">The Perfect Prescription</h6>
+			    		<a class="btn" href="/spacemen3/albums/theperfectprescription/">
+				    		<button type="button" name="spacemen3ThePerfectPrescription">
+								<img src="/images/albumCovers/Spacemen3/Spacemen3-ThePerfectPrescription.jpg" />
+							</button>
+						</a>
+			    	</div>
+			    	<div class="col center">
+			    		<h6 class="text-center text-white">Playing With Fire</h6>
+			    		<a class="btn" href="/spacemen3/albums/playingwithfire/">
+				    		<button type="button" name="spacemen3PlayingWithFire">
+								<img src="/images/albumCovers/Spacemen3/Spacemen3-PlayingWithFire.jpg" />
+							</button>
+						</a>
+			    	</div>
+				</div>
+				<br />
+				<!-- ROW 2 -->
+				<div class="row">
+			    	<div class="col">
+			    		<h6 class="text-center text-white">Live In Europe 1989</h6>
+			    		<a class="btn" href="/spacemen3/albums/liveineurope1989/">
+				    		<button type="button" name="spacemen3LiveInEurope1989">
+								<img src="/images/albumCovers/Spacemen3/Spacemen3-LiveInEurope1989.jpg" />
+							</button>
+						</a>
+			    	</div>
+			    	<div class="col">
+			    		<h6 class="text-center text-white">Recurring</h6>
+			    		<a class="btn" href="/spacemen3/albums/recurring/">
+				    		<button type="button" name="spacemen3Recurring">
+								<img src="/images/albumCovers/Spacemen3/Spacemen3-Recurring.jpg" />
+							</button>
+						</a>
+			    	</div>
+			    	<div class="col">
+			    		<h6 class="text-center text-white">Dreamweapon</h6>
+			    		<a class="btn" href="/spacemen3/albums/dreamweapon/">
+				    		<button type="button" name="spacemen3Dreamweapon">
+								<img src="/images/albumCovers/Spacemen3/Spacemen3-Dreamweapon.jpg" />
+							</button>
+						</a>
+			    	</div>
+			    </div>
+			</div>
 		</section>
 		<br />
 		<footer th:replace="layouts/footer :: footFragment"></footer>

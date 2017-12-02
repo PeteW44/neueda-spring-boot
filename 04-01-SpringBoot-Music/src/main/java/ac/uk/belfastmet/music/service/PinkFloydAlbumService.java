@@ -4,7 +4,7 @@
  * Package:         ac.uk.belfastmet.Service
  * Version:         1.0
  * Created:         31/11/2017
- * Updated:         01/12/2017 23.30
+ * Updated:         02/12/2017 18.30
  * Author:          Peter Wightman
  * Description:     This is the PinkFloydAlbumService Class
  */
@@ -25,35 +25,6 @@ public class PinkFloydAlbumService
 		super();
 	}
 	
-	// Get All Pink Floyd Albums
-	public ArrayList<Album> getPinkFloydAlbums()
-	{
-		// Local Variables
-		ArrayList<Album> pinkFloydAlbums = new ArrayList<Album>();
-		
-		// Add Pink Floyd Albums
-		pinkFloydAlbums.add(getPinkFloydThePiperAtTheGatesOfDawn());
-		pinkFloydAlbums.add(getPinkFloydASaucerfulOfSecrets());
-		pinkFloydAlbums.add(getPinkFloydMore());
-		pinkFloydAlbums.add(getPinkFloydUmmagumma());
-		pinkFloydAlbums.add(getPinkFloydAtomHeartMother());
-		pinkFloydAlbums.add(getPinkFloydMeddle());
-		pinkFloydAlbums.add(getPinkFloydObscuredByClouds());
-		pinkFloydAlbums.add(getPinkFloydTheDarkSideOfTheMoon());
-		pinkFloydAlbums.add(getPinkFloydWishYouWereHere());
-		pinkFloydAlbums.add(getPinkFloydAnimals());
-		pinkFloydAlbums.add(getPinkFloydTheWall());
-		pinkFloydAlbums.add(getPinkFloydTheFinalCut());
-		pinkFloydAlbums.add(getPinkFloydAMomentaryLapseOfReason());
-		pinkFloydAlbums.add(getPinkFloydDelicateSoundOfThunder());
-		pinkFloydAlbums.add(getPinkFloydTheDivisionBell());
-		pinkFloydAlbums.add(getPinkFloydPulse());
-		pinkFloydAlbums.add(getPinkFloydIsThereAnybodyOutThereTheWallLive());
-		pinkFloydAlbums.add(getPinkFloydTheEndlessRiver());
-
-		return pinkFloydAlbums;
-	}
-	
 	// #########################################
 	// Pink Floyd The Piper At The Gates Of Dawn
 	// #########################################
@@ -64,7 +35,7 @@ public class PinkFloydAlbumService
 	public Album getPinkFloydThePiperAtTheGatesOfDawn()
 	{
 		// Album Cover Image File
-		final String pinkFloydThePiperAtTheGatesOfDawnCover = "images/albumCovers/PinkFloyd/PinkFloyd-ThePiperAtTheGatesOfDawn.jpg";
+		final String pinkFloydThePiperAtTheGatesOfDawnCover = "images/albumCovers/PinkFloyd/HiRes/PinkFloyd-ThePiperAtTheGatesOfDawn.jpg";
 		
 		// Create Album Object
 		Album pinkFloydThePiperAtTheGatesOfDawnAlbum = new Album("Pink Floyd", "The Piper At The Gates Of Dawn", 1967, getPinkFloydThePiperAtTheGatesOfDawnTracks(), pinkFloydThePiperAtTheGatesOfDawnCover);
@@ -119,7 +90,7 @@ public class PinkFloydAlbumService
 	public Album getPinkFloydASaucerfulOfSecrets()
 	{
 		// Album Cover Image File
-		final String pinkFloydASaucerfulOfSecretsCover = "images/albumCovers/PinkFloyd/PinkFloyd-ASaucerfulOfSecrets.jpg";
+		final String pinkFloydASaucerfulOfSecretsCover = "images/albumCovers/PinkFloyd/HiRes/PinkFloyd-ASaucerfulOfSecrets.jpg";
 		
 		// Create Album Object
 		Album pinkFloydASaucerfulOfSecretsAlbum = new Album("Pink Floyd", "A Saucerful Of Secrets", 1968, getPinkFloydASaucerfulOfSecretsTracks(), pinkFloydASaucerfulOfSecretsCover);
@@ -166,7 +137,7 @@ public class PinkFloydAlbumService
 	public Album getPinkFloydMore()
 	{
 		// Album Cover Image File
-		final String pinkFloydMoreCover = "images/albumCovers/PinkFloyd/PinkFloyd-More.jpg";
+		final String pinkFloydMoreCover = "images/albumCovers/PinkFloyd/HiRes/PinkFloyd-More.jpg";
 		
 		// Create Album Object
 		Album pinkFloydMoreAlbum = new Album("Pink Floyd", "More", 1969, getPinkFloydMoreTracks(), pinkFloydMoreCover);
@@ -223,7 +194,7 @@ public class PinkFloydAlbumService
 	public Album getPinkFloydUmmagumma()
 	{
 		// Album Cover Image File
-		final String pinkFloydUmmagummaCover = "images/albumCovers/PinkFloyd/PinkFloyd-Ummagumma.jpg";
+		final String pinkFloydUmmagummaCover = "images/albumCovers/PinkFloyd/HiRes/PinkFloyd-Ummagumma.jpg";
 		
 		// Create Album Object
 		Album pinkFloydUmmagummaAlbum = new Album("Pink Floyd", "Ummagumma", 1969, getPinkFloydUmmagummaTracks(), pinkFloydUmmagummaCover);
@@ -278,7 +249,7 @@ public class PinkFloydAlbumService
 	public Album getPinkFloydAtomHeartMother()
 	{
 		// Album Cover Image File
-		final String pinkFloydAtomHeartMotherCover = "images/albumCovers/PinkFloyd/PinkFloyd-AtomHeartMother.jpg";
+		final String pinkFloydAtomHeartMotherCover = "images/albumCovers/PinkFloyd/HiRes/PinkFloyd-AtomHeartMother.jpg";
 		
 		// Create Album Object
 		Album pinkFloydAtomHeartMotherAlbum = new Album("Pink Floyd", "Atom Heart Mother", 1970, getPinkFloydAtomHeartMotherTracks(), pinkFloydAtomHeartMotherCover);
@@ -321,7 +292,7 @@ public class PinkFloydAlbumService
 	public Album getPinkFloydMeddle()
 	{
 		// Album Cover Image File
-		final String pinkFloydMeddleCover = "images/albumCovers/PinkFloyd/PinkFloyd-Meddle.jpg";
+		final String pinkFloydMeddleCover = "images/albumCovers/PinkFloyd/HiRes/PinkFloyd-Meddle.jpg";
 		
 		// Create Album Object
 		Album pinkFloydMeddleAlbum = new Album("Pink Floyd", "Meddle", 1971, getPinkFloydMeddleTracks(), pinkFloydMeddleCover);
@@ -366,7 +337,7 @@ public class PinkFloydAlbumService
 	public Album getPinkFloydObscuredByClouds()
 	{
 		// Album Cover Image File
-		final String pinkFloydObscuredByCloudsCover = "images/albumCovers/PinkFloyd/PinkFloyd-ObscuredByClouds.jpg";
+		final String pinkFloydObscuredByCloudsCover = "images/albumCovers/PinkFloyd/HiRes/PinkFloyd-ObscuredByClouds.jpg";
 		
 		// Create Album Object
 		Album pinkFloydObscuredByCloudsAlbum = new Album("Pink Floyd", "Obscured By Clouds", 1972, getPinkFloydObscuredByCloudsTracks(), pinkFloydObscuredByCloudsCover);
@@ -419,7 +390,7 @@ public class PinkFloydAlbumService
 	public Album getPinkFloydTheDarkSideOfTheMoon()
 	{
 		// Album Cover Image File
-		final String pinkFloydTheDarkSideOfTheMoonCover = "images/albumCovers/PinkFloyd/PinkFloyd-TheDarkSideOfTheMoon.jpg";
+		final String pinkFloydTheDarkSideOfTheMoonCover = "images/albumCovers/PinkFloyd/HiRes/PinkFloyd-TheDarkSideOfTheMoon.jpg";
 		
 		// Create Album Object
 		Album pinkFloydTheDarkSideOfTheMoonAlbum = new Album("Pink Floyd", "The Dark Side Of The Moon", 1973, getPinkFloydTheDarkSideOfTheMoonTracks(), pinkFloydTheDarkSideOfTheMoonCover);
@@ -472,7 +443,7 @@ public class PinkFloydAlbumService
 	public Album getPinkFloydWishYouWereHere()
 	{
 		// Album Cover Image File
-		final String pinkFloydWishYouWereHereCover = "images/albumCovers/PinkFloyd/PinkFloyd-WishYouWereHere.jpg";
+		final String pinkFloydWishYouWereHereCover = "images/albumCovers/PinkFloyd/HiRes/PinkFloyd-WishYouWereHere.jpg";
 		
 		// Create Album Object
 		Album pinkFloydWishYouWereHereAlbum = new Album("Pink Floyd", "Wish You Were Here", 1975, getPinkFloydWishYouWereHereTracks(), pinkFloydWishYouWereHereCover);
@@ -515,7 +486,7 @@ public class PinkFloydAlbumService
 	public Album getPinkFloydAnimals()
 	{
 		// Album Cover Image File
-		final String pinkFloydAnimalsCover = "images/albumCovers/PinkFloyd/PinkFloyd-Animals.jpg";
+		final String pinkFloydAnimalsCover = "images/albumCovers/PinkFloyd/HiRes/PinkFloyd-Animals.jpg";
 		
 		// Create Album Object
 		Album pinkFloydAnimalsAlbum = new Album("Pink Floyd", "Animals", 1977, getPinkFloydAnimalsTracks(), pinkFloydAnimalsCover);
@@ -558,7 +529,7 @@ public class PinkFloydAlbumService
 	public Album getPinkFloydTheWall()
 	{
 		// Album Cover Image File
-		final String pinkFloydTheWallCover = "images/albumCovers/PinkFloyd/PinkFloyd-TheWall.jpg";
+		final String pinkFloydTheWallCover = "images/albumCovers/PinkFloyd/HiRes/PinkFloyd-TheWall.jpg";
 		
 		// Create Album Object
 		Album pinkFloydTheWallAlbum = new Album("Pink Floyd", "The Wall", 1979, getPinkFloydTheWallTracks(), pinkFloydTheWallCover);
@@ -643,7 +614,7 @@ public class PinkFloydAlbumService
 	public Album getPinkFloydTheFinalCut()
 	{
 		// Album Cover Image File
-		final String pinkFloydTheFinalCutCover = "images/albumCovers/PinkFloyd/PinkFloyd-ObscuredByClouds.jpg";
+		final String pinkFloydTheFinalCutCover = "images/albumCovers/PinkFloyd/HiRes/PinkFloyd-TheFinalCut.jpg";
 		
 		// Create Album Object
 		Album pinkFloydTheFinalCutAlbum = new Album("Pink Floyd", "The Final Cut", 1982, getPinkFloydTheFinalCutTracks(), pinkFloydTheFinalCutCover);
@@ -700,7 +671,7 @@ public class PinkFloydAlbumService
 	public Album getPinkFloydAMomentaryLapseOfReason()
 	{
 		// Album Cover Image File
-		final String pinkFloydAMomentaryLapseOfReasonCover = "images/albumCovers/PinkFloyd/PinkFloyd-AMomentaryLapseOfReason.jpg";
+		final String pinkFloydAMomentaryLapseOfReasonCover = "images/albumCovers/PinkFloyd/HiRes/PinkFloyd-AMomentaryLapseOfReason.jpg";
 		
 		// Create Album Object
 		Album pinkFloydAMomentaryLapseOfReasonAlbum = new Album("Pink Floyd", "A Momentary Lapse Of Reason", 1987, getPinkFloydAMomentaryLapseOfReasonTracks(), pinkFloydAMomentaryLapseOfReasonCover);
@@ -755,7 +726,7 @@ public class PinkFloydAlbumService
 	public Album getPinkFloydDelicateSoundOfThunder()
 	{
 		// Album Cover Image File
-		final String pinkFloydDelicateSoundOfThunderCover = "images/albumCovers/PinkFloyd/PinkFloyd-DelicateSoundOfThunder.jpg";
+		final String pinkFloydDelicateSoundOfThunderCover = "images/albumCovers/PinkFloyd/HiRes/PinkFloyd-DelicateSoundOfThunder.jpg";
 		
 		// Create Album Object
 		Album pinkFloydDelicateSoundOfThunderAlbum = new Album("Pink Floyd", "Delicate Sound Of Thunder", 1988, getPinkFloydDelicateSoundOfThunderTracks(), pinkFloydDelicateSoundOfThunderCover);
@@ -816,7 +787,7 @@ public class PinkFloydAlbumService
 	public Album getPinkFloydTheDivisionBell()
 	{
 		// Album Cover Image File
-		final String pinkFloydTheDivisionBellCover = "images/albumCovers/PinkFloyd/PinkFloyd-TheDivisionBell.jpg";
+		final String pinkFloydTheDivisionBellCover = "images/albumCovers/PinkFloyd/HiRes/PinkFloyd-TheDivisionBell.jpg";
 		
 		// Create Album Object
 		Album pinkFloydTheDivisionBellAlbum = new Album("Pink Floyd", "The Division Bell", 1994, getPinkFloydTheDivisionBellTracks(), pinkFloydTheDivisionBellCover);
@@ -871,7 +842,7 @@ public class PinkFloydAlbumService
 	public Album getPinkFloydPulse()
 	{
 		// Album Cover Image File
-		final String pinkFloydPulseCover = "images/albumCovers/PinkFloyd/PinkFloyd-Pulse.jpg";
+		final String pinkFloydPulseCover = "images/albumCovers/PinkFloyd/HiRes/PinkFloyd-Pulse.jpg";
 		
 		// Create Album Object
 		Album pinkFloydPulseAlbum = new Album("Pink Floyd", "Pulse", 1995, getPinkFloydPulseTracks(), pinkFloydPulseCover);
@@ -952,7 +923,7 @@ public class PinkFloydAlbumService
 	public Album getPinkFloydIsThereAnybodyOutThereTheWallLive()
 	{
 		// Album Cover Image File
-		final String pinkFloydIsThereAnybodyOutThereTheWallLiveCover = "images/albumCovers/PinkFloyd/PinkFloyd-IsThereAnybodyOutThereTheWallLive.jpg";
+		final String pinkFloydIsThereAnybodyOutThereTheWallLiveCover = "images/albumCovers/PinkFloyd/HiRes/PinkFloyd-IsThereAnybodyOutThereTheWallLive.jpg";
 		
 		// Create Album Object
 		Album pinkFloydIsThereAnybodyOutThereTheWallLiveAlbum = new Album("Pink Floyd", "There Anybody Out There The Wall Live", 2000, getPinkFloydIsThereAnybodyOutThereTheWallLiveTracks(), pinkFloydIsThereAnybodyOutThereTheWallLiveCover);
@@ -1007,7 +978,7 @@ public class PinkFloydAlbumService
 	public Album getPinkFloydTheEndlessRiver()
 	{
 		// Album Cover Image File
-		final String pinkFloydTheEndlessRiverCover = "images/albumCovers/PinkFloyd/PinkFloyd-TheEndlessRiver.jpg";
+		final String pinkFloydTheEndlessRiverCover = "images/albumCovers/PinkFloyd/HiRes/PinkFloyd-TheEndlessRiver.jpg";
 		
 		// Create Album Object
 		Album pinkFloydTheEndlessRiverAlbum = new Album("Pink Floyd", "The Endless River", 2014, getPinkFloydTheEndlessRiverTracks(), pinkFloydTheEndlessRiverCover);
