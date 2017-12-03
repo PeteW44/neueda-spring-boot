@@ -16,17 +16,19 @@ public class Song
 	// Instance Variables
 	private int trackNum;
 	private String trackTitle;
+	private String trackLength;
 	
 	// Default Song Constructor
 	public Song()
 	{
 	}
 	
-	// Parameterised Mythical Creature Constructor
-	public Song(int trackNum, String trackTitle)
+	// Parameterised Song Constructor
+	public Song(int trackNum, String trackTitle, String trackLength)
 	{
 		this.setTrackNum(trackNum);
 		this.setTrackTitle(trackTitle);
+		this.setTrackLength(trackLength);
 	}
 	
 	/*
@@ -51,5 +53,15 @@ public class Song
 	public void setTrackTitle(String trackTitle)
 	{
 		this.trackTitle = trackTitle;
+	}
+
+	public String getTrackLength() 
+	{
+		return trackLength;
+	}
+
+	public void setTrackLength(String trackLength) 
+	{
+		this.trackLength = trackLength;
 	}
 }

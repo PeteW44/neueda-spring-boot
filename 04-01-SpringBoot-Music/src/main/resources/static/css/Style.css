@@ -3,6 +3,55 @@
 	CSS Style Sheet
 */
 
+/* Background Images */
+.transparent
+{
+	background: rgba(0, 0, 0, 0.7);
+	display: inline-block
+}
+
+.homeHeadImage
+{
+	width:100%;
+    background-image:url("/images/Artwork/HomeHeader.jpg");
+}
+
+.brmcBioImage
+{
+	width:100%;
+    background-image:url("/images/Artwork/BRMCSkullCandy.jpg");
+}
+
+.pinkFloydBioImage1
+{
+	width:100%;
+    background-image:url("/images/Artwork/PinkFlooyBackground1.jpg");
+}
+
+.spacemen3BioImage
+{
+	width:100%;
+    background-image:url("/images/Artwork/Spacemen3Logo.jpg");
+}
+
+.brmcHeadImage
+{
+	width:100%;
+    background-image:url("/images/Artwork/BRMCHeader.jpg");
+}
+
+.pinkFloydHeadImage
+{
+	width:100%;
+    background-image:url("/images/Artwork/PinkFloydHeader.jpg");
+}
+
+.spacemen3HeadImage
+{
+	width:100%;
+    background-image:url("/images/Artwork/Spacemen3Header.jpg");
+}
+
 /* Center Page on Screen */
 
 .content 

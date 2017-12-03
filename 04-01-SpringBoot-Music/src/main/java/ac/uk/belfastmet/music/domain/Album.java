@@ -22,12 +22,12 @@ public class Album
 	private ArrayList<Song> albumTracks;
 	private String albumArt;
 	
-	// Default Song Constructor
+	// Default Album Constructor
 	public Album()
 	{
 	}
 	
-	// Parameterised Mythical Creature Constructor
+	// Parameterised Album Constructor
 	public Album(String artist, String albumTitle, int releaseYear, ArrayList<Song> albumTracks, String albumArt)
 	{
 		this.setArtist(artist);

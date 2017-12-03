@@ -3,10 +3,12 @@
 <html lang="en" xmlns:th="Http:thymeleaf.org">
 	<head th:replace="layouts/header :: headFragment"></head>
 	<body class="content">
-		<header class="jumbotron text-center greyBackGround">
-			<h1 class="text-center text-black">Black Rebel Motorcycle Club</h1>
-			<h2 class="text-center text-black">Albums</h2>
-			<h3 class="text-center text-black">Studio and Live</h3>
+		<header class="jumbotron text-center brmcHeadImage">
+			<div class="transparent2">
+				<h1 class="text-center text-white"><b>Black Rebel Motorcycle Club</b></h1>
+				<h2 class="text-center text-white"><b>Albums</b></h2>
+				<h3 class="text-center text-white"><b>Studio and Live</b></h3>
+			</div>
 		</header>
 		<nav th:replace="layouts/nav :: navFragment"></nav>
 		<br />
@@ -23,6 +25,14 @@
 						</a>
 			    	</div>
 			    	<div class="col center">
+			    		<h6 class="text-center text-white">Screaming Gun</h6>
+			    		<a class="btn" href="/brmc/albums/screaminggun/">
+				    		<button type="button" name="brmcScreamingGun">
+								<img src="/images/albumCovers/BRMC/BRMC-ScreamingGun.jpg" />
+							</button>
+						</a>
+			    	</div>
+			    	<div class="col center">
 			    		<h6 class="text-center text-white">BRMC</h6>
 			    		<a class="btn" href="/brmc/albums/brmc/">
 				    		<button type="button" name="brmcBlackRebelMotorcycleClub">
@@ -30,7 +40,11 @@
 							</button>
 						</a>
 			    	</div>
-			    	<div class="col center">
+			    </div>
+				<br />
+				<!-- ROW 2 -->
+				<div class="row">
+					<div class="col center">
 			    		<h6 class="text-center text-white">Take Them On, On Your Own</h6>
 			    		<a class="btn" href="/brmc/albums/takethemononyourown/">
 				    		<button type="button" name="brmcTakeThemOnOnYourOwn">
@@ -38,10 +52,14 @@
 							</button>
 						</a>
 			    	</div>
-				</div>
-				<br />
-				<!-- ROW 2 -->
-				<div class="row">
+			    	<div class="col center">
+			    		<h6 class="text-center text-white">For Murder</h6>
+			    		<a class="btn" href="/brmc/albums/formurder/">
+				    		<button type="button" name="brmcForMurder">
+								<img src="/images/albumCovers/BRMC/BRMC-ForMurder.jpg" />
+							</button>
+						</a>
+			    	</div>
 			    	<div class="col">
 			    		<h6 class="text-center text-white">Howl</h6>
 			    		<a class="btn" href="/brmc/albums/howl/">
@@ -50,6 +68,10 @@
 							</button>
 						</a>
 			    	</div>
+			    </div>
+			    <br />
+			    <!-- ROW 3 -->
+			    <div class="row">
 			    	<div class="col">
 			    		<h6 class="text-center text-white">Howl Sessions</h6>
 			    		<a class="btn" href="/brmc/albums/howlsessions/">
@@ -66,10 +88,6 @@
 							</button>
 						</a>
 			    	</div>
-			    </div>
-			    <br />
-			    <!-- ROW 3 -->
-			    <div class="row">
 			    	<div class="col">
 			    		<h6 class="text-center text-white">American X Baby 81 Sessions</h6>
 			    		<a class="btn" href="/brmc/albums/americanxbaby81sessions/">
@@ -78,6 +96,10 @@
 							</button>
 						</a>
 			    	</div>
+			    </div>
+			    <br />
+			    <!-- ROW 4 -->
+			    <div class="row">
 			    	<div class="col">
 			    		<h6 class="text-center text-white">Live</h6>
 			    		<a class="btn" href="/brmc/albums/live/">
@@ -94,10 +116,6 @@
 							</button>
 						</a>
 			    	</div>
-			    </div>
-			    <br />
-			    <!-- ROW 4 -->
-			    <div class="row">
 			    	<div class="col">
 			    		<h6 class="text-center text-white">Live In London</h6>
 			    		<a class="btn" href="/brmc/albums/liveinlondon/">
@@ -106,6 +124,10 @@
 							</button>
 						</a>
 			    	</div>
+			    </div>
+			    <br />
+			    <!-- ROW 5 -->
+			    <div class="row">
 			    	<div class="col">
 			    		<h6 class="text-center text-white">Specter At The Feast</h6>
 			    		<a class="btn" href="/brmc/albums/specteratthefeast/">
@@ -122,10 +144,6 @@
 							</button>
 						</a>
 			    	</div>
-			    </div>
-			    <br />
-			    <!-- ROW 5 -->
-			    <div class="row">
 			    	<div class="col">
 			    		<h6 class="text-center text-white">Wrong Creatures</h6>
 			    		<a class="btn" href="/brmc/albums/wrongcreatures/">
@@ -134,8 +152,6 @@
 							</button>
 						</a>
 			    	</div>
-			    	<div class="col"></div>
-			    	<div class="col"></div>
 				</div>
 			</div>
 		</section>

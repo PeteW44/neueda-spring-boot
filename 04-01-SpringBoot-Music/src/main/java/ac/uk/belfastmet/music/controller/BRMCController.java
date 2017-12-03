@@ -71,12 +71,32 @@ public class BRMCController
 		return "albumPage";
 	}
 	
+	@GetMapping("/albums/screaminggun/")
+	public String brmcScreamingGun(Model model)
+	{
+		this.brmcAlbumService = new BrmcAlbumService();
+		model.addAttribute("album", this.brmcAlbumService.getBrmcAlbumScreamingGun());
+		model.addAttribute("pageTitle", "Screaming Gun");
+		
+		return "albumPage";
+	}
+	
 	@GetMapping("/albums/brmc/")
 	public String brmcBlackRebelMotorcycleClub(Model model)
 	{
 		this.brmcAlbumService = new BrmcAlbumService();
 		model.addAttribute("album", this.brmcAlbumService.getBrmcAlbumBlackRebelMotorcycleClub());
 		model.addAttribute("pageTitle", "BRMC");
+		
+		return "albumPage";
+	}
+	
+	@GetMapping("/albums/formurder/")
+	public String brmcForMurder(Model model)
+	{
+		this.brmcAlbumService = new BrmcAlbumService();
+		model.addAttribute("album", this.brmcAlbumService.getBrmcAlbumForMurder());
+		model.addAttribute("pageTitle", "For Murder");
 		
 		return "albumPage";
 	}
