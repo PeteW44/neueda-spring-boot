@@ -16,6 +16,24 @@
     background-image:url("/images/Artwork/HomeHeader.jpg");
 }
 
+.brmcHeadImage
+{
+	width:100%;
+    background-image:url("/images/Artwork/BRMCHeaderPoster.jpg");
+}
+
+.pinkFloydHeadImage
+{
+	width:100%;
+    background-image:url("/images/Artwork/PinkFloydHeaderBabes.jpg");
+}
+
+.spacemen3HeadImage
+{
+	width:100%;
+    background-image:url("/images/Artwork/Spacemen3Header.jpg");
+}
+
 .brmcBioImage
 {
 	width:100%;
@@ -25,31 +43,13 @@
 .pinkFloydBioImage1
 {
 	width:100%;
-    background-image:url("/images/Artwork/PinkFlooyBackground1.jpg");
+    background-image:url("/images/Artwork/PinkFloydBackground.jpg");
 }
 
 .spacemen3BioImage
 {
 	width:100%;
     background-image:url("/images/Artwork/Spacemen3Logo.jpg");
-}
-
-.brmcHeadImage
-{
-	width:100%;
-    background-image:url("/images/Artwork/BRMCHeader.jpg");
-}
-
-.pinkFloydHeadImage
-{
-	width:100%;
-    background-image:url("/images/Artwork/PinkFloydHeader.jpg");
-}
-
-.spacemen3HeadImage
-{
-	width:100%;
-    background-image:url("/images/Artwork/Spacemen3Header.jpg");
 }
 
 /* Center Page on Screen */
