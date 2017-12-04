@@ -139,16 +139,12 @@ tr:nth-child(odd)
 {
 	width: 35px;
 	height: 35px;
+	horizontal-align: center;
 }
 
-.text-black
+.whiteBackGround
 {
-	color: black;
-}
-
-.greyBackGround
-{
-	background-color: #808080;
+	background-color: #FFFFFF;
 }
 
 .blackBackGround
