@@ -4,7 +4,7 @@
  * Package:         ac.uk.belfastmet.Service
  * Version:         1.0
  * Created:         01/12/2017
- * Updated:         02/12/2017 18.30
+ * Updated:         05/12/2017 22.00
  * Author:          Peter Wightman
  * Description:     This is the BrmcAlbumService Class
  */
@@ -25,6 +25,43 @@ public class Spacemen3AlbumService
 		super();
 	}
 	
+	// ####################
+	// Get Spacemen 3 Album
+	// ####################
+	public Album getSpacemen3Album(String albumTitle)
+	{
+		Album album = new Album();
+		
+		switch(albumTitle)
+		{
+			case "soundofconfusion":
+				album = getSpacemen3AlbumSoundOfConfusion();
+				break;
+			
+			case "theperfectprescription":
+				album = getSpacemen3AlbumThePerfectPrescription();
+				break;
+			
+			case "playingwithfire":
+				album = getSpacemen3AlbumPlayingWithFire();
+				break;
+			
+			case "liveineurope1989":
+				album = getSpacemen3AlbumLiveInEurope1989();
+				break;
+				
+			case "recurring":
+				album = getSpacemen3AlbumRecurring();
+				break;
+				
+			case "dreamweapon":
+				album = getSpacemen3AlbumDreamweapon();
+				break;
+		}
+		
+		return album;
+	}
+	
 	// #############################
 	// Spacemen 3 Sound Of Confusion
 	// #############################
@@ -32,7 +69,7 @@ public class Spacemen3AlbumService
 	// #####
 	// ALBUM
 	// #####
-	public Album getSpacemen3AlbumSoundOfConfusion()
+	private Album getSpacemen3AlbumSoundOfConfusion()
 	{
 		// Album Cover Image File
 		final String spacemen3SoundOfConfusionCover = "images/albumCovers/Spacemen3/HiRes/Spacemen3-SoundOfConfusion.jpg";
@@ -50,7 +87,7 @@ public class Spacemen3AlbumService
 	// ######
 	// TRACKS
 	// ######
-	public ArrayList<Song> getSpacemen3SoundOfConfusionTracks()
+	private ArrayList<Song> getSpacemen3SoundOfConfusionTracks()
 	{
 		// Local Variables
 		ArrayList<Song> spacemen3SoundOfConfusion = new ArrayList<Song>();
@@ -83,7 +120,7 @@ public class Spacemen3AlbumService
 	// #####
 	// ALBUM
 	// #####
-	public Album getSpacemen3AlbumThePerfectPrescription()
+	private Album getSpacemen3AlbumThePerfectPrescription()
 	{
 		// Album Cover Image File
 		final String spacemen3ThePerfectPrescriptionCover = "images/albumCovers/Spacemen3/HiRes/Spacemen3-ThePerfectPrescription.jpg";
@@ -101,7 +138,7 @@ public class Spacemen3AlbumService
 	// ######
 	// TRACKS
 	// ######
-	public ArrayList<Song> getSpacemen3ThePerfectPrescriptionTracks()
+	private ArrayList<Song> getSpacemen3ThePerfectPrescriptionTracks()
 	{
 		// Local Variables
 		ArrayList<Song> spacemen3ThePerfectPrescription = new ArrayList<Song>();
@@ -138,7 +175,7 @@ public class Spacemen3AlbumService
 	// #####
 	// ALBUM
 	// #####
-	public Album getSpacemen3AlbumPlayingWithFire()
+	private Album getSpacemen3AlbumPlayingWithFire()
 	{
 		// Album Cover Image File
 		final String spacemen3PlayingWithFireCover = "images/albumCovers/Spacemen3/HiRes/Spacemen3-PlayingWithFire.jpg";
@@ -156,7 +193,7 @@ public class Spacemen3AlbumService
 	// ######
 	// TRACKS
 	// ######
-	public ArrayList<Song> getSpacemen3PlayingWithFireTracks()
+	private ArrayList<Song> getSpacemen3PlayingWithFireTracks()
 	{
 		// Local Variables
 		ArrayList<Song> spacemen3PlayingWithFire = new ArrayList<Song>();
@@ -197,7 +234,7 @@ public class Spacemen3AlbumService
 	// #####
 	// ALBUM
 	// #####
-	public Album getSpacemen3AlbumLiveInEurope1989()
+	private Album getSpacemen3AlbumLiveInEurope1989()
 	{
 		// Album Cover Image File
 		final String spacemen3LiveInEurope1989Cover = "images/albumCovers/Spacemen3/HiRes/Spacemen3-LiveInEurope1989.jpg";
@@ -215,7 +252,7 @@ public class Spacemen3AlbumService
 	// ######
 	// TRACKS
 	// ######
-	public ArrayList<Song> getSpacemen3LiveInEurope1989Tracks()
+	private ArrayList<Song> getSpacemen3LiveInEurope1989Tracks()
 	{
 		// Local Variables
 		ArrayList<Song> spacemen3LiveInEurope1989 = new ArrayList<Song>();
@@ -261,7 +298,7 @@ public class Spacemen3AlbumService
 	// #####
 	// ALBUM
 	// #####
-	public Album getSpacemen3AlbumRecurring()
+	private Album getSpacemen3AlbumRecurring()
 	{
 		// Album Cover Image File
 		final String spacemen3RecurringCover = "images/albumCovers/Spacemen3/HiRes/Spacemen3-Recurring.jpg";
@@ -279,7 +316,7 @@ public class Spacemen3AlbumService
 	// ######
 	// TRACKS
 	// ######
-	public ArrayList<Song> getSpacemen3RecurringTracks()
+	private ArrayList<Song> getSpacemen3RecurringTracks()
 	{
 		// Local Variables
 		ArrayList<Song> spacemen3Recurring = new ArrayList<Song>();
@@ -328,7 +365,7 @@ public class Spacemen3AlbumService
 	// #####
 	// ALBUM
 	// #####
-	public Album getSpacemen3AlbumDreamweapon()
+	private Album getSpacemen3AlbumDreamweapon()
 	{
 		// Album Cover Image File
 		final String spacemen3DreamweaponCover = "images/albumCovers/Spacemen3/HiRes/Spacemen3-Dreamweapon.jpg";
@@ -346,7 +383,7 @@ public class Spacemen3AlbumService
 	// ######
 	// TRACKS
 	// ######
-	public ArrayList<Song> getSpacemen3DreamweaponTracks()
+	private ArrayList<Song> getSpacemen3DreamweaponTracks()
 	{
 		// Local Variables
 		ArrayList<Song> spacemen3Dreamweapon = new ArrayList<Song>();

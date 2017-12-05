@@ -4,7 +4,7 @@
  * Package:         ac.uk.belfastmet.Service
  * Version:         1.0
  * Created:         31/11/2017
- * Updated:         02/12/2017 18.30
+ * Updated:         05/12/2017 22.00
  * Author:          Peter Wightman
  * Description:     This is the PinkFloydAlbumService Class
  */
@@ -25,6 +25,91 @@ public class PinkFloydAlbumService
 		super();
 	}
 	
+	// ####################
+	// Get Pink Floyd Album
+	// ####################
+	public Album getPinkFloydAlbum(String albumTitle)
+	{
+		Album album = new Album();
+		
+		switch(albumTitle)
+		{
+			case "thepiperatthegatesofdawn":
+				album = getPinkFloydThePiperAtTheGatesOfDawn();
+				break;
+			
+			case "asaucerfulofsecrets":
+				album = getPinkFloydASaucerfulOfSecrets();
+				break;
+			
+			case "more":
+				album = getPinkFloydMore();
+				break;
+			
+			case "ummagumma":
+				album = getPinkFloydUmmagumma();
+				break;
+				
+			case "atomheartmother":
+				album = getPinkFloydAtomHeartMother();
+				break;
+				
+			case "meddle":
+				album = getPinkFloydMeddle();
+				break;
+				
+			case "obscuredbyclouds":
+				album = getPinkFloydObscuredByClouds();
+				break;
+				
+			case "thedarksideofthemoon":
+				album = getPinkFloydTheDarkSideOfTheMoon();
+				break;
+				
+			case "wishyouwerehere":
+				album = getPinkFloydWishYouWereHere();
+				break;
+				
+			case "animals":
+				album = getPinkFloydAnimals();
+				break;	
+				
+			case "thewall":
+				album = getPinkFloydTheWall();
+				break;
+				
+			case "thefinalcut":
+				album = getPinkFloydTheFinalCut();
+				break;
+				
+			case "amomentarylapseofreason":
+				album = getPinkFloydAMomentaryLapseOfReason();
+				break;
+				
+			case "delicatesoundofthunder":
+				album = getPinkFloydDelicateSoundOfThunder();
+				break;
+				
+			case "thedivisionbell":
+				album = getPinkFloydTheDivisionBell();
+				break;
+				
+			case "pulse":
+				album = getPinkFloydPulse();
+				break;
+				
+			case "isthereanybodyouttherethewalllive":
+				album = getPinkFloydIsThereAnybodyOutThereTheWallLive();
+				break;
+				
+			case "theendlessriver":
+				album = getPinkFloydTheEndlessRiver();
+				break;
+		}
+		
+		return album;
+	}
+	
 	// #########################################
 	// Pink Floyd The Piper At The Gates Of Dawn
 	// #########################################
@@ -32,7 +117,7 @@ public class PinkFloydAlbumService
 	// #####
 	// ALBUM
 	// #####
-	public Album getPinkFloydThePiperAtTheGatesOfDawn()
+	private Album getPinkFloydThePiperAtTheGatesOfDawn()
 	{
 		// Album Cover Image File
 		final String pinkFloydThePiperAtTheGatesOfDawnCover = "images/albumCovers/PinkFloyd/HiRes/PinkFloyd-ThePiperAtTheGatesOfDawn.jpg";
@@ -46,7 +131,7 @@ public class PinkFloydAlbumService
 	// ######
 	// TRACKS
 	// ######
-	public ArrayList<Song> getPinkFloydThePiperAtTheGatesOfDawnTracks()
+	private ArrayList<Song> getPinkFloydThePiperAtTheGatesOfDawnTracks()
 	{
 		// Local Variables
 		ArrayList<Song> pinkFloydThePiperAtTheGatesOfDawnTracks = new ArrayList<Song>();
@@ -87,7 +172,7 @@ public class PinkFloydAlbumService
 	// #####
 	// ALBUM
 	// #####
-	public Album getPinkFloydASaucerfulOfSecrets()
+	private Album getPinkFloydASaucerfulOfSecrets()
 	{
 		// Album Cover Image File
 		final String pinkFloydASaucerfulOfSecretsCover = "images/albumCovers/PinkFloyd/HiRes/PinkFloyd-ASaucerfulOfSecrets.jpg";
@@ -101,7 +186,7 @@ public class PinkFloydAlbumService
 	// ######
 	// TRACKS
 	// ######
-	public ArrayList<Song> getPinkFloydASaucerfulOfSecretsTracks()
+	private ArrayList<Song> getPinkFloydASaucerfulOfSecretsTracks()
 	{
 		// Local Variables
 		ArrayList<Song> pinkFloydASaucerfulOfSecretsTracks = new ArrayList<Song>();
@@ -134,7 +219,7 @@ public class PinkFloydAlbumService
 	// #####
 	// ALBUM
 	// #####
-	public Album getPinkFloydMore()
+	private Album getPinkFloydMore()
 	{
 		// Album Cover Image File
 		final String pinkFloydMoreCover = "images/albumCovers/PinkFloyd/HiRes/PinkFloyd-More.jpg";
@@ -148,7 +233,7 @@ public class PinkFloydAlbumService
 	// ######
 	// TRACKS
 	// ######
-	public ArrayList<Song> getPinkFloydMoreTracks()
+	private ArrayList<Song> getPinkFloydMoreTracks()
 	{
 		// Local Variables
 		ArrayList<Song> pinkFloydMoreTracks = new ArrayList<Song>();
@@ -193,7 +278,7 @@ public class PinkFloydAlbumService
 	// #####
 	// ALBUM
 	// #####
-	public Album getPinkFloydUmmagumma()
+	private Album getPinkFloydUmmagumma()
 	{
 		// Album Cover Image File
 		final String pinkFloydUmmagummaCover = "images/albumCovers/PinkFloyd/HiRes/PinkFloyd-Ummagumma.jpg";
@@ -207,7 +292,7 @@ public class PinkFloydAlbumService
 	// ######
 	// TRACKS
 	// ######
-	public ArrayList<Song> getPinkFloydUmmagummaTracks()
+	private ArrayList<Song> getPinkFloydUmmagummaTracks()
 	{
 		// Local Variables
 		ArrayList<Song> pinkFloydUmmagummaTracks = new ArrayList<Song>();
@@ -258,7 +343,7 @@ public class PinkFloydAlbumService
 	// #####
 	// ALBUM
 	// #####
-	public Album getPinkFloydAtomHeartMother()
+	private Album getPinkFloydAtomHeartMother()
 	{
 		// Album Cover Image File
 		final String pinkFloydAtomHeartMotherCover = "images/albumCovers/PinkFloyd/HiRes/PinkFloyd-AtomHeartMother.jpg";
@@ -272,7 +357,7 @@ public class PinkFloydAlbumService
 	// ######
 	// TRACKS
 	// ######
-	public ArrayList<Song> getPinkFloydAtomHeartMotherTracks()
+	private ArrayList<Song> getPinkFloydAtomHeartMotherTracks()
 	{
 		// Local Variables
 		ArrayList<Song> pinkFloydAtomHeartMotherTracks = new ArrayList<Song>();
@@ -301,7 +386,7 @@ public class PinkFloydAlbumService
 	// #####
 	// ALBUM
 	// #####
-	public Album getPinkFloydMeddle()
+	private Album getPinkFloydMeddle()
 	{
 		// Album Cover Image File
 		final String pinkFloydMeddleCover = "images/albumCovers/PinkFloyd/HiRes/PinkFloyd-Meddle.jpg";
@@ -315,7 +400,7 @@ public class PinkFloydAlbumService
 	// ######
 	// TRACKS
 	// ######
-	public ArrayList<Song> getPinkFloydMeddleTracks()
+	private ArrayList<Song> getPinkFloydMeddleTracks()
 	{
 		// Local Variables
 		ArrayList<Song> pinkFloydMeddleTracks = new ArrayList<Song>();
@@ -346,7 +431,7 @@ public class PinkFloydAlbumService
 	// #####
 	// ALBUM
 	// #####
-	public Album getPinkFloydObscuredByClouds()
+	private Album getPinkFloydObscuredByClouds()
 	{
 		// Album Cover Image File
 		final String pinkFloydObscuredByCloudsCover = "images/albumCovers/PinkFloyd/HiRes/PinkFloyd-ObscuredByClouds.jpg";
@@ -360,7 +445,7 @@ public class PinkFloydAlbumService
 	// ######
 	// TRACKS
 	// ######
-	public ArrayList<Song> getPinkFloydObscuredByCloudsTracks()
+	private ArrayList<Song> getPinkFloydObscuredByCloudsTracks()
 	{
 		// Local Variables
 		ArrayList<Song> pinkFloydObscuredByCloudsTracks = new ArrayList<Song>();
@@ -399,7 +484,7 @@ public class PinkFloydAlbumService
 	// #####
 	// ALBUM
 	// #####
-	public Album getPinkFloydTheDarkSideOfTheMoon()
+	private Album getPinkFloydTheDarkSideOfTheMoon()
 	{
 		// Album Cover Image File
 		final String pinkFloydTheDarkSideOfTheMoonCover = "images/albumCovers/PinkFloyd/HiRes/PinkFloyd-TheDarkSideOfTheMoon.jpg";
@@ -413,7 +498,7 @@ public class PinkFloydAlbumService
 	// ######
 	// TRACKS
 	// ######
-	public ArrayList<Song> getPinkFloydTheDarkSideOfTheMoonTracks()
+	private ArrayList<Song> getPinkFloydTheDarkSideOfTheMoonTracks()
 	{
 		// Local Variables
 		ArrayList<Song> pinkFloydTheDarkSideOfTheMoonTracks = new ArrayList<Song>();
@@ -452,7 +537,7 @@ public class PinkFloydAlbumService
 	// #####
 	// ALBUM
 	// #####
-	public Album getPinkFloydWishYouWereHere()
+	private Album getPinkFloydWishYouWereHere()
 	{
 		// Album Cover Image File
 		final String pinkFloydWishYouWereHereCover = "images/albumCovers/PinkFloyd/HiRes/PinkFloyd-WishYouWereHere.jpg";
@@ -466,7 +551,7 @@ public class PinkFloydAlbumService
 	// ######
 	// TRACKS
 	// ######
-	public ArrayList<Song> getPinkFloydWishYouWereHereTracks()
+	private ArrayList<Song> getPinkFloydWishYouWereHereTracks()
 	{
 		// Local Variables
 		ArrayList<Song> pinkFloydWishYouWereHereTracks = new ArrayList<Song>();
@@ -495,7 +580,7 @@ public class PinkFloydAlbumService
 	// #####
 	// ALBUM
 	// #####
-	public Album getPinkFloydAnimals()
+	private Album getPinkFloydAnimals()
 	{
 		// Album Cover Image File
 		final String pinkFloydAnimalsCover = "images/albumCovers/PinkFloyd/HiRes/PinkFloyd-Animals.jpg";
@@ -509,7 +594,7 @@ public class PinkFloydAlbumService
 	// ######
 	// TRACKS
 	// ######
-	public ArrayList<Song> getPinkFloydAnimalsTracks()
+	private ArrayList<Song> getPinkFloydAnimalsTracks()
 	{
 		// Local Variables
 		ArrayList<Song> pinkFloydAnimalsTracks = new ArrayList<Song>();
@@ -538,7 +623,7 @@ public class PinkFloydAlbumService
 	// #####
 	// ALBUM
 	// #####
-	public Album getPinkFloydTheWall()
+	private Album getPinkFloydTheWall()
 	{
 		// Album Cover Image File
 		final String pinkFloydTheWallCover = "images/albumCovers/PinkFloyd/HiRes/PinkFloyd-TheWall.jpg";
@@ -552,7 +637,7 @@ public class PinkFloydAlbumService
 	// ######
 	// TRACKS
 	// ######
-	public ArrayList<Song> getPinkFloydTheWallTracks()
+	private ArrayList<Song> getPinkFloydTheWallTracks()
 	{
 		// Local Variables
 		ArrayList<Song> pinkFloydTheWallTracks = new ArrayList<Song>();
@@ -623,7 +708,7 @@ public class PinkFloydAlbumService
 	// #####
 	// ALBUM
 	// #####
-	public Album getPinkFloydTheFinalCut()
+	private Album getPinkFloydTheFinalCut()
 	{
 		// Album Cover Image File
 		final String pinkFloydTheFinalCutCover = "images/albumCovers/PinkFloyd/HiRes/PinkFloyd-TheFinalCut.jpg";
@@ -637,7 +722,7 @@ public class PinkFloydAlbumService
 	// ######
 	// TRACKS
 	// ######
-	public ArrayList<Song> getPinkFloydTheFinalCutTracks()
+	private ArrayList<Song> getPinkFloydTheFinalCutTracks()
 	{
 		// Local Variables
 		ArrayList<Song> pinkFloydTheFinalCutTracks = new ArrayList<Song>();
@@ -680,7 +765,7 @@ public class PinkFloydAlbumService
 	// #####
 	// ALBUM
 	// #####
-	public Album getPinkFloydAMomentaryLapseOfReason()
+	private Album getPinkFloydAMomentaryLapseOfReason()
 	{
 		// Album Cover Image File
 		final String pinkFloydAMomentaryLapseOfReasonCover = "images/albumCovers/PinkFloyd/HiRes/PinkFloyd-AMomentaryLapseOfReason.jpg";
@@ -694,7 +779,7 @@ public class PinkFloydAlbumService
 	// ######
 	// TRACKS
 	// ######
-	public ArrayList<Song> getPinkFloydAMomentaryLapseOfReasonTracks()
+	private ArrayList<Song> getPinkFloydAMomentaryLapseOfReasonTracks()
 	{
 		// Local Variables
 		ArrayList<Song> pinkFloydAMomentaryLapseOfReasonTracks = new ArrayList<Song>();
@@ -735,7 +820,7 @@ public class PinkFloydAlbumService
 	// #####
 	// ALBUM
 	// #####
-	public Album getPinkFloydDelicateSoundOfThunder()
+	private Album getPinkFloydDelicateSoundOfThunder()
 	{
 		// Album Cover Image File
 		final String pinkFloydDelicateSoundOfThunderCover = "images/albumCovers/PinkFloyd/HiRes/PinkFloyd-DelicateSoundOfThunder.jpg";
@@ -749,7 +834,7 @@ public class PinkFloydAlbumService
 	// ######
 	// TRACKS
 	// ######
-	public ArrayList<Song> getPinkFloydDelicateSoundOfThunderTracks()
+	private ArrayList<Song> getPinkFloydDelicateSoundOfThunderTracks()
 	{
 		// Local Variables
 		ArrayList<Song> pinkFloydDelicateSoundOfThunderTracks = new ArrayList<Song>();
@@ -798,7 +883,7 @@ public class PinkFloydAlbumService
 	// #####
 	// ALBUM
 	// #####
-	public Album getPinkFloydTheDivisionBell()
+	private Album getPinkFloydTheDivisionBell()
 	{
 		// Album Cover Image File
 		final String pinkFloydTheDivisionBellCover = "images/albumCovers/PinkFloyd/HiRes/PinkFloyd-TheDivisionBell.jpg";
@@ -812,7 +897,7 @@ public class PinkFloydAlbumService
 	// ######
 	// TRACKS
 	// ######
-	public ArrayList<Song> getPinkFloydTheDivisionBellTracks()
+	private ArrayList<Song> getPinkFloydTheDivisionBellTracks()
 	{
 		// Local Variables
 		ArrayList<Song> pinkFloydTheDivisionBellTracks = new ArrayList<Song>();
@@ -853,7 +938,7 @@ public class PinkFloydAlbumService
 	// #####
 	// ALBUM
 	// #####
-	public Album getPinkFloydPulse()
+	private Album getPinkFloydPulse()
 	{
 		// Album Cover Image File
 		final String pinkFloydPulseCover = "images/albumCovers/PinkFloyd/HiRes/PinkFloyd-Pulse.jpg";
@@ -867,7 +952,7 @@ public class PinkFloydAlbumService
 	// ######
 	// TRACKS
 	// ######
-	public ArrayList<Song> getPinkFloydPulseTracks()
+	private ArrayList<Song> getPinkFloydPulseTracks()
 	{
 		// Local Variables
 		ArrayList<Song> pinkFloydPulseTracks = new ArrayList<Song>();
@@ -934,7 +1019,7 @@ public class PinkFloydAlbumService
 	// #####
 	// ALBUM
 	// #####
-	public Album getPinkFloydIsThereAnybodyOutThereTheWallLive()
+	private Album getPinkFloydIsThereAnybodyOutThereTheWallLive()
 	{
 		// Album Cover Image File
 		final String pinkFloydIsThereAnybodyOutThereTheWallLiveCover = "images/albumCovers/PinkFloyd/HiRes/PinkFloyd-IsThereAnybodyOutThereTheWallLive.jpg";
@@ -948,7 +1033,7 @@ public class PinkFloydAlbumService
 	// ######
 	// TRACKS
 	// ######
-	public ArrayList<Song> getPinkFloydIsThereAnybodyOutThereTheWallLiveTracks()
+	private ArrayList<Song> getPinkFloydIsThereAnybodyOutThereTheWallLiveTracks()
 	{
 		// Local Variables
 		ArrayList<Song> pinkFloydIsThereAnybodyOutThereTheWallLiveTracks = new ArrayList<Song>();
@@ -1027,7 +1112,7 @@ public class PinkFloydAlbumService
 	// #####
 	// ALBUM
 	// #####
-	public Album getPinkFloydTheEndlessRiver()
+	private Album getPinkFloydTheEndlessRiver()
 	{
 		// Album Cover Image File
 		final String pinkFloydTheEndlessRiverCover = "images/albumCovers/PinkFloyd/HiRes/PinkFloyd-TheEndlessRiver.jpg";
@@ -1041,7 +1126,7 @@ public class PinkFloydAlbumService
 	// ######
 	// TRACKS
 	// ######
-	public ArrayList<Song> getPinkFloydTheEndlessRiverTracks()
+	private ArrayList<Song> getPinkFloydTheEndlessRiverTracks()
 	{
 		// Local Variables
 		ArrayList<Song> pinkFloydTheEndlessRiverTracks = new ArrayList<Song>();

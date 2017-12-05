@@ -4,7 +4,7 @@
  * Package:         ac.uk.belfastmet.Service
  * Version:         1.0
  * Created:         31/11/2017
- * Updated:         02/12/2017 18.30
+ * Updated:         05/12/2017 22.00
  * Author:          Peter Wightman
  * Description:     This is the BrmcAlbumService Class
  */
@@ -25,6 +25,83 @@ public class BrmcAlbumService
 		super();
 	}
 	
+	// ##############
+	// Get BRMC Album
+	// ##############
+	public Album getBrmcAlbum(String albumTitle)
+	{
+		Album album = new Album();
+		
+		switch(albumTitle)
+		{
+			case "demos":
+				album = getBrmcAlbumDemos();
+				break;
+			
+			case "screaminggun":
+				album = getBrmcAlbumScreamingGun();
+				break;
+			
+			case "brmc":
+				album = getBrmcAlbumBlackRebelMotorcycleClub();
+				break;
+			
+			case "formurder":
+				album = getBrmcAlbumForMurder();
+				break;
+				
+			case "takethemononyourown":
+				album = getBrmcAlbumTakeThemOnOnYourOwn();
+				break;
+				
+			case "howl":
+				album = getBrmcAlbumHowl();
+				break;
+				
+			case "howlsessions":
+				album = getBrmcAlbumHowlSessions();
+				break;
+				
+			case "baby81":
+				album = getBrmcAlbumBaby81();
+				break;
+				
+			case "americanxbaby81sessions":
+				album = getBrmcAlbumAmericanXBaby81Sessions();
+				break;
+				
+			case "theeffectsof333":
+				album = getBrmcAlbumTheEffectsOf333();
+				break;	
+				
+			case "live":
+				album = getBrmcAlbumLive();
+				break;
+				
+			case "beatthedevilstattoo":
+				album = getBrmcAlbumBeatTheDevilsTattoo();
+				break;
+				
+			case "liveinlondon":
+				album = getBrmcAlbumLiveInLondon();
+				break;
+				
+			case "specteratthefeast":
+				album = getBrmcAlbumSpecterAtTheFeast();
+				break;
+				
+			case "liveinparis":
+				album = getBrmcAlbumLiveInParis();
+				break;
+				
+			case "wrongcreatures":
+				album = getBrmcAlbumWrongCreatures();
+				break;	
+		}
+		
+		return album;
+	}
+	
 	// ##########
 	// BRMC Demos
 	// ##########
@@ -32,7 +109,7 @@ public class BrmcAlbumService
 	// #####
 	// ALBUM
 	// #####
-	public Album getBrmcAlbumDemos()
+	private Album getBrmcAlbumDemos()
 	{
 		// Album Cover Image File
 		final String brmcDemosCover = "images/albumCovers/BRMC/HiRes/BRMC-Demos.jpg";
@@ -50,7 +127,7 @@ public class BrmcAlbumService
 	// ######
 	// TRACKS
 	// ######
-	public ArrayList<Song> getBrmcDemosTracks()
+	private ArrayList<Song> getBrmcDemosTracks()
 	{
 		// Local Variables
 		ArrayList<Song> brmcDemos = new ArrayList<Song>();
@@ -95,7 +172,7 @@ public class BrmcAlbumService
 	// #####
 	// ALBUM
 	// #####
-	public Album getBrmcAlbumBlackRebelMotorcycleClub()
+	private Album getBrmcAlbumBlackRebelMotorcycleClub()
 	{
 		// Album Cover Image File
 		final String brmcBlackRebelMotorcycleClubCover = "images/albumCovers/BRMC/HiRes/BRMC-BlackRebelMotorcycleClub.jpg";
@@ -109,7 +186,7 @@ public class BrmcAlbumService
 	// ######
 	// TRACKS
 	// ######
-	public ArrayList<Song> getBrmcBlackRebelMotorcycleClubTracks()
+	private ArrayList<Song> getBrmcBlackRebelMotorcycleClubTracks()
 	{
 		// Local Variables
 		ArrayList<Song> brmcBlackRebelMotorcycleClub = new ArrayList<Song>();
@@ -150,13 +227,13 @@ public class BrmcAlbumService
 	// #####
 	// ALBUM
 	// #####
-	public Album getBrmcAlbumTakeThemOnOnYourOwn()
+	private Album getBrmcAlbumTakeThemOnOnYourOwn()
 	{
 		// Album Cover Image File
 		final String brmcTakeThemOnOnYourOwnCover = "images/albumCovers/BRMC/HiRes/BRMC-TakeThemOnOnYourOwn.jpg";
 		
 		// Create Album Object
-		Album brmcTakeThemOnOnYourOwnAlbum = new Album("Black Rebel Motorcycle Club", "Take Them On, On Your Own", 2003, getBrmcBlackRebelMotorcycleClubTracks(), brmcTakeThemOnOnYourOwnCover);
+		Album brmcTakeThemOnOnYourOwnAlbum = new Album("Black Rebel Motorcycle Club", "Take Them On, On Your Own", 2003, getBrmcTakeThemOnOnYourOwnTracks(), brmcTakeThemOnOnYourOwnCover);
 		
 		return brmcTakeThemOnOnYourOwnAlbum;
 	}
@@ -164,7 +241,7 @@ public class BrmcAlbumService
 	// ######
 	// TRACKS
 	// ######
-	public ArrayList<Song> getBrmcTakeThemOnOnYourOwn()
+	private ArrayList<Song> getBrmcTakeThemOnOnYourOwnTracks()
 	{
 		// Local Variables
 		ArrayList<Song> brmcTakeThemOnOnYourOwn = new ArrayList<Song>();
@@ -207,7 +284,7 @@ public class BrmcAlbumService
 	// #####
 	// ALBUM
 	// #####
-	public Album getBrmcAlbumHowl()
+	private Album getBrmcAlbumHowl()
 	{
 		// Album Cover Image File
 		final String brmcHowlCover = "images/albumCovers/BRMC/HiRes/BRMC-Howl.jpg";
@@ -221,7 +298,7 @@ public class BrmcAlbumService
 	// ######
 	// TRACKS
 	// ######
-	public ArrayList<Song> getBrmcHowlTracks()
+	private ArrayList<Song> getBrmcHowlTracks()
 	{
 		// Local Variables
 		ArrayList<Song> brmcHowl = new ArrayList<Song>();
@@ -268,7 +345,7 @@ public class BrmcAlbumService
 	// #####
 	// ALBUM
 	// #####
-	public Album getBrmcAlbumBaby81()
+	private Album getBrmcAlbumBaby81()
 	{
 		// Album Cover Image File
 		final String brmcBaby81Cover = "images/albumCovers/BRMC/HiRes/BRMC-Baby81.jpg";
@@ -282,7 +359,7 @@ public class BrmcAlbumService
 	// ######
 	// TRACKS
 	// ######
-	public ArrayList<Song> getBrmcBaby81Tracks()
+	private ArrayList<Song> getBrmcBaby81Tracks()
 	{
 		// Local Variables
 		ArrayList<Song> brmcBaby81 = new ArrayList<Song>();
@@ -327,7 +404,7 @@ public class BrmcAlbumService
 	// #####
 	// ALBUM
 	// #####
-	public Album getBrmcAlbumTheEffectsOf333()
+	private Album getBrmcAlbumTheEffectsOf333()
 	{
 		// Album Cover Image File
 		final String brmcTheEffectsOf333Cover = "images/albumCovers/BRMC/HiRes/BRMC-TheEffectsOf333.jpg";
@@ -341,7 +418,7 @@ public class BrmcAlbumService
 	// ######
 	// TRACKS
 	// ######
-	public ArrayList<Song> getBrmcTheEffectsOf333Tracks()
+	private ArrayList<Song> getBrmcTheEffectsOf333Tracks()
 	{
 		// Local Variables
 		ArrayList<Song> brmcTheEffectsOf333 = new ArrayList<Song>();
@@ -380,7 +457,7 @@ public class BrmcAlbumService
 	// #####
 	// ALBUM
 	// #####
-	public Album getBrmcAlbumBeatTheDevilsTattoo()
+	private Album getBrmcAlbumBeatTheDevilsTattoo()
 	{
 		// Album Cover Image File
 		final String brmcBeatTheDevilsTattooCover = "images/albumCovers/BRMC/HiRes/BRMC-BeatTheDevilsTattoo.jpg";
@@ -394,7 +471,7 @@ public class BrmcAlbumService
 	// ######
 	// TRACKS
 	// ######
-	public ArrayList<Song> getBrmcBeatTheDevilsTattooTracks()
+	private ArrayList<Song> getBrmcBeatTheDevilsTattooTracks()
 	{
 		// Local Variables
 		ArrayList<Song> brmcBeatTheDevilsTattoo = new ArrayList<Song>();
@@ -439,7 +516,7 @@ public class BrmcAlbumService
 	// #####
 	// ALBUM
 	// #####
-	public Album getBrmcAlbumSpecterAtTheFeast()
+	private Album getBrmcAlbumSpecterAtTheFeast()
 	{
 		// Album Cover Image File
 		final String brmcSpecterAtTheFeastCover = "images/albumCovers/BRMC/HiRes/BRMC-SpecterAtTheFeast.jpg";
@@ -453,7 +530,7 @@ public class BrmcAlbumService
 	// ######
 	// TRACKS
 	// ######
-	public ArrayList<Song> getBrmcSpecterAtTheFeastTracks()
+	private ArrayList<Song> getBrmcSpecterAtTheFeastTracks()
 	{
 		// Local Variables
 		ArrayList<Song> brmcBrmcSpecterAtTheFeast = new ArrayList<Song>();
@@ -496,7 +573,7 @@ public class BrmcAlbumService
 	// #####
 	// ALBUM
 	// #####
-	public Album getBrmcAlbumWrongCreatures()
+	private Album getBrmcAlbumWrongCreatures()
 	{
 		// Album Cover Image File
 		final String brmcWrongCreaturesCover = "images/albumCovers/BRMC/HiRes/BRMC-WrongCreatures.jpg";
@@ -510,7 +587,7 @@ public class BrmcAlbumService
 	// ######
 	// TRACKS
 	// ######
-	public ArrayList<Song> getBrmcWrongCreaturesTracks()
+	private ArrayList<Song> getBrmcWrongCreaturesTracks()
 	{
 		// Local Variables
 		ArrayList<Song> brmcWrongCreatures = new ArrayList<Song>();
@@ -553,7 +630,7 @@ public class BrmcAlbumService
 	// #####
 	// ALBUM
 	// #####
-	public Album getBrmcAlbumLive()
+	private Album getBrmcAlbumLive()
 	{
 		// Album Cover Image File
 		final String brmcLiveCover = "images/albumCovers/BRMC/HiRes/BRMC-Live.jpg";
@@ -567,7 +644,7 @@ public class BrmcAlbumService
 	// ######
 	// TRACKS
 	// ######
-	public ArrayList<Song> getBrmcLiveTracks()
+	private ArrayList<Song> getBrmcLiveTracks()
 	{
 		// Local Variables
 		ArrayList<Song> brmcLive = new ArrayList<Song>();
@@ -634,7 +711,7 @@ public class BrmcAlbumService
 	// #####
 	// ALBUM
 	// #####
-	public Album getBrmcAlbumLiveInLondon()
+	private Album getBrmcAlbumLiveInLondon()
 	{
 		// Album Cover Image File
 		final String brmcLiveInLondonCover = "images/albumCovers/BRMC/HiRes/BRMC-LiveInLondon.jpg";
@@ -648,7 +725,7 @@ public class BrmcAlbumService
 	// ######
 	// TRACKS
 	// ######
-	public ArrayList<Song> getBrmcLiveInLondonTracks()
+	private ArrayList<Song> getBrmcLiveInLondonTracks()
 	{
 		// Local Variables
 		ArrayList<Song> brmcLiveInLondon = new ArrayList<Song>();
@@ -707,7 +784,7 @@ public class BrmcAlbumService
 	// #####
 	// ALBUM
 	// #####
-	public Album getBrmcAlbumLiveInParis()
+	private Album getBrmcAlbumLiveInParis()
 	{
 		// Album Cover Image File
 		final String brmcLiveInParisCover = "images/albumCovers/BRMC/HiRes/BRMC-LiveInParis.jpg";
@@ -789,7 +866,7 @@ public class BrmcAlbumService
 	// #####
 	// ALBUM
 	// #####
-	public Album getBrmcAlbumScreamingGun()
+	private Album getBrmcAlbumScreamingGun()
 	{
 		// Album Cover Image File
 		final String brmcScreamingGunCover = "images/albumCovers/BRMC/HiRes/BRMC-ScreamingGun.jpg";
@@ -803,7 +880,7 @@ public class BrmcAlbumService
 	// ######
 	// TRACKS
 	// ######
-	public ArrayList<Song> getBrmcScreamingGunTracks()
+	private ArrayList<Song> getBrmcScreamingGunTracks()
 	{
 		// Local Variables
 		ArrayList<Song> brmcScreamingGun = new ArrayList<Song>();
@@ -832,7 +909,7 @@ public class BrmcAlbumService
 	// #####
 	// ALBUM
 	// #####
-	public Album getBrmcAlbumForMurder()
+	private Album getBrmcAlbumForMurder()
 	{
 		// Album Cover Image File
 		final String brmcForMurderCover = "images/albumCovers/BRMC/HiRes/BRMC-ForMurder.jpg";
@@ -846,7 +923,7 @@ public class BrmcAlbumService
 	// ######
 	// TRACKS
 	// ######
-	public ArrayList<Song> getBrmcForMurderTracks()
+	private ArrayList<Song> getBrmcForMurderTracks()
 	{
 		// Local Variables
 		ArrayList<Song> brmcForMurder = new ArrayList<Song>();
@@ -889,7 +966,7 @@ public class BrmcAlbumService
 	// #####
 	// ALBUM
 	// #####
-	public Album getBrmcAlbumHowlSessions()
+	private Album getBrmcAlbumHowlSessions()
 	{
 		// Album Cover Image File
 		final String brmcHowlSessionsCover = "images/albumCovers/BRMC/HiRes/BRMC-HowlSessions.jpg";
@@ -903,7 +980,7 @@ public class BrmcAlbumService
 	// ######
 	// TRACKS
 	// ######
-	public ArrayList<Song> getBrmcHowlSessionsTracks()
+	private ArrayList<Song> getBrmcHowlSessionsTracks()
 	{
 		// Local Variables
 		ArrayList<Song> brmcHowlSessions = new ArrayList<Song>();
@@ -934,7 +1011,7 @@ public class BrmcAlbumService
 	// #####
 	// ALBUM
 	// #####
-	public Album getBrmcAlbumAmericanXBaby81Sessions()
+	private Album getBrmcAlbumAmericanXBaby81Sessions()
 	{
 		// Album Cover Image File
 		final String brmcAmericanXBaby81SessionsCover = "images/albumCovers/BRMC/HiRes/BRMC-AmericanXBaby81Sessions.jpg";
@@ -948,7 +1025,7 @@ public class BrmcAlbumService
 	// ######
 	// TRACKS
 	// ######
-	public ArrayList<Song> getBrmcAlbumAmericanXBaby81SessionsTracks()
+	private ArrayList<Song> getBrmcAlbumAmericanXBaby81SessionsTracks()
 	{
 		// Local Variables
 		ArrayList<Song> brmcAmericanXBaby81Sessions = new ArrayList<Song>();
