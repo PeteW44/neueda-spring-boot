@@ -22,7 +22,13 @@
 		<section>
 			<h3 class="text-center text-white">Result</h3>
 			<div class="container">
-				
+				<p class="text-white" th:text="${'Hello ' + firstname + ' ' + lastname}"></p>
+				<br />
+				<label class="text-white">First name: </label><p class="text-white" th:text="${firstname}"></p>
+				<br />
+				<label class="text-white">Last name: </label><p class="text-white" th:text="${lastname}"></p>
+				<br />
+				<label class="text-white">Gender: </label><p class="text-white" th:text="${gender}"></p>
 			</div>
 		</section>
 		<br />

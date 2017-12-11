@@ -4,11 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>ac.uk.belfastmet</groupId>
-	<artifactId>05-02-SpringBoot-TitanicSaved</artifactId>
+	<artifactId>05-03-SpringBoot-TitanicSaved</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>05-02-SpringBoot-TitanicSaved</name>
+	<name>05-03-SpringBoot-TitanicSaved</name>
 	<description>Demo project for Spring Boot</description>
 
 	<parent>
@@ -41,6 +41,11 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>

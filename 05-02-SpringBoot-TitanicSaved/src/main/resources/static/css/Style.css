@@ -3,7 +3,7 @@
 	CSS Style Sheet
 */
 
-/* Center Page on Screen */
+/* Center Content on Screen */
 
 .content 
 {
@@ -13,6 +13,81 @@
     padding: 10px;
 }
 
+/* Images */
+
+img
+{
+	max-width: 100%;
+	max-height: 100%;
+	margin: auto;
+    padding: 0px;
+}
+
+.buttonImage
+{
+	width: 50px;
+	height: 50px;
+}
+
+.carouselStyle
+{
+	max-width: 900px;
+	max-height: 600px;
+	margin: auto;
+}
+
+.blackBackGround
+{
+	background-color: #000000;
+}
+
+.transparent
+{
+	background: rgba(0, 0, 0, 0.7);
+	display: inline-block
+}
+
+.homeHeadImage
+{
+    background-image:url("/images/Artwork/HomeHeader.jpg");
+}
+
+.navImage
+{
+    background-image:url("/images/navBanner.jpeg");
+}
+
+.brmcHeadImage
+{
+    background-image:url("/images/Artwork/BRMCHeaderPoster.jpg");
+}
+
+.pinkFloydHeadImage
+{
+    background-image:url("/images/Artwork/PinkFloydHeaderBabes.jpg");
+}
+
+.spacemen3HeadImage
+{
+    background-image:url("/images/Artwork/Spacemen3Header.jpg");
+}
+
+.brmcBioImage
+{
+    background-image:url("/images/Artwork/BRMCSkullCandy.jpg");
+}
+
+.pinkFloydBioImage1
+{
+    background-image:url("/images/Artwork/PinkFloydBackground.jpg");
+}
+
+.spacemen3BioImage
+{
+	
+    background-image:url("/images/Artwork/Spacemen3Logo.jpg");
+}
+
 /* HTML Elements */
 
 body
@@ -20,32 +95,12 @@ body
 	font-family: Calibri, Arial, Verdana;
 }
 
-.row:after
+.navbar-nav > li
 {
-    content: "";
-    display: table;
-    clear: both;
+  padding-right: 10px;
 }
 
-.left
-{
-	text-align: left;
-	font-size: 12px;
-	padding-left: 35px;
-}
-
-.center
-{
-	text-align: center;
-	font-size: 12px;
-}
-
-.right
-{
-	text-align: right;
-	font-size: 12px;
-	padding-right: 35px;
-}
+/* Table Style */
 
 table 
 {
@@ -53,7 +108,7 @@ table
     border-collapse: collapse;
     border-style: solid;
     border-width: thin;
-    border-color: white;
+    border-color: #ffffff;
     background-color: #000000;
 }
 
@@ -74,37 +129,11 @@ tr:nth-child(odd)
     background-color: #000000;
 }
 
-.aimage
+.row:after
 {
-	width: 250px;
-	height: 250px;
-}
-
-.cImage
-{
-	width: 900px;
-	height: 600px;
-}
-
-.bImage
-{
-	width: 35px;
-	height: 35px;
-}
-
-.text-black
-{
-	color: black;
-}
-
-.greyBackGround
-{
-	background-color: #808080;
-}
-
-.blackBackGround
-{
-	background-color: #000000;
+    content: "";
+    display: table;
+    clear: both;
 }
 
 /* Headings */
@@ -143,4 +172,21 @@ h6
 {
 	font-size: 18px;
 	line-height: 28px;
+}
+
+/* Footer Style */
+
+.footText
+{
+	font-size: 12px;
+}
+
+.left
+{
+	padding-left: 35px;
+}
+
+.right
+{
+	padding-right: 35px;
 }

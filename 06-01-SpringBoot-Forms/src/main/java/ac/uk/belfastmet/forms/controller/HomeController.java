@@ -15,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/")
@@ -28,8 +29,14 @@ public class HomeController
 	}
 	
 	@GetMapping("/result/")
-	public String result(Model model)
+	public String result(@RequestParam("firstname") String firstName, 
+						 @RequestParam("lastname") String lastName, 
+						 @RequestParam("gender") String gender, Model model)
 	{
+		model.addAttribute("firstname", firstName);
+		model.addAttribute("lastname", lastName);
+		model.addAttribute("gender", gender);
+		
 		model.addAttribute("pageTitle", "Result");
 		return "resultPage";
 	}

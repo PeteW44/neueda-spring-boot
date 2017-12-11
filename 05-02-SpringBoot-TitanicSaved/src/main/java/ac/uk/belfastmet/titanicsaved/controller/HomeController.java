@@ -1,10 +1,10 @@
 /*
  * Class:           HomeController.java
  * Project:         Titanic Demo
- * Package:         ac.uk.belfastmet.dwarfs.domain
+ * Package:         ac.uk.belfastmet.titanicsaved.controller
  * Version:         1.0
- * Created:         01/12/2017
- * Updated:         01/12/2017 16.30
+ * Created:         11/12/2017
+ * Updated:         11/12/2017 16.30
  * Author:          Peter Wightman
  * Description:     This is the HomeController Class
  */
