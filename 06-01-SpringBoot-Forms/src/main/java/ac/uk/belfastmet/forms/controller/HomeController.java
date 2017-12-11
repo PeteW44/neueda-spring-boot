@@ -14,6 +14,7 @@ package ac.uk.belfastmet.forms.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -28,8 +29,8 @@ public class HomeController
 		return "formPage";
 	}
 	
-	@GetMapping("/result/")
-	public String result(@RequestParam("firstname") String firstName, 
+	@PostMapping("/result/")
+	public String postResult(@RequestParam("firstname") String firstName, 
 						 @RequestParam("lastname") String lastName, 
 						 @RequestParam("gender") String gender, Model model)
 	{
@@ -37,7 +38,18 @@ public class HomeController
 		model.addAttribute("lastname", lastName);
 		model.addAttribute("gender", gender);
 		
-		model.addAttribute("pageTitle", "Result");
+		model.addAttribute("pageTitle", "Post Result");
+		return "resultPage";
+	}
+	
+	@GetMapping("/result/")
+	public String getResult(String firstName, String lastName, String gender, Model model)
+	{
+		model.addAttribute("firstname", "Peter2");
+		model.addAttribute("lastname", "Wightman2");
+		model.addAttribute("gender", "Unsure");
+		
+		model.addAttribute("pageTitle", "Get Result");
 		return "resultPage";
 	}
 }
