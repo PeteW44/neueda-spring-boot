@@ -42,34 +42,34 @@ public class Passenger
 	}
 	
 	// Parameterised Passenger Constructor
-//	public Passenger(Integer passengerId, Integer survived, Integer pClass, String name, String sex, Integer age,
-//					 Integer sibSp, Integer parch, String ticket, BigDecimal fare, String cabin, String embarked)
-//	{
-//		super();
-//		this.setID(passengerId);
-//		this.setSurvived(survived);
-//		this.setpClass(pClass);
-//		this.setName(name);
-//		this.setSex(sex);
-//		this.setAge(age);
-//		this.setSibSp(sibSp);
-//		this.setParch(parch);
-//		this.setTicket(ticket);
-//		this.setFare(fare);
-//		this.setCabin(cabin);
-//		this.setEmbarked(embarked);
-//	}
+	public Passenger(Integer passengerId, Integer survived, Integer pClass, String name, String sex, Integer age,
+					 Integer sibSp, Integer parch, String ticket, BigDecimal fare, String cabin, String embarked)
+	{
+		super();
+		this.setPassengerId(passengerId);
+		this.setSurvived(survived);
+		this.setpClass(pClass);
+		this.setName(name);
+		this.setSex(sex);
+		this.setAge(age);
+		this.setSibSp(sibSp);
+		this.setParch(parch);
+		this.setTicket(ticket);
+		this.setFare(fare);
+		this.setCabin(cabin);
+		this.setEmbarked(embarked);
+	}
 
 	/*
 	 * GET & SET Property Methods
 	 */
 	
-	public Integer getpassengerId()
+	public Integer getPassengerId()
 	{
 		return passengerId;
 	}
 	
-	public void setpassengerId(Integer passengerId)
+	public void setPassengerId(Integer passengerId)
 	{
 		this.passengerId = passengerId;
 	}

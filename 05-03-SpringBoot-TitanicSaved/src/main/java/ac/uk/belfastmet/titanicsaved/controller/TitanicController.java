@@ -1,9 +1,9 @@
 /*
  * Class:           TitanicController.java
  * Project:         Titanic Demo
- * Package:         ac.uk.belfastmet.titanic.domain
+ * Package:         ac.uk.belfastmet.titanicsaved.controller
  * Version:         1.0
- * Created:         01/12/2017
+ * Created:         11/12/2017
  * Updated:         11/12/2017 16.30
  * Author:          Peter Wightman
  * Description:     This is the TitanicController Class
@@ -35,7 +35,7 @@ public class TitanicController
 	@GetMapping("/")
 	public String passengers(Model model)
 	{
-		model.addAttribute("pageTitle", "Passengers");
+		model.addAttribute("pageTitle", "All Passengers");
 		model.addAttribute("passengers", titanicRepository.findAll());
 		
 		return "passengerPage";
@@ -46,6 +46,15 @@ public class TitanicController
 	{
 		model.addAttribute("pageTitle", "First Class Passengers");
 		model.addAttribute("passengers", titanicRepository.findByPClass(1));
+		
+		return "passengerPage";
+	}
+	
+	@GetMapping("/secondclass/")
+	public String secondClassPassengers(Model model)
+	{
+		model.addAttribute("pageTitle", "Second Class Passengers");
+		model.addAttribute("passengers", titanicRepository.findByPClass(2));
 		
 		return "passengerPage";
 	}
