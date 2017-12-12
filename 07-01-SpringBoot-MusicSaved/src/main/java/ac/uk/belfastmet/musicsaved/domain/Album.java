@@ -49,7 +49,7 @@ public class Album
 	}
 	
 	// Parameterised Album Constructor
-	public Album(Integer albumId, Integer bandId, String albumTitle, Integer releaseYear,  String albumArt, ArrayList<Song> albumTracks)
+	public Album(Integer albumId, Integer bandId, String albumTitle, Integer releaseYear,  String albumArt)
 	{
 		super();
 		this.setAlbumId(albumId);
@@ -57,7 +57,6 @@ public class Album
 		this.setAlbumTitle(albumTitle);
 		this.setReleaseYear(releaseYear);
 		this.setAlbumArt(albumArt);
-		this.setAlbumTracks(albumTracks);
 	}
 	
 	/*

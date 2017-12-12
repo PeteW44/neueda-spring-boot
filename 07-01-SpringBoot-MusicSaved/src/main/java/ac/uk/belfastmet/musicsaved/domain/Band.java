@@ -44,14 +44,13 @@ public class Band
 	}
 	
 	// Parameterised Album Constructor
-	public Band(Integer bandId, String bandName, String website, String origin, ArrayList<Album> albums)
+	public Band(Integer bandId, String bandName, String website, String origin)
 	{
 		super();
 		this.setBandId(bandId);
 		this.setBandName(bandName);
 		this.setWebsite(website);
 		this.setOrigin(origin);
-		this.setAlbums(albums);
 	}
 	
 	/*
