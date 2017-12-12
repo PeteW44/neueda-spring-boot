@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="Http:thymeleaf.org">
+	<head th:replace="layouts/header :: headFragment"></head>
+	<body class="content">
+		<header class="jumbotron text-center homeHeadImage">
+			<div class="transparent">
+				<h1 class="text-center text-white" th:text="${cereal.manufacturerName}"><b></b></h1>
+				<h2 class="text-center text-white" th:text="${cereal.cerealName}"><b></b></h2>
+			</div>
+		</header>
+		<nav th:replace="layouts/nav :: navFragment"></nav>
+		<br />
+		<section>
+			<h6 class="text-center text-white">Edit Cereal Attributes</h6>
+			<br />
+			<div class="container">
+				<form class="form-horizontal" th:action="@{/cereals/save}" th:object="${cereal}" method="post">
+					<!-- hidden field is important! -->
+					<input type="hidden" th:field="${cereal.cerealId}" />
+					
+					<div class="container">
+						<div class="row">
+					    	<div class="col-6">
+					    		<div class="form-group is-invalid" th:classappend="${#fields.hasErrors('manufacturerName')}? 'has-error'">
+									<div class="control-label">
+										<label class="text-white right">Manufacturer:</label>
+										<input class="form-control" type="text" name="manufacturerName" th:field="${cereal.manufacturerName}" />
+										<span th:if="${#fields.hasErrors('manufacturerName')}"
+											  th:errors="*{manufacturerName}"
+											  th:class="help-block">Manufacturer Errors</span>
+									</div>
+								</div>
+					    	</div>
+					    	<div class="col-6">
+					    		<div class="form-group is-invalid" th:classappend="${#fields.hasErrors('cerealName')}? 'is-invalid'">
+									<div class="control-label">
+										<label class="text-white right">Cereal:</label>
+										<input class="form-control" type="text" name="cerealName" th:field="${cereal.cerealName}" />
+										<span th:if="${#fields.hasErrors('cerealName')}" 
+											  th:errors="*{cerealName}" 
+											  th:class="help-block">Cereal Errors</span>
+									</div>
+								</div>
+					    	</div>
+					    </div>
+					    <div class="row">
+					    	<div class="col-6">
+					    		<label class="text-white right">Energy: <input class="form-control" type="text" name="energy" th:field="${cereal.energy}" /></label>
+								<label class="text-white right">Calories: <input class="form-control" type="text" name="calories" th:field="${cereal.calories}" /></label>
+					    	</div>
+					    	<div class="col-6">
+					    		<label class="text-white right">Protein: <input class="form-control" type="text" name="protein" th:field="${cereal.protein}" /></label>
+								<label class="text-white right">Carbohydrate: <input class="form-control" type="text" name="carbohydrate" th:field="${cereal.carbohydrate}" /></label>
+					    	</div>
+					    </div>
+					    <div class="row">
+					    	<div class="col-6">
+					    		<label class="text-white right">Sugars: <input class="form-control" type="text" name="sugars" th:field="${cereal.sugars}" /></label>
+								<label class="text-white right">Fat: <input class="form-control" type="text" name="fat" th:field="${cereal.fat}" /></label>
+					    	</div>
+					    	<div class="col-6">
+					    		<label class="text-white right">Saturates: <input class="form-control" type="text" name="saturates" th:field="${cereal.saturates}" /></label>
+								<label class="text-white right">Fibre: <input class="form-control" type="text" name="fibre" th:field="${cereal.fibre}" /></label>
+					    	</div>
+					    </div>
+					    <div class="row">
+					    	<div class="col-6">
+					    		<label class="text-white right">Sodium: <input class="form-control" type="text" name="sodium" th:field="${cereal.sodium}" /></label>
+								<label class="text-white right">Salt: <input class="form-control" type="text" name="salt" th:field="${cereal.salt}" /></label>
+					    	</div>
+					    	<div class="col-6">
+					    		<label class="text-white right">Iron: <input class="form-control" type="text" name="iron" th:field="${cereal.iron}" /></label>
+					    	</div>
+					    </div>
+					</div>
+				</form>
+			</div>
+		</section>
+		<br />
+		<footer th:replace="layouts/footer :: footFragment"></footer>
+		<br />
+	</body>
+</html>

@@ -4,13 +4,13 @@
  * Package:         ac.uk.belfastmet.cereal.controller
  * Version:         1.0
  * Created:         11/12/2017
- * Updated:         11/12/2017 16.30
+ * Updated:         12/12/2017 16.00
  * Author:          Peter Wightman
  * Description:     This is the HomeController Class
  */
 
 package ac.uk.belfastmet.cereal.controller;
-// Import Packages
+//Import Packages
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,12 +25,5 @@ public class HomeController
 	{
 		model.addAttribute("pageTitle", "Home");
 		return "indexPage";
-	}
-	
-	@GetMapping("/cereals/")
-	public String cereals(Model model)
-	{
-		model.addAttribute("pageTitle", "Cereal's");
-		return "cerealPage";
 	}
 }

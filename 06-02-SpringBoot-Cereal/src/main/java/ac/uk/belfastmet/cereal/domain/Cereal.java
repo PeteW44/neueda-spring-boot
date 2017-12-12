@@ -4,7 +4,7 @@
  * Package:         ac.uk.belfastmet.cereal.domain
  * Version:         1.0
  * Created:         11/12/2017
- * Updated:         11/12/2017 16.30
+ * Updated:         12/12/2017 16.00
  * Author:          Peter Wightman
  * Description:     This is the Cereal Class
  */
@@ -15,25 +15,32 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 @Entity
 public class Cereal 
 {
-	// Instance Variables
 	@Id
 	@GeneratedValue
 	private Integer cerealId;
+	
+	@NotEmpty
 	private String manufacturerName;
+	
+	@NotEmpty
 	private String cerealName;
-	private Double energy;
-	private Double calories;
+	
+	// Instance Variables
+	private Integer energy;
+	private Integer calories;
 	private Double protein;
 	private Double carbohydrate;
 	private Double sugars;
 	private Double fat;
 	private Double saturates;
 	private Double fibre;
-	private Double sodium;
-	private Double salt;
+	private String sodium;
+	private String salt;
 	private Double iron;
 	
 	// Default Passenger Constructor
@@ -43,9 +50,9 @@ public class Cereal
 	}
 	
 	// Parameterised Passenger Constructor
-	public Cereal(Integer cerealId, String manufacturerName, String cerealName, Double energy, Double calories,
+	public Cereal(Integer cerealId, String manufacturerName, String cerealName, Integer energy, Integer calories,
 				  Double protein, Double carbohydrate, Double sugars, Double fat, Double saturates,
-				  Double fibre, Double sodium, Double salt, Double iron)
+				  Double fibre, String sodium, String salt, Double iron)
 	{
 		super();
 		this.setCerealId(cerealId);
@@ -98,22 +105,22 @@ public class Cereal
 		this.cerealName = cerealName;
 	}
 	
-	public Double getEnergy() 
+	public Integer getEnergy() 
 	{
 		return energy;
 	}
 	
-	public void setEnergy(Double energy) 
+	public void setEnergy(Integer energy) 
 	{
 		this.energy = energy;
 	}
 	
-	public Double getCalories() 
+	public Integer getCalories() 
 	{
 		return calories;
 	}
 	
-	public void setCalories(Double calories) 
+	public void setCalories(Integer calories) 
 	{
 		this.calories = calories;
 	}
@@ -178,22 +185,22 @@ public class Cereal
 		this.fibre = fibre;
 	}
 	
-	public Double getSodium()
+	public String getSodium()
 	{
 		return sodium;
 	}
 	
-	public void setSodium(Double sodium) 
+	public void setSodium(String sodium) 
 	{
 		this.sodium = sodium;
 	}
 	
-	public Double getSalt() 
+	public String getSalt() 
 	{
 		return salt;
 	}
 	
-	public void setSalt(Double salt) 
+	public void setSalt(String salt) 
 	{
 		this.salt = salt;
 	}

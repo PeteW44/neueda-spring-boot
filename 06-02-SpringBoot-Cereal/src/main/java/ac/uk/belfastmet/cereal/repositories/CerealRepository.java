@@ -4,7 +4,7 @@
  * Package:         ac.uk.belfastmet.cereal.repositories
  * Version:         1.0
  * Created:         11/12/2017
- * Updated:         11/12/2017 16.30
+ * Updated:         12/12/2017 16.00
  * Author:          Peter Wightman
  * Description:     This is the CerealRepository Class
  */
@@ -14,8 +14,8 @@ package ac.uk.belfastmet.cereal.repositories;
 import org.springframework.data.repository.CrudRepository;
 import ac.uk.belfastmet.cereal.domain.Cereal;
 
-
 public interface CerealRepository extends CrudRepository<Cereal, Integer>
 {
 	Iterable<Cereal> findAll();
+	Cereal findAllByCerealId(int cerealId);
 }

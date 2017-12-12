@@ -4,7 +4,7 @@
 
 <html lang="en" xmlns:th="Http:thymeleaf.org">
 	<body>
-		<nav class="navbar navbar-expand-sm navbar-dark navImage" th:fragment="navFragment">
+		<nav class="navbar navbar-expand-sm navbar-dark" th:fragment="navFragment">
 			<div class="container-fluid">
 			    <div class="navbar-header">
 			    	<a href="/" class="logo-link">
@@ -12,11 +12,15 @@
 					</a>
 			    </div>
 			    <ul class="navbar-nav mr-auto">
-			    	<li class="navbar-item">
-			    		<a class="nav-link text-black" href="/cereals/">
-			    			<span class="text-black">Cereals</span>
-			    		</a>
-			    	</li>
+			    	<li class="dropdown">
+			    		<button class="btn btn-secondary dropdown-toggle text-white blackBackGround" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    						<span>Cereals</span>
+    					</button>
+						<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+							<li><a class="dropdown-item" href="/cereals/">Cereals</a></li>
+							<li><a class="dropdown-item" href="/cereals/crud/">CRUD</a></li>
+				        </ul>
+			        </li>
 			    </ul>
 			</div>
 		</nav>
