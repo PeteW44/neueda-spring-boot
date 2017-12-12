@@ -10,12 +10,28 @@
  */
 
 package ac.uk.belfastmet.musicsaved.domain;
+// Import Packages
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
+@Entity
 public class Song 
 {
-	// Instance Variables
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer songId;
+	
+	@NotEmpty
+	@ManyToOne(fetch = FetchType.EAGER)
 	private Integer albumId;
+	
+	// Instance Variables
 	private Integer trackNum;
 	private String trackTitle;
 	private String trackLength;

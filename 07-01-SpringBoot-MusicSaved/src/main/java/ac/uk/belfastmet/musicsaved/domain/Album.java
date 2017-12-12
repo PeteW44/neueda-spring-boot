@@ -12,16 +12,35 @@
 package ac.uk.belfastmet.musicsaved.domain;
 // Import Packages
 import java.util.ArrayList;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import org.hibernate.validator.constraints.NotEmpty;
 
+@Entity
 public class Album 
 {
-	// Instance Variables
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer albumId;
-	private String artist;
+	
+	@NotEmpty
+	@ManyToOne(fetch = FetchType.EAGER)
+	private Integer bandId;
+	
+	// Instance Variables
 	private String albumTitle;
 	private Integer releaseYear;
-	private ArrayList<Song> albumTracks;
 	private String albumArt;
+	
+	// Collection of Songs
+	@OneToMany(mappedBy = "albumID", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	private ArrayList<Song> albumTracks;
 	
 	// Default Album Constructor
 	public Album()
@@ -30,15 +49,15 @@ public class Album
 	}
 	
 	// Parameterised Album Constructor
-	public Album(Integer albumId, String artist, String albumTitle, Integer releaseYear, ArrayList<Song> albumTracks, String albumArt)
+	public Album(Integer albumId, Integer bandId, String albumTitle, Integer releaseYear,  String albumArt, ArrayList<Song> albumTracks)
 	{
 		super();
 		this.setAlbumId(albumId);
-		this.setArtist(artist);
+		this.setBandId(bandId);
 		this.setAlbumTitle(albumTitle);
 		this.setReleaseYear(releaseYear);
-		this.setAlbumTracks(albumTracks);
 		this.setAlbumArt(albumArt);
+		this.setAlbumTracks(albumTracks);
 	}
 	
 	/*
@@ -55,14 +74,14 @@ public class Album
 		this.albumId = albumId;
 	}
 	
-	public String getArtist() 
+	public Integer getBandId() 
 	{
-		return artist;
+		return bandId;
 	}
 
-	public void setArtist(String artist)
+	public void setBandId(Integer bandId) 
 	{
-		this.artist = artist;
+		this.bandId = bandId;
 	}
 
 	public String getAlbumTitle() 
@@ -85,16 +104,6 @@ public class Album
 		this.releaseYear = releaseYear;
 	}
 	
-	public ArrayList<Song> getAlbumTracks() 
-	{
-		return albumTracks;
-	}
-
-	public void setAlbumTracks(ArrayList<Song> albumTracks) 
-	{
-		this.albumTracks = albumTracks;
-	}
-	
 	public String getAlbumArt() 
 	{
 		return albumArt;
@@ -103,5 +112,19 @@ public class Album
 	public void setAlbumArt(String albumArt) 
 	{
 		this.albumArt = albumArt;
+	}
+	
+	/*
+	 * GET & SET Collection of Songs
+	 */
+	
+	public ArrayList<Song> getAlbumTracks() 
+	{
+		return albumTracks;
+	}
+
+	public void setAlbumTracks(ArrayList<Song> albumTracks) 
+	{
+		this.albumTracks = albumTracks;
 	}
 }
