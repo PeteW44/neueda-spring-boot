@@ -1,15 +1,15 @@
 /*
  * Class:           HomeController.java
- * Project:         Breakfast Cereal Demo
- * Package:         ac.uk.belfastmet.cereal.controller
+ * Project:         Music Demo
+ * Package:         ac.uk.belfastmet.musicsaved.controller
  * Version:         1.0
- * Created:         11/12/2017
- * Updated:         11/12/2017 16.30
+ * Created:         11/11/2017
+ * Updated:         12/12/2017 22.00
  * Author:          Peter Wightman
  * Description:     This is the HomeController Class
  */
 
-package ac.uk.belfastmet.cereal.controller;
+package ac.uk.belfastmet.musicsaved.controller;
 // Import Packages
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,14 +23,7 @@ public class HomeController
 	@GetMapping("/")
 	public String home(Model model)
 	{
-		model.addAttribute("pageTitle", "Home");
+		model.addAttribute("pageTitle", "Music Discography");
 		return "indexPage";
-	}
-	
-	@GetMapping("/cereals/")
-	public String cereals(Model model)
-	{
-		model.addAttribute("pageTitle", "Cereal's");
-		return "cerealPage";
 	}
 }

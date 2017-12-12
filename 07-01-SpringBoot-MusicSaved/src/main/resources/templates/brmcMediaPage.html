@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="Http:thymeleaf.org">
+	<head th:replace="layouts/header :: headFragment"></head>
+	<body class="content">
+		<header class="jumbotron text-center brmcHeadImage">
+			<div class="transparent">
+				<h1 class="text-center text-white"><b>Black Rebel Motorcycle Club</b></h1>
+				<h2 class="text-center text-white"><b>Media</b></h2>
+				<h3 class="text-center text-white"><b>Video</b></h3>
+			</div>
+		</header>
+		<nav th:replace="layouts/nav :: navFragment"></nav>
+		<br />
+		<section>
+			<h4 class="text-center text-white">Little Thing Gone Wild</h4>
+			<div class="text-center">
+				<iframe width="800" height="450" src="https://www.youtube.com/embed/nBjg8zSqvQc"></iframe>
+			</div>
+			<h4 class="text-center text-white">Whatever Happened To My Rock n Roll (Punk Song)</h4>
+			<div class="text-center text-white">
+				<iframe width="800" height="450" src="https://www.youtube.com/embed/jdTmk-YyUKg"></iframe>
+			</div>
+			<h4 class="text-center text-white">Rival</h4>
+			<div class="text-center text-white">
+				<iframe width="800" height="450" src="https://www.youtube.com/embed/VfnszUQrobQ"></iframe>
+			</div>
+			<h4 class="text-center text-white">Berlin (Live)</h4>
+			<div class="text-center text-white">
+				<iframe width="800" height="450" src="https://www.youtube.com/embed/QNmLEPYO_hs"></iframe>
+			</div>
+			<div>
+		</div>
+		</section>
+		<br />
+		<footer th:replace="layouts/footer :: footFragment"></footer>
+		<br />
+	</body>
+</html>

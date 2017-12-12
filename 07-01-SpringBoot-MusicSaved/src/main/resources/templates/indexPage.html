@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="Http:thymeleaf.org">
+	<head th:replace="layouts/header :: headFragment"></head>
+	<body class="content">
+		<header class="jumbotron text-center homeHeadImage">
+			<div class="transparent">
+				<h1 class="text-center text-white"><b>Music Discography</b></h1>
+				<h2 class="text-center text-white"><b>Albums and EP's</b></h2>
+				<h3 class="text-center text-white"><b>By Great Bands and Artists</b></h3>
+			</div>
+		</header>
+		<nav th:replace="layouts/nav :: navFragment"></nav>
+		<br />
+		<section>
+			<div id="homeCarousel" class="carousel slide carouselStyle" data-ride="carousel">	
+				<ul class="carousel-indicators">
+					<li data-target="#homeCarousel" data-slide-to="0" class="active"></li>
+					<li data-target="#homeCarousel" data-slide-to="1"></li>
+					<li data-target="#homeCarousel" data-slide-to="2"></li>
+				</ul>
+	  			<div class="carousel-inner">
+					<div class="carousel-item active">
+						<img src="../images/Carousels/Home/BRMCLogo.jpg" />
+					</div> 
+					<div class="carousel-item">
+						<img src="../images/Carousels/Home/PinkFloydLogo.jpg" />
+					</div>   
+				    <div class="carousel-item">
+						<img src="../images/Carousels/Home/Spacemen3Logo.jpg" />
+				    </div>
+			    </div> 
+				<a class="carousel-control-prev" href="#homeCarousel" data-slide="prev">
+			    	<span class="carousel-control-prev-icon"></span>
+				</a>
+				<a class="carousel-control-next" href="#homeCarousel" data-slide="next">
+					<span class="carousel-control-next-icon"></span>
+				</a>
+			</div>
+		</section>
+		<br />
+		<footer th:replace="layouts/footer :: footFragment"></footer>
+		<br />
+	</body>
+</html>
