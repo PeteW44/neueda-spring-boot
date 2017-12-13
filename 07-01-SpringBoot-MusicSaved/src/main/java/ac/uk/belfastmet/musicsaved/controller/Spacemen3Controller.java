@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import ac.uk.belfastmet.musicsaved.domain.Album;
+import ac.uk.belfastmet.musicsaved.repositories.AlbumRepository;
 import ac.uk.belfastmet.musicsaved.service.Spacemen3AlbumService;
 
 @Controller
@@ -27,6 +28,15 @@ public class Spacemen3Controller
 {
 	@Autowired
 	private Spacemen3AlbumService spacemen3AlbumService;
+	
+	@Autowired
+	AlbumRepository albumRepository;
+	
+	public Spacemen3Controller(AlbumRepository albumRepository)
+	{
+		super();
+		this.albumRepository = albumRepository;
+	}
 	
 	@GetMapping("/")
 	public String spacemen3Home(Model model)
@@ -67,7 +77,7 @@ public class Spacemen3Controller
 	@RequestMapping("/albums/{albumTitle}")
 	public String brmcDemos(@PathVariable("albumTitle") String albumTitle, Model model)
 	{
-		this.spacemen3AlbumService = new Spacemen3AlbumService();
+		this.spacemen3AlbumService = new Spacemen3AlbumService(albumRepository);
 		Album album = this.spacemen3AlbumService.getSpacemen3Album(albumTitle);
 		model.addAttribute("album", album);
 		model.addAttribute("pageTitle", album.getAlbumTitle());

@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import ac.uk.belfastmet.musicsaved.domain.Album;
+import ac.uk.belfastmet.musicsaved.repositories.AlbumRepository;
 import ac.uk.belfastmet.musicsaved.service.PinkFloydAlbumService;
 
 @Controller
@@ -27,6 +28,15 @@ public class PinkFloydController
 {
 	@Autowired
 	private PinkFloydAlbumService pinkFloydAlbumService;
+	
+	@Autowired
+	AlbumRepository albumRepository;
+	
+	public PinkFloydController(AlbumRepository albumRepository)
+	{
+		super();
+		this.albumRepository = albumRepository;
+	}
 	
 	@GetMapping("/")
 	public String pinkFloydHome(Model model)
@@ -67,7 +77,7 @@ public class PinkFloydController
 	@RequestMapping("/albums/{albumTitle}")
 	public String brmcDemos(@PathVariable("albumTitle") String albumTitle, Model model)
 	{
-		this.pinkFloydAlbumService = new PinkFloydAlbumService();
+		this.pinkFloydAlbumService = new PinkFloydAlbumService(albumRepository);
 		Album album = this.pinkFloydAlbumService.getPinkFloydAlbum(albumTitle);
 		model.addAttribute("album", album);
 		model.addAttribute("pageTitle", album.getAlbumTitle());

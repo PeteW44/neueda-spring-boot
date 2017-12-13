@@ -10,17 +10,23 @@
  */
 
 package ac.uk.belfastmet.musicsaved.service;
+import org.springframework.beans.factory.annotation.Autowired;
 // Import Packages
 import org.springframework.stereotype.Service;
 import ac.uk.belfastmet.musicsaved.domain.Album;
+import ac.uk.belfastmet.musicsaved.repositories.AlbumRepository;
 
 @Service
 public class Spacemen3AlbumService 
 {
+	@Autowired
+	AlbumRepository albumRepository;
+	
 	// Default Constructor
-	public Spacemen3AlbumService() 
+	public Spacemen3AlbumService(AlbumRepository albumRepository) 
 	{
 		super();
+		this.albumRepository = albumRepository;
 	}
 	
 	// ####################
@@ -33,96 +39,30 @@ public class Spacemen3AlbumService
 		switch(albumTitle)
 		{
 			case "soundofconfusion":
-				album = getSpacemen3AlbumSoundOfConfusion();
+				album = albumRepository.findOne(17);
 				break;
 			
 			case "theperfectprescription":
-				album = getSpacemen3AlbumThePerfectPrescription();
+				album = albumRepository.findOne(18);
 				break;
 			
 			case "playingwithfire":
-				album = getSpacemen3AlbumPlayingWithFire();
+				album = albumRepository.findOne(19);
 				break;
 			
 			case "liveineurope1989":
-				album = getSpacemen3AlbumLiveInEurope1989();
+				album = albumRepository.findOne(20);
 				break;
 				
 			case "recurring":
-				album = getSpacemen3AlbumRecurring();
+				album = albumRepository.findOne(21);
 				break;
 				
 			case "dreamweapon":
-				album = getSpacemen3AlbumDreamweapon();
+				album = albumRepository.findOne(22);
 				break;
 		}
 		
 		return album;
-	}
-	
-	// #############################
-	// Spacemen 3 Sound Of Confusion
-	// #############################
-	private Album getSpacemen3AlbumSoundOfConfusion()
-	{
-		// Create Album Object
-		Album spacemen3SoundOfConfusionAlbum = new Album();
-		
-		return spacemen3SoundOfConfusionAlbum;
-	}
-	
-	// ###################################
-	// Spacemen 3 The Perfect Prescription
-	// ###################################
-	private Album getSpacemen3AlbumThePerfectPrescription()
-	{
-		// Create Album Object
-		Album spacemen3ThePerfectPrescriptionAlbum = new Album();
-		
-		return spacemen3ThePerfectPrescriptionAlbum;
-	}
-	
-	// ############################
-	// Spacemen 3 Playing With Fire
-	// ############################
-	private Album getSpacemen3AlbumPlayingWithFire()
-	{
-		// Create Album Object
-		Album spacemen3PlayingWithFireAlbum = new Album();
-		
-		return spacemen3PlayingWithFireAlbum;
-	}
-	
-	// ##############################
-	// Spacemen 3 Live In Europe 1989
-	// ##############################
-	private Album getSpacemen3AlbumLiveInEurope1989()
-	{
-		// Create Album Object
-		Album spacemen3LiveInEurope1989Album = new Album();
-		
-		return spacemen3LiveInEurope1989Album;
-	}
-	
-	// ####################
-	// Spacemen 3 Recurring
-	// ####################
-	private Album getSpacemen3AlbumRecurring()
-	{
-		// Create Album Object
-		Album spacemen3RecurringAlbum = new Album();
-		
-		return spacemen3RecurringAlbum;
-	}
-	
-	// ######################
-	// Spacemen 3 Dreamweapon
-	// ######################
-	private Album getSpacemen3AlbumDreamweapon()
-	{
-		// Create Album Object
-		Album spacemen3DreamweaponAlbum = new Album();
-		
-		return spacemen3DreamweaponAlbum;
 	}
 }

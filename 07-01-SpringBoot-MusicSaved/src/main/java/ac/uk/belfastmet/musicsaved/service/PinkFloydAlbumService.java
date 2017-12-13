@@ -10,17 +10,23 @@
  */
 
 package ac.uk.belfastmet.musicsaved.service;
+import org.springframework.beans.factory.annotation.Autowired;
 // Import Packages
 import org.springframework.stereotype.Service;
 import ac.uk.belfastmet.musicsaved.domain.Album;
+import ac.uk.belfastmet.musicsaved.repositories.AlbumRepository;
 
 @Service
 public class PinkFloydAlbumService 
 {
+	@Autowired
+	AlbumRepository albumRepository;
+	
 	// Default Constructor
-	public PinkFloydAlbumService() 
+	public PinkFloydAlbumService(AlbumRepository albumRepository) 
 	{
 		super();
+		this.albumRepository = albumRepository;
 	}
 	
 	// ####################
@@ -33,276 +39,78 @@ public class PinkFloydAlbumService
 		switch(albumTitle)
 		{
 			case "thepiperatthegatesofdawn":
-				album = getPinkFloydThePiperAtTheGatesOfDawn();
+				album = albumRepository.findOne(23);
 				break;
 			
 			case "asaucerfulofsecrets":
-				album = getPinkFloydASaucerfulOfSecrets();
+				album = albumRepository.findOne(24);
 				break;
 			
 			case "more":
-				album = getPinkFloydMore();
+				album = albumRepository.findOne(25);
 				break;
 			
 			case "ummagumma":
-				album = getPinkFloydUmmagumma();
+				album = albumRepository.findOne(26);
 				break;
 				
 			case "atomheartmother":
-				album = getPinkFloydAtomHeartMother();
+				album = albumRepository.findOne(27);
 				break;
 				
 			case "meddle":
-				album = getPinkFloydMeddle();
+				album = albumRepository.findOne(28);
 				break;
 				
 			case "obscuredbyclouds":
-				album = getPinkFloydObscuredByClouds();
+				album = albumRepository.findOne(29);
 				break;
 				
 			case "thedarksideofthemoon":
-				album = getPinkFloydTheDarkSideOfTheMoon();
+				album = albumRepository.findOne(30);
 				break;
 				
 			case "wishyouwerehere":
-				album = getPinkFloydWishYouWereHere();
+				album = albumRepository.findOne(31);
 				break;
 				
 			case "animals":
-				album = getPinkFloydAnimals();
+				album = albumRepository.findOne(32);
 				break;	
 				
 			case "thewall":
-				album = getPinkFloydTheWall();
+				album = albumRepository.findOne(33);
 				break;
 				
 			case "thefinalcut":
-				album = getPinkFloydTheFinalCut();
+				album = albumRepository.findOne(34);
 				break;
 				
 			case "amomentarylapseofreason":
-				album = getPinkFloydAMomentaryLapseOfReason();
+				album = albumRepository.findOne(35);
 				break;
 				
 			case "delicatesoundofthunder":
-				album = getPinkFloydDelicateSoundOfThunder();
+				album = albumRepository.findOne(36);
 				break;
 				
 			case "thedivisionbell":
-				album = getPinkFloydTheDivisionBell();
+				album = albumRepository.findOne(37);
 				break;
 				
 			case "pulse":
-				album = getPinkFloydPulse();
+				album = albumRepository.findOne(38);
 				break;
 				
 			case "isthereanybodyouttherethewalllive":
-				album = getPinkFloydIsThereAnybodyOutThereTheWallLive();
+				album = albumRepository.findOne(39);
 				break;
 				
 			case "theendlessriver":
-				album = getPinkFloydTheEndlessRiver();
+				album = albumRepository.findOne(40);
 				break;
 		}
 		
 		return album;
-	}
-	
-	// #########################################
-	// Pink Floyd The Piper At The Gates Of Dawn
-	// #########################################
-	private Album getPinkFloydThePiperAtTheGatesOfDawn()
-	{
-		// Create Album Object
-		Album pinkFloydThePiperAtTheGatesOfDawnAlbum = new Album();
-		
-		return pinkFloydThePiperAtTheGatesOfDawnAlbum;
-	}
-	
-	// #################################
-	// Pink Floyd A Saucerful Of Secrets
-	// #################################
-	private Album getPinkFloydASaucerfulOfSecrets()
-	{
-		// Create Album Object
-		Album pinkFloydASaucerfulOfSecretsAlbum = new Album();
-		
-		return pinkFloydASaucerfulOfSecretsAlbum;
-	}
-	
-	// ###############
-	// Pink Floyd More
-	// ###############
-	private Album getPinkFloydMore()
-	{
-		// Create Album Object
-		Album pinkFloydMoreAlbum = new Album();
-		
-		return pinkFloydMoreAlbum;
-	}
-	
-	// ####################
-	// Pink Floyd Ummagumma
-	// ####################
-	private Album getPinkFloydUmmagumma()
-	{
-		// Create Album Object
-		Album pinkFloydUmmagummaAlbum = new Album();
-		
-		return pinkFloydUmmagummaAlbum;
-	}
-	
-	// ############################
-	// Pink Floyd Atom Heart Mother
-	// ############################
-	private Album getPinkFloydAtomHeartMother()
-	{
-		// Create Album Object
-		Album pinkFloydAtomHeartMotherAlbum = new Album();
-		
-		return pinkFloydAtomHeartMotherAlbum;
-	}
-	
-	// #################
-	// Pink Floyd Meddle
-	// #################
-	private Album getPinkFloydMeddle()
-	{
-		// Create Album Object
-		Album pinkFloydMeddleAlbum = new Album();
-		
-		return pinkFloydMeddleAlbum;
-	}
-	
-	// #############################
-	// Pink Floyd Obscured By Clouds
-	// #############################
-	private Album getPinkFloydObscuredByClouds()
-	{
-		// Create Album Object
-		Album pinkFloydObscuredByCloudsAlbum = new Album();
-		
-		return pinkFloydObscuredByCloudsAlbum;
-	}
-	
-	// ####################################
-	// Pink Floyd The Dark Side Of The Moon
-	// ####################################
-	private Album getPinkFloydTheDarkSideOfTheMoon()
-	{
-		// Create Album Object
-		Album pinkFloydTheDarkSideOfTheMoonAlbum = new Album();
-		
-		return pinkFloydTheDarkSideOfTheMoonAlbum;
-	}
-	
-	// #############################
-	// Pink Floyd Wish You Were Here
-	// #############################
-	private Album getPinkFloydWishYouWereHere()
-	{
-		// Create Album Object
-		Album pinkFloydWishYouWereHereAlbum = new Album();
-		
-		return pinkFloydWishYouWereHereAlbum;
-	}
-	
-	// ##################
-	// Pink Floyd Animals
-	// ##################
-	private Album getPinkFloydAnimals()
-	{
-		// Create Album Object
-		Album pinkFloydAnimalsAlbum = new Album();
-		
-		return pinkFloydAnimalsAlbum;
-	}
-	
-	// ###################
-	// Pink Floyd The Wall
-	// ###################
-	private Album getPinkFloydTheWall()
-	{
-		// Create Album Object
-		Album pinkFloydTheWallAlbum = new Album();
-		
-		return pinkFloydTheWallAlbum;
-	}
-	
-	// ########################
-	// Pink Floyd The Final Cut
-	// ########################
-	private Album getPinkFloydTheFinalCut()
-	{
-		// Create Album Object
-		Album pinkFloydTheFinalCutAlbum = new Album();
-		
-		return pinkFloydTheFinalCutAlbum;
-	}
-	
-	// ######################################
-	// Pink Floyd A Momentary Lapse Of Reason
-	// ######################################
-	private Album getPinkFloydAMomentaryLapseOfReason()
-	{
-		// Create Album Object
-		Album pinkFloydAMomentaryLapseOfReasonAlbum = new Album();
-		
-		return pinkFloydAMomentaryLapseOfReasonAlbum;
-	}
-	
-	// ####################################
-	// Pink Floyd Delicate Sound Of Thunder
-	// ####################################
-	private Album getPinkFloydDelicateSoundOfThunder()
-	{
-		// Create Album Object
-		Album pinkFloydDelicateSoundOfThunderAlbum = new Album();
-		
-		return pinkFloydDelicateSoundOfThunderAlbum;
-	}
-	
-	// ############################
-	// Pink Floyd The Division Bell
-	// ############################
-	private Album getPinkFloydTheDivisionBell()
-	{
-		// Create Album Object
-		Album pinkFloydTheDivisionBellAlbum = new Album();
-		
-		return pinkFloydTheDivisionBellAlbum;
-	}
-	
-	// ################
-	// Pink Floyd Pulse
-	// ################
-	private Album getPinkFloydPulse()
-	{
-		// Create Album Object
-		Album pinkFloydPulseAlbum = new Album();
-		
-		return pinkFloydPulseAlbum;
-	}
-	
-	// ###################################################
-	// Pink Floyd Is There Anybody Out There The Wall Live
-	// ###################################################
-	private Album getPinkFloydIsThereAnybodyOutThereTheWallLive()
-	{
-		// Create Album Object
-		Album pinkFloydIsThereAnybodyOutThereTheWallLiveAlbum = new Album();
-		
-		return pinkFloydIsThereAnybodyOutThereTheWallLiveAlbum;
-	}
-		
-	// ############################
-	// Pink Floyd The Endless River
-	// ############################
-	private Album getPinkFloydTheEndlessRiver()
-	{
-		// Create Album Object
-		Album pinkFloydTheEndlessRiverAlbum = new Album();
-		
-		return pinkFloydTheEndlessRiverAlbum;
 	}
 }

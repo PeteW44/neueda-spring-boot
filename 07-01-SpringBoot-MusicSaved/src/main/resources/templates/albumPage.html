@@ -5,7 +5,7 @@
 	<body class="content">
 		<header class="jumbotron text-center homeHeadImage">
 			<div class="transparent">
-				<h1 class="text-center text-white" th:text="${album.artist}"><b></b></h1>
+ 				<h1 class="text-center text-white" th:text="${album.band.bandName}"><b></b></h1>
 				<h2 class="text-center text-white" th:text="${album.albumTitle}"><b></b></h2>
 				<h3 class="text-center text-white" th:text="${album.releaseYear}"><b></b></h3>
 			</div>
@@ -43,10 +43,10 @@
 									</tr>
 								</thead>
 								<tbody>
-									<tr class="text-white" th:each="track : ${album.albumTracks}">
-										<td th:text="${track.trackNum}"></td>
-										<td th:text="${track.trackTitle}"></td>
-										<td th:text="${track.trackLength}"></td>
+									<tr class="text-white" th:each="song : ${album.songs}">
+										<td th:text="${song.trackNum}"></td>
+										<td th:text="${song.trackTitle}"></td>
+										<td th:text="${song.trackLength}"></td>
 									</tr>
 								</tbody>
 							</table>

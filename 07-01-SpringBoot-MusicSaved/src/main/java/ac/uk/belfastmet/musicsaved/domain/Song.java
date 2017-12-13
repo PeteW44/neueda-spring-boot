@@ -4,7 +4,7 @@
  * Package:         ac.uk.belfastmet.musicsaved.domain
  * Version:         1.0
  * Created:         11/11/2017
- * Updated:         12/12/2017 22.00
+ * Updated:         13/12/2017 13.00
  * Author:          Peter Wightman
  * Description:     This is the Song Class
  */
@@ -28,11 +28,12 @@ public class Song
 	private Integer songId;
 	
 	@NotEmpty
-	@ManyToOne(fetch = FetchType.EAGER)
-	private Integer albumId;
+	@ManyToOne(fetch = FetchType.LAZY)
+	private Album album;
 	
 	// Instance Variables
 	private Integer trackNum;
+
 	private String trackTitle;
 	private String trackLength;
 	
@@ -43,11 +44,11 @@ public class Song
 	}
 	
 	// Parameterised Song Constructor
-	public Song(Integer songId, Integer albumId, Integer trackNum, String trackTitle, String trackLength)
+	public Song(Integer songId, Album album, Integer trackNum, String trackTitle, String trackLength)
 	{
 		super();
 		this.setSongId(songId);
-		this.setAlbumId(albumId);
+		this.setAlbum(album);
 		this.setTrackNum(trackNum);
 		this.setTrackTitle(trackTitle);
 		this.setTrackLength(trackLength);
@@ -65,16 +66,6 @@ public class Song
 	public void setSongId(Integer songId) 
 	{
 		this.songId = songId;
-	}
-
-	public Integer getAlbumId() 
-	{
-		return albumId;
-	}
-
-	public void setAlbumId(Integer albumId) 
-	{
-		this.albumId = albumId;
 	}
 	
 	public Integer getTrackNum() 
@@ -105,5 +96,19 @@ public class Song
 	public void setTrackLength(String trackLength) 
 	{
 		this.trackLength = trackLength;
+	}
+	
+	/*
+	 * GET & SET Album
+	 */
+	
+	public Album getAlbum() 
+	{
+		return album;
+	}
+
+	public void setAlbum(Album album) 
+	{
+		this.album = album;
 	}
 }

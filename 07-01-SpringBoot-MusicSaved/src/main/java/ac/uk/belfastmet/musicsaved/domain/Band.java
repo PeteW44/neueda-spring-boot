@@ -4,15 +4,15 @@
  * Package:         ac.uk.belfastmet.musicsaved.domain
  * Version:         1.0
  * Created:         12/11/2017
- * Updated:         12/12/2017 22.00
+ * Updated:         13/12/2017 13.00
  * Author:          Peter Wightman
  * Description:     This is the Album Class
  */
 
 package ac.uk.belfastmet.musicsaved.domain;
 // Import Packages
-import java.util.ArrayList;
-
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -34,8 +34,8 @@ public class Band
 	private String origin;
 	
 	// Collection of Albums
-	@OneToMany(mappedBy = "bandId", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	private ArrayList<Album> albums;
+	@OneToMany(mappedBy = "band", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private Set<Album> albums = new HashSet<Album>();
 	
 	// Default Album Constructor
 	public Band()
@@ -44,13 +44,14 @@ public class Band
 	}
 	
 	// Parameterised Album Constructor
-	public Band(Integer bandId, String bandName, String website, String origin)
+	public Band(Integer bandId, String bandName, String website, String origin, Set<Album> albums)
 	{
 		super();
 		this.setBandId(bandId);
 		this.setBandName(bandName);
 		this.setWebsite(website);
 		this.setOrigin(origin);
+		this.setAlbums(albums);
 	}
 	
 	/*
@@ -101,12 +102,12 @@ public class Band
 	 * GET & SET Collection of Albums
 	 */
 	
-	public ArrayList<Album> getAlbums() 
+	public Set<Album> getAlbums() 
 	{
 		return albums;
 	}
 
-	public void setAlbums(ArrayList<Album> albums) 
+	public void setAlbums(Set<Album> albums) 
 	{
 		this.albums = albums;
 	}

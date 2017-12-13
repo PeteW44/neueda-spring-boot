@@ -4,14 +4,15 @@
  * Package:         ac.uk.belfastmet.musicsaved.domain
  * Version:         1.0
  * Created:         11/11/2017
- * Updated:         12/12/2017 22.00
+ * Updated:         13/12/2017 13.00
  * Author:          Peter Wightman
  * Description:     This is the Album Class
  */
 
 package ac.uk.belfastmet.musicsaved.domain;
 // Import Packages
-import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -30,8 +31,8 @@ public class Album
 	private Integer albumId;
 	
 	@NotEmpty
-	@ManyToOne(fetch = FetchType.EAGER)
-	private Integer bandId;
+	@ManyToOne(fetch = FetchType.LAZY)
+	private Band band;
 	
 	// Instance Variables
 	private String albumTitle;
@@ -39,8 +40,8 @@ public class Album
 	private String albumArt;
 	
 	// Collection of Songs
-	@OneToMany(mappedBy = "albumID", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	private ArrayList<Song> albumTracks;
+	@OneToMany(mappedBy = "album", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private Set<Song> songs = new HashSet<Song>();
 	
 	// Default Album Constructor
 	public Album()
@@ -49,20 +50,21 @@ public class Album
 	}
 	
 	// Parameterised Album Constructor
-	public Album(Integer albumId, Integer bandId, String albumTitle, Integer releaseYear,  String albumArt)
+	public Album(Integer albumId, Band band, String albumTitle, Integer releaseYear, String albumArt, Set<Song> songs)
 	{
 		super();
 		this.setAlbumId(albumId);
-		this.setBandId(bandId);
+		this.setBand(band);
 		this.setAlbumTitle(albumTitle);
 		this.setReleaseYear(releaseYear);
 		this.setAlbumArt(albumArt);
+		this.setSongs(songs);
 	}
 	
 	/*
 	 * GET & SET Property Methods
 	 */
-
+	
 	public Integer getAlbumId() 
 	{
 		return albumId;
@@ -71,16 +73,6 @@ public class Album
 	public void setAlbumId(Integer albumId) 
 	{
 		this.albumId = albumId;
-	}
-	
-	public Integer getBandId() 
-	{
-		return bandId;
-	}
-
-	public void setBandId(Integer bandId) 
-	{
-		this.bandId = bandId;
 	}
 
 	public String getAlbumTitle() 
@@ -114,16 +106,26 @@ public class Album
 	}
 	
 	/*
-	 * GET & SET Collection of Songs
+	 * GET & SET Band and Collection of Songs
 	 */
 	
-	public ArrayList<Song> getAlbumTracks() 
+	public Band getBand() 
 	{
-		return albumTracks;
+		return band;
 	}
 
-	public void setAlbumTracks(ArrayList<Song> albumTracks) 
+	public void setBand(Band band) 
 	{
-		this.albumTracks = albumTracks;
+		this.band = band;
+	}
+
+	public Set<Song> getSongs() 
+	{
+		return songs;
+	}
+
+	public void setSongs(Set<Song> songs) 
+	{
+		this.songs = songs;
 	}
 }

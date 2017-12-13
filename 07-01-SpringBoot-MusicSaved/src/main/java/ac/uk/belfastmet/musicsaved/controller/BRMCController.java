@@ -17,8 +17,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import ac.uk.belfastmet.musicsaved.domain.Album;
+import ac.uk.belfastmet.musicsaved.repositories.AlbumRepository;
 import ac.uk.belfastmet.musicsaved.service.BrmcAlbumService;
 
 @Controller
@@ -27,6 +27,15 @@ public class BRMCController
 {
 	@Autowired
 	private BrmcAlbumService brmcAlbumService;
+	
+	@Autowired
+	AlbumRepository albumRepository;
+	
+	public BRMCController(AlbumRepository albumRepository)
+	{
+		super();
+		this.albumRepository = albumRepository;
+	}
 	
 	@GetMapping("/")
 	public String brmcHome(Model model)
@@ -67,7 +76,7 @@ public class BRMCController
 	@RequestMapping("/albums/{albumTitle}")
 	public String brmcDemos(@PathVariable("albumTitle") String albumTitle, Model model)
 	{
-		this.brmcAlbumService = new BrmcAlbumService();
+		this.brmcAlbumService = new BrmcAlbumService(albumRepository);
 		Album album = this.brmcAlbumService.getBrmcAlbum(albumTitle);
 		model.addAttribute("album", album);
 		model.addAttribute("pageTitle", album.getAlbumTitle());
