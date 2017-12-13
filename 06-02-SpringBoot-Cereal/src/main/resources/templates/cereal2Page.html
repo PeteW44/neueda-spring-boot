@@ -12,26 +12,36 @@
 		<nav th:replace="layouts/nav :: navFragment"></nav>
 		<br />
 		<section>
-			<table class="table table-striped fsLarge">
-				<thead>
-					<tr class="text-white">
-						<th>Manufacturer</th>
-						<th>Cereal</th>
-						<th>Links (View, Edit, Delete)</th>
+			<div class="container">
+				<div class="alert alert-success" role="alert" th:if="${message}">
+					<p th:text="${message}"></p>
+				</div>
+				<table class="table table-striped fsLarge">
+					<thead>
+						<tr class="text-white">
+							<th>Manufacturer</th>
+							<th>Cereal</th>
+							<th>Links (View, Edit, Delete)</th>
+							</tr>
+					</thead>
+					<tbody>
+						<tr class="text-white" th:each="cereal : ${cereals}">
+							<td th:text="${cereal.manufacturerName}"></td>
+							<td th:text="${cereal.cerealName}"></td>
+							<td>
+								<a class="btn btn-light btnTextSmall" th:href="@{view/} + ${cereal.cerealId}"><b>View</b></a> 
+								<a class="btn btn-light btnTextSmall" th:href="@{edit/} + ${cereal.cerealId}"><b>Edit</b></a> 
+								<a class="btn btn-light btnTextSmall" th:href="@{delete/} + ${cereal.cerealId}"><b>Delete</b></a>
+							</td>
 						</tr>
-				</thead>
-				<tbody>
-					<tr class="text-white" th:each="cereal : ${cereals}">
-						<td th:text="${cereal.manufacturerName}"></td>
-						<td th:text="${cereal.cerealName}"></td>
-						<td>
-							<a class="webLink" th:href="@{view/} + ${cereal.cerealId}"><b>View</b></a> 
-							<a class="webLink" th:href="@{edit/} + ${cereal.cerealId}"><b>Edit</b></a> 
-							<a class="webLink" th:href="@{delete/} + ${cereal.cerealId}"><b>Delete</b></a>
-						</td>
-					</tr>
-				</tbody>
-			</table>
+					</tbody>
+				</table>
+				<div class="row">
+			    	<div class="col-3">
+			    		<a class="btn btn-light" href="/cereals/crud/add" role="button"><b>Add</b></a>
+			    	</div>
+			    </div>
+			</div>
 		</section>
 		<br />
 		<footer th:replace="layouts/footer :: footFragment"></footer>

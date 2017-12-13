@@ -17,5 +17,5 @@ import ac.uk.belfastmet.cereal.domain.Cereal;
 public interface CerealRepository extends CrudRepository<Cereal, Integer>
 {
 	Iterable<Cereal> findAll();
-	Cereal findAllByCerealId(int cerealId);
+	Cereal findOne(int cerealId);
 }

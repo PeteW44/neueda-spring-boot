@@ -4,7 +4,7 @@
  * Package:         ac.uk.belfastmet.cereal.controller
  * Version:         1.0
  * Created:         11/12/2017
- * Updated:         12/12/2017 16.00
+ * Updated:         13/12/2017 13.00
  * Author:          Peter Wightman
  * Description:     This is the CerealController Class
  */
@@ -20,6 +20,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 import ac.uk.belfastmet.cereal.domain.Cereal;
 import ac.uk.belfastmet.cereal.repositories.CerealRepository;
 
@@ -68,6 +70,7 @@ public class CerealController
 	@GetMapping("/crud/edit/{cerealId}")
 	public String cerealEdit(@PathVariable("cerealId") Integer cerealId, Model model)
 	{
+		model.addAttribute("pageTitle", "Edit Cereal");
 		Cereal cereal = this.cerealRepository.findOne(cerealId);
 		model.addAttribute("cereal", cereal);
 		
@@ -75,16 +78,18 @@ public class CerealController
 	}
 	
 	@GetMapping("/crud/delete/{cerealId}")
-	public String cerealDelete(@PathVariable("cerealId") Integer cerealId, Model model)
+	public String cerealDelete(@PathVariable("cerealId") Integer cerealId, RedirectAttributes redirectAtts)
 	{
 		cerealRepository.delete(cerealId);
+		redirectAtts.addFlashAttribute("message", "Cereal was Deleted");
 		
-		return "redirect:/";
+		return "redirect:/cereals/crud";
 	}
 	
 	@GetMapping("/crud/add")
 	public String cerealEdit(Model model)
 	{
+		model.addAttribute("pageTitle", "Add Cereal");
 		model.addAttribute("cereal", new Cereal());
 		
 		return "cerealEditPage";
@@ -102,7 +107,7 @@ public class CerealController
 		{
 			Cereal savedCereal = this.cerealRepository.save(cereal);
 			
-			return "redirect:/cereals/view/" + savedCereal.getCerealId();
+			return "redirect:/cereals/crud/view/" + savedCereal.getCerealId();
 		}
 	}
 }
