@@ -1,0 +1,39 @@
+<!--/*
+    HTML NAV
+  */-->
+
+<html lang="en" xmlns:th="Http:thymeleaf.org">
+	<body>
+		<nav class="navbar navbar-expand-xl navbar-dark greyBackGround" th:fragment="navFragment">
+			<div class="container-fluid">
+			    <div class="navbar-header">
+			    	<a href="/" class="logo-link">
+			    		<img title="Home Page" src="/images/home.jpg" alt="Home" class="navbar-brand" height="35px" width="35px" />
+					</a>
+			    </div>
+			    <ul class="nav navbar-nav mr-auto">
+			    	<li class="navbar-item">
+			    		<a class="nav-link text-black" href="/passengers/">
+			    			<span class="text-black">All Passengers</span>
+			    		</a>
+			    	</li>
+			    	<li class="navbar-item">
+			    		<a class="nav-link text-black" href="/passengers/firstclass/">
+			    			<span class="text-black">First Class</span>
+			    		</a>
+			    	</li>
+			    	<li class="navbar-item">
+			    		<a class="nav-link text-black" href="/passengers/secondclass/">
+			    			<span class="text-black">Second Class</span>
+			    		</a>
+			    	</li>
+			    	<li class="navbar-item">
+			    		<a class="nav-link text-black" href="/passengers/survivors/">
+			    			<span class="text-black">Survivors</span>
+			    		</a>
+			    	</li>
+			    </ul>
+			</div>
+		</nav>
+	</body>
+</html>

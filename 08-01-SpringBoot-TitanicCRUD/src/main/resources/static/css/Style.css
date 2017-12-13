@@ -13,11 +13,6 @@
     padding: 10px;
 }
 
-.inLine
-{
-	display: inline;
-}
-
 /* Images */
 
 img
@@ -34,15 +29,10 @@ img
 	height: 50px;
 }
 
-.homeHeadImage
-{
-    background-image:url("/images/BreakfastBanner.jpeg");
-}
-
 .carouselStyle
 {
 	max-width: 900px;
-	max-height: 500px;
+	max-height: 600px;
 	margin: auto;
 }
 
@@ -57,6 +47,47 @@ img
 	display: inline-block
 }
 
+.homeHeadImage
+{
+    background-image:url("/images/Artwork/HomeHeader.jpg");
+}
+
+.navImage
+{
+    background-image:url("/images/navBanner.jpeg");
+}
+
+.brmcHeadImage
+{
+    background-image:url("/images/Artwork/BRMCHeaderPoster.jpg");
+}
+
+.pinkFloydHeadImage
+{
+    background-image:url("/images/Artwork/PinkFloydHeaderBabes.jpg");
+}
+
+.spacemen3HeadImage
+{
+    background-image:url("/images/Artwork/Spacemen3Header.jpg");
+}
+
+.brmcBioImage
+{
+    background-image:url("/images/Artwork/BRMCSkullCandy.jpg");
+}
+
+.pinkFloydBioImage1
+{
+    background-image:url("/images/Artwork/PinkFloydBackground.jpg");
+}
+
+.spacemen3BioImage
+{
+	
+    background-image:url("/images/Artwork/Spacemen3Logo.jpg");
+}
+
 /* HTML Elements */
 
 body
@@ -69,22 +100,7 @@ body
   padding-right: 10px;
 }
 
-.webLink
-{
-	color: 	#0000FF;
-}
-
 /* Table Style */
-
-.fsSmall
-{
-	font-size: 11px;
-}
-
-.fsLarge
-{
-	font-size: 18px;
-}
 
 table 
 {
