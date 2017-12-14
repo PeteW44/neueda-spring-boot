@@ -12,7 +12,20 @@
 		<nav th:replace="layouts/nav :: navFragment"></nav>
 		<br />
 		<section>
-			<h3 class="text-center text-white">Listing Of Titanic Passengers</h3>
+			<h4 class="text-center text-white">Search Passengers</h4>
+			<div class="container">
+				<form class="text-center" action="/passengers/passengersearch/result" method="post" id="searchForm">
+					<select class="col-sm-2" form="searchForm" name="searchField">
+						<option value="name">Name</option>
+						<option value="embarked">Embarked</option>
+						<option value="passengerClass">Class</option>
+					</select>
+					<input type="text" class="col-sm-6" name="searchString" form="searchForm"></input>
+					<button type="submit" value="search" form="searchForm" class="btn btn-light col-sm-2">Search</button>
+				</form>
+			</div>
+			<br />
+			<h3 class="text-center text-white">Titanic Passenger Search Results</h3>
 			<table class="table table-striped">
 				<thead>
 					<tr class="text-white">

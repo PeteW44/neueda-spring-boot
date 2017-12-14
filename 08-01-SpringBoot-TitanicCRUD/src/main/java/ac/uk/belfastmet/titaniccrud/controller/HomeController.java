@@ -1,15 +1,15 @@
 /*
  * Class:           HomeController.java
  * Project:         Titanic Demo
- * Package:         ac.uk.belfastmet.titanicsaved.controller
+ * Package:         ac.uk.belfastmet.titaniccrud.controller
  * Version:         1.0
- * Created:         11/12/2017
- * Updated:         11/12/2017 16.00
+ * Created:         14/12/2017
+ * Updated:         14/12/2017 13.00
  * Author:          Peter Wightman
  * Description:     This is the HomeController Class
  */
 
-package ac.uk.belfastmet.titanicsaved.controller;
+package ac.uk.belfastmet.titaniccrud.controller;
 // Import Packages
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

@@ -1,18 +1,19 @@
 /*
  * Class:           TitanicRepository.java
  * Project:         Titanic Demo
- * Package:         ac.uk.belfastmet.titanicsaved.repository
+ * Package:         ac.uk.belfastmet.titaniccrud.repository
  * Version:         1.0
- * Created:         11/12/2017
- * Updated:         11/12/2017 16.00
+ * Created:         14/12/2017
+ * Updated:         14/12/2017 13.00
  * Author:          Peter Wightman
  * Description:     This is the TitanicRepository Class
  */
 
-package ac.uk.belfastmet.titanicsaved.repositories;
+package ac.uk.belfastmet.titaniccrud.repositories;
 // Import Packages
 import org.springframework.data.repository.CrudRepository;
-import ac.uk.belfastmet.titanicsaved.domain.Passenger;
+
+import ac.uk.belfastmet.titaniccrud.domain.Passenger;
 
 public interface TitanicRepository extends CrudRepository<Passenger, Integer>
 {
@@ -21,4 +22,10 @@ public interface TitanicRepository extends CrudRepository<Passenger, Integer>
 	Iterable<Passenger> findByPClass(Integer p_class);
 	
 	Iterable<Passenger> findBySurvived(Integer survived);
+	
+	Iterable<Passenger> findByEmbarked(String searchField);
+	
+	Iterable<Passenger> findByName(String searchField);
+
+	Iterable<Passenger> findByNameLike(String string);
 }

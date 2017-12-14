@@ -18,4 +18,5 @@ public interface SongRepository extends CrudRepository<Song, Integer>
 {
 	Iterable<Song> findAll();
 	Song findByTrackTitle(String trackTitle);
+	Iterable<Song> FindByAlbumIDOrderByTrackNum(String albumTitle);
 }

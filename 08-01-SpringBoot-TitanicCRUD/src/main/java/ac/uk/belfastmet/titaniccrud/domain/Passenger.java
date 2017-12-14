@@ -1,15 +1,15 @@
 /*
  * Class:           Passenger.java
  * Project:         Titanic Demo
- * Package:         ac.uk.belfastmet.dwarfs.domain
+ * Package:         ac.uk.belfastmet.titaniccrud.domain
  * Version:         1.0
- * Created:         01/12/2017
- * Updated:         11/12/2017 16.00
+ * Created:         14/12/2017
+ * Updated:         14/12/2017 13.00
  * Author:          Peter Wightman
  * Description:     This is the Passenger Class
  */
 
-package ac.uk.belfastmet.titanicsaved.domain;
+package ac.uk.belfastmet.titaniccrud.domain;
 // Import Packages
 import java.math.BigDecimal;
 import javax.persistence.Entity;

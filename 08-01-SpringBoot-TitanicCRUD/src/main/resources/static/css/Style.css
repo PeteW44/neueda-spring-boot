@@ -49,43 +49,7 @@ img
 
 .homeHeadImage
 {
-    background-image:url("/images/Artwork/HomeHeader.jpg");
-}
-
-.navImage
-{
-    background-image:url("/images/navBanner.jpeg");
-}
-
-.brmcHeadImage
-{
-    background-image:url("/images/Artwork/BRMCHeaderPoster.jpg");
-}
-
-.pinkFloydHeadImage
-{
-    background-image:url("/images/Artwork/PinkFloydHeaderBabes.jpg");
-}
-
-.spacemen3HeadImage
-{
-    background-image:url("/images/Artwork/Spacemen3Header.jpg");
-}
-
-.brmcBioImage
-{
-    background-image:url("/images/Artwork/BRMCSkullCandy.jpg");
-}
-
-.pinkFloydBioImage1
-{
-    background-image:url("/images/Artwork/PinkFloydBackground.jpg");
-}
-
-.spacemen3BioImage
-{
-	
-    background-image:url("/images/Artwork/Spacemen3Logo.jpg");
+    background-image:url("/images/TitanicBanner2.jpeg");
 }
 
 /* HTML Elements */
