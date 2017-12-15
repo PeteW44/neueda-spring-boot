@@ -124,7 +124,7 @@ public class Passenger
 		this.age = age;
 	}
 
-	public int getSibSp() 
+	public Integer getSibSp() 
 	{
 		return sibSp;
 	}

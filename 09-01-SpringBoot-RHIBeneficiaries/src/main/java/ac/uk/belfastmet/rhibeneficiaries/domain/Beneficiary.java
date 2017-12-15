@@ -12,6 +12,7 @@
 package ac.uk.belfastmet.rhibeneficiaries.domain;
 // Import Packages
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,7 +26,7 @@ public class Beneficiary
 	@GeneratedValue
 	private Integer rhibId;
 	private String rhibName;
-	private Date applicationDate;
+	private LocalDate applicationDate;
 	private String location;
 	private String techType;
 	private Integer capacity;
@@ -38,7 +39,7 @@ public class Beneficiary
 	}
 	
 	// Parameterised Passenger Constructor
-	public Beneficiary(Integer rhibId, String rhibName, Date applicationDate, String location,
+	public Beneficiary(Integer rhibId, String rhibName, LocalDate applicationDate, String location,
 					   String techType, Integer capacity, BigDecimal paymentAmount)
 	{
 		super();
@@ -75,12 +76,12 @@ public class Beneficiary
 		this.rhibName = rhibName;
 	}
 
-	public Date getApplicationDate() 
+	public LocalDate getApplicationDate() 
 	{
 		return applicationDate;
 	}
 
-	public void setApplicationDate(Date applicationDate) 
+	public void setApplicationDate(LocalDate applicationDate) 
 	{
 		this.applicationDate = applicationDate;
 	}

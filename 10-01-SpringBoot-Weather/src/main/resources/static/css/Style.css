@@ -49,7 +49,7 @@ img
 
 .homeHeadImage
 {
-    background-image:url("/images/TitanicBanner2.jpeg");
+    background-image:url("/images/headerBanner.jpg");
 }
 
 /* HTML Elements */
@@ -62,18 +62,6 @@ body
 .navbar-nav > li
 {
   padding-right: 10px;
-}
-
-/* Table Style */
-
-.fsSmall
-{
-	font-size: 11px;
-}
-
-.fsLarge
-{
-	font-size: 18px;
 }
 
 /* Table Style */

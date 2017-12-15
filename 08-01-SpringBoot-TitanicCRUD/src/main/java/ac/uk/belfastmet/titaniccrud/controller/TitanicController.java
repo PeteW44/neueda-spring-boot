@@ -10,20 +10,25 @@
  */
 
 package ac.uk.belfastmet.titaniccrud.controller;
+import javax.validation.Valid;
+
 // Import Packages
 import org.springframework.beans.factory.annotation.Autowired;
 //Import Packages
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import ac.uk.belfastmet.titaniccrud.domain.Passenger;
 import ac.uk.belfastmet.titaniccrud.repositories.TitanicRepository;
 
 @Controller
-@RequestMapping("/passengers")
+@RequestMapping("/passengers/")
 public class TitanicController 
 {
 	@Autowired
@@ -35,7 +40,7 @@ public class TitanicController
 		this.titanicRepository = titanicRepository;
 	}
 	
-	@GetMapping("/all")
+	@GetMapping("/all/")
 	public String passengers(Model model)
 	{
 		model.addAttribute("pageTitle", "All Passengers");
@@ -44,7 +49,7 @@ public class TitanicController
 		return "passengerPage";
 	}
 	
-	@GetMapping("/firstclass")
+	@GetMapping("/firstclass/")
 	public String firstClassPassengers(Model model)
 	{
 		model.addAttribute("pageTitle", "First Class Passengers");
@@ -53,7 +58,7 @@ public class TitanicController
 		return "passengerPage";
 	}
 	
-	@GetMapping("/secondclass")
+	@GetMapping("/secondclass/")
 	public String secondClassPassengers(Model model)
 	{
 		model.addAttribute("pageTitle", "Second Class Passengers");
@@ -62,7 +67,7 @@ public class TitanicController
 		return "passengerPage";
 	}
 	
-	@GetMapping("/survivors")
+	@GetMapping("/survivors/")
 	public String survivorPassengers(Model model)
 	{
 		model.addAttribute("pageTitle", "Survivor Passengers");
@@ -71,7 +76,7 @@ public class TitanicController
 		return "passengerPage";
 	}
 	
-	@GetMapping("/passengersearch")
+	@GetMapping("/passengersearch/")
 	public String passengerSearch(Model model)
 	{
 		model.addAttribute("pageTitle", "All Passengers");
@@ -80,7 +85,7 @@ public class TitanicController
 		return "passengerSearchPage";
 	}
 	
-	@PostMapping("/passengersearch/result")
+	@PostMapping("/passengersearch/result/")
 	public String searchPassengers(@RequestParam("searchField") String searchField, 
 								   @RequestParam("searchString") String searchString, Model model)
 	{
@@ -104,5 +109,71 @@ public class TitanicController
 		}
 		
 		return "passengerSearchPage";
+	}
+	
+	//#############
+	// Titanic CRUD
+	//#############
+	
+	@GetMapping("/crud/")
+	public String passengerCrud(Model model)
+	{
+		model.addAttribute("passengers", titanicRepository.findAll());
+		model.addAttribute("pageTitle", "Passengers");
+		return "passengerCrudPage";
+	}
+	
+	@GetMapping("/crud/view/{passengerId}")
+	public String passengerView(@PathVariable("passengerId") Integer passengerId, Model model)
+	{
+		model.addAttribute("pageTitle", "View Passeneger");
+		Passenger passenger = this.titanicRepository.findOne(passengerId);
+		model.addAttribute("passenger", passenger);
+		
+		return "passengerViewPage";
+	}
+	
+	@GetMapping("/crud/edit/{passengerId}")
+	public String passengerEdit(@PathVariable("passengerId") Integer passengerId, Model model)
+	{
+		model.addAttribute("pageTitle", "Edit Passeneger");
+		Passenger passenger = this.titanicRepository.findOne(passengerId);
+		model.addAttribute("passenger", passenger);
+		
+		return "passengerEditPage";
+	}
+	
+	@GetMapping("/crud/delete/{passengerId}")
+	public String passengerDelete(@PathVariable("passengerId") Integer passengerId, RedirectAttributes redirectAtts)
+	{
+		titanicRepository.delete(passengerId);
+		redirectAtts.addFlashAttribute("message", "Passenger was Deleted");
+		
+		return "redirect:/passengers/crud/";
+	}
+	
+	@GetMapping("/crud/add/")
+	public String passengerEdit(Model model)
+	{
+		model.addAttribute("pageTitle", "Add Passeneger");
+		model.addAttribute("passenger", new Passenger());
+		
+		return "passengerEditPage";
+	}
+	
+	@PostMapping("/crud/save/")
+	public String passengerSave(@Valid Passenger passenger, BindingResult bindingResult, Model model)
+	{
+		if(bindingResult.hasErrors())
+		{
+			return "passengerEditPage";
+		}
+		
+		else
+		{
+			Passenger savedPassenger = this.titanicRepository.save(passenger);
+			
+			return "redirect:/passengers/crud/view/" + savedPassenger.getPassengerId();
+		}
 	}
 }

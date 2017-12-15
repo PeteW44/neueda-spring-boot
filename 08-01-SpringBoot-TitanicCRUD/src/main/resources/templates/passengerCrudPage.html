@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="Http:thymeleaf.org">
+	<head th:replace="layouts/header :: headFragment"></head>
+	<body class="content">
+		<header class="jumbotron text-center homeHeadImage">
+			<div class="transparent">
+				<h1 class="text-white"><b>Titanic Passengers</b></h1>
+				<h2 class="text-white" th:text="${pageTitle}"><b>Passenger Title</b></h2>
+			</div>
+		</header>
+		<nav th:replace="layouts/nav :: navFragment"></nav>
+		<br />
+		<section>
+			<div class="alert alert-success" role="alert" th:if="${message}">
+					<p th:text="${message}"></p>
+				</div>
+			<h3 class="text-center text-white">Titanic Passenger CRUD</h3>
+			<table class="table table-striped">
+				<thead>
+					<tr class="text-white">
+						<th>ID</th>
+						<th>Name</th>
+						<th>Sex</th>
+						<th>Age</th>
+						<th>Links</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="text-white" th:each="passenger : ${passengers}">
+						<td th:text="${passenger.passengerId}"></td>
+						<td th:text="${passenger.name}"></td>
+						<td th:text="${passenger.sex}"></td>
+						<td th:text="${passenger.age}"></td>
+						<td width="200px">
+							<a class="btn btn-light fsSmall" th:href="@{view/} + ${passenger.passengerId}"><b>View</b></a> 
+							<a class="btn btn-light fsSmall" th:href="@{edit/} + ${passenger.passengerId}"><b>Edit</b></a> 
+							<a class="btn btn-light fsSmall" th:href="@{delete/} + ${passenger.passengerId}"><b>Delete</b></a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="row">
+		    	<div class="col-3">
+		    		<a class="btn btn-light" href="/passengers/crud/add/" role="button"><b>Add</b></a>
+		    	</div>
+		    </div>
+		</section>
+		<br />
+		<footer th:replace="layouts/footer :: footFragment"></footer>
+		<br />
+	</body>
+</html>

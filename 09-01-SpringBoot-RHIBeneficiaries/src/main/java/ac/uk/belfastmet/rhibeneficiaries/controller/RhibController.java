@@ -18,25 +18,26 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import ac.uk.belfastmet.rhibeneficiaries.repositories.BeneficiaryRepository;
+import ac.uk.belfastmet.rhibeneficiaries.service.BeneficiaryService;
 
 @Controller
 @RequestMapping("/rhib/")
 public class RhibController 
 {
 	@Autowired
-	BeneficiaryRepository beneficiaryRepository;
+	BeneficiaryService beneficiaryService;
 	
-	public RhibController(BeneficiaryRepository beneficiaryRepository)
+	public RhibController(BeneficiaryService beneficiaryService)
 	{
 		super();
-		this.beneficiaryRepository = beneficiaryRepository;
+		this.beneficiaryService = beneficiaryService;
 	}
 	
 	@GetMapping("/")
 	public String passengers(Model model)
 	{
 		model.addAttribute("pageTitle", "All Beneficiaries");
-		model.addAttribute("beneficiaries", beneficiaryRepository.findAll());
+		model.addAttribute("beneficiaries", beneficiaryService.getAllBeneficiaries());
 		
 		return "rhibPage";
 	}
