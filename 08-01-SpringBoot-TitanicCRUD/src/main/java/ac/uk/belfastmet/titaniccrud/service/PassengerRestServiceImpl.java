@@ -4,7 +4,7 @@
  * Package:         ac.uk.belfastmet.titaniccrud.service
  * Version:         1.0
  * Created:         14/12/2017
- * Updated:         14/12/2017 16.00
+ * Updated:         15/12/2017 13.00
  * Author:          Peter Wightman
  * Description:     This is the PassengerRestServiceImpl Class
  */
@@ -47,10 +47,22 @@ public class PassengerRestServiceImpl implements PassengerRestService
 	}
 
 	@Override
-	public Passenger update(Integer passengerId, Passenger passenger) 
+	public Passenger update(Integer passengerId, Passenger update)
 	{
-		Passenger passengerToUpdate = this.titanicRepository.findOne(passengerId);
-		return this.titanicRepository.save(passengerToUpdate);
+		Passenger passenger = this.titanicRepository.findOne(passengerId);
+		passenger.setSurvived(update.getSurvived());
+		passenger.setpClass(update.getpClass());
+		passenger.setName(update.getName());
+		passenger.setSex(update.getSex());
+		passenger.setAge(update.getAge());
+		passenger.setSibSp(update.getSibSp());
+		passenger.setParch(update.getParch());
+		passenger.setTicket(update.getTicket());
+		passenger.setFare(update.getFare());
+		passenger.setCabin(update.getCabin());
+		passenger.setEmbarked(update.getEmbarked());
+
+		return titanicRepository.save(passenger);
 	}
 
 	@Override

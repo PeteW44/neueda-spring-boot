@@ -4,7 +4,7 @@
  * Package:         ac.uk.belfastmet.titaniccrud.domain
  * Version:         1.0
  * Created:         14/12/2017
- * Updated:         14/12/2017 13.00
+ * Updated:         15/12/2017 13.00
  * Author:          Peter Wightman
  * Description:     This is the Passenger Class
  */
