@@ -21,7 +21,7 @@ import ac.uk.belfastmet.weather.domain.TodaysWeather;
 import ac.uk.belfastmet.weather.service.WeatherService;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/todaysweather/")
 public class WeatherController
 {
 	@Autowired
@@ -33,8 +33,8 @@ public class WeatherController
 	public TodaysWeather home(Model model)
 	{
 		model.addAttribute("pageTitle", "Weather");
-		RestTemplate restTemplate = new RestTemplate();
-		this.todaysWeather = restTemplate.getForObject("http://www.codingfury.net/training/weathersample/weather.php?location=belfast", TodaysWeather);
+		//RestTemplate restTemplate = new RestTemplate();
+		//this.todaysWeather = restTemplate.getForObject("http://www.codingfury.net/training/weathersample/weather.php?location=belfast", TodaysWeather);
 		
 		return this.todaysWeather;
 	}

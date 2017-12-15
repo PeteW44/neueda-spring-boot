@@ -12,15 +12,11 @@
 package ac.uk.belfastmet.weather.domain;
 // Import Packages
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 
 @Entity
-public class Wind 
+public class Wind
 {
 	// Instance Variables
-	@Id
-	@GeneratedValue
 	private float speed;
 	private String direction;
 	

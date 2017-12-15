@@ -12,15 +12,11 @@
 package ac.uk.belfastmet.weather.domain;
 // Import Packages
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 
 @Entity
 public class Location 
 {
 	// Instance Variables
-	@Id
-	@GeneratedValue
 	private String locationName;
 	private float latitude;
 	private float longitude;
