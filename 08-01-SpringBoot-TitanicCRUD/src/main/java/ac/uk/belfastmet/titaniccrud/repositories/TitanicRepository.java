@@ -11,13 +11,16 @@
 
 package ac.uk.belfastmet.titaniccrud.repositories;
 // Import Packages
-import org.springframework.data.repository.CrudRepository;
-
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.repository.PagingAndSortingRepository;
 import ac.uk.belfastmet.titaniccrud.domain.Passenger;
 
-public interface TitanicRepository extends CrudRepository<Passenger, Integer>
+public interface TitanicRepository extends PagingAndSortingRepository<Passenger, Integer>
 {
 	Iterable<Passenger> findAll();
+
+	Page<Passenger> findAll(Pageable pageable);
 	
 	Iterable<Passenger> findByPClass(Integer p_class);
 	

@@ -11,6 +11,8 @@
 
 package ac.uk.belfastmet.titaniccrud.service;
 // Import Packages
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import ac.uk.belfastmet.titaniccrud.domain.Passenger;
 
 public interface PassengerRestService
@@ -24,4 +26,6 @@ public interface PassengerRestService
 	Passenger update(Integer passengerId, Passenger passenger);
 	
 	void delete(Integer passengerId);
+	
+	Page<Passenger> listAllByPage(Pageable pageable);
 }

@@ -12,6 +12,7 @@
 package ac.uk.belfastmet.titaniccrud.domain;
 // Import Packages
 import java.math.BigDecimal;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -27,7 +28,7 @@ public class Passenger
 	private Integer pClass;
 	private String name;
 	private String sex;
-	private Integer age;
+	private Double age;
 	private Integer sibSp;
 	private Integer parch;
 	private String ticket;
@@ -42,7 +43,7 @@ public class Passenger
 	}
 	
 	// Parameterised Passenger Constructor
-	public Passenger(Integer passengerId, Integer survived, Integer pClass, String name, String sex, Integer age,
+	public Passenger(Integer passengerId, Integer survived, Integer pClass, String name, String sex, Double age,
 					 Integer sibSp, Integer parch, String ticket, BigDecimal fare, String cabin, String embarked)
 	{
 		super();
@@ -114,12 +115,12 @@ public class Passenger
 		this.sex = sex;
 	}
 
-	public Integer getAge() 
+	public Double getAge() 
 	{
 		return age;
 	}
 
-	public void setAge(Integer age) 
+	public void setAge(Double age) 
 	{
 		this.age = age;
 	}

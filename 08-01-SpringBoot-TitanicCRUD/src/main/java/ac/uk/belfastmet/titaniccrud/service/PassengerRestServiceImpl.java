@@ -12,11 +12,15 @@
 package ac.uk.belfastmet.titaniccrud.service;
 //Import Packages
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import ac.uk.belfastmet.titaniccrud.domain.Passenger;
 import ac.uk.belfastmet.titaniccrud.repositories.TitanicRepository;
 
 @Service
+@Transactional
 public class PassengerRestServiceImpl implements PassengerRestService 
 {
 	@Autowired
@@ -69,5 +73,11 @@ public class PassengerRestServiceImpl implements PassengerRestService
 	public void delete(Integer passengerId) 
 	{
 		this.titanicRepository.delete(passengerId);
+	}
+	
+	@Override
+	public Page<Passenger> listAllByPage(Pageable pageable)
+	{
+		return titanicRepository.findAll(pageable);
 	}
 }
