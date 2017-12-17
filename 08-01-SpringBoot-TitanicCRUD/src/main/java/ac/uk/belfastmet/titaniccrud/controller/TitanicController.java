@@ -4,17 +4,16 @@
  * Package:         ac.uk.belfastmet.titaniccrud.controller
  * Version:         1.0
  * Created:         14/12/2017
- * Updated:         14/12/2017 13.00
+ * Updated:         16/12/2017 17.00
  * Author:          Peter Wightman
  * Description:     This is the TitanicController Class
  */
 
 package ac.uk.belfastmet.titaniccrud.controller;
-import javax.validation.Valid;
-
-// Import Packages
-import org.springframework.beans.factory.annotation.Autowired;
 //Import Packages
+import javax.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -41,10 +40,10 @@ public class TitanicController
 	}
 	
 	@GetMapping("/all/")
-	public String passengers(Model model)
+	public String passengers(Model model, Pageable pageable)
 	{
 		model.addAttribute("pageTitle", "All Passengers");
-		model.addAttribute("passengers", titanicRepository.findAll());
+		model.addAttribute("passengers", titanicRepository.findAll(pageable));
 		
 		return "passengerPage";
 	}
