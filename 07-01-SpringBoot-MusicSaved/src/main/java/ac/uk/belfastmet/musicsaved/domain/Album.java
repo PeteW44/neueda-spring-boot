@@ -4,7 +4,7 @@
  * Package:         ac.uk.belfastmet.musicsaved.domain
  * Version:         1.0
  * Created:         11/11/2017
- * Updated:         13/12/2017 13.00
+ * Updated:         17/12/2017 18.00
  * Author:          Peter Wightman
  * Description:     This is the Album Class
  */
@@ -36,9 +36,11 @@ public class Album
 	
 	// Instance Variables
 	private String albumTitle;
+	private String albumTitleLower;
 	private Integer releaseYear;
-	private String albumArt;
-	
+	private String albumArtLarge;
+	private String albumArtSmall
+	;
 	// Collection of Songs
 	@OneToMany(mappedBy = "album", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private Set<Song> songs = new HashSet<Song>();
@@ -50,14 +52,16 @@ public class Album
 	}
 	
 	// Parameterised Album Constructor
-	public Album(Integer albumId, Band band, String albumTitle, Integer releaseYear, String albumArt, Set<Song> songs)
+	public Album(Integer albumId, Band band, String albumTitle, String albumTitleLower, Integer releaseYear, String albumArtLarge, String albumArtSmall, Set<Song> songs)
 	{
 		super();
 		this.setAlbumId(albumId);
 		this.setBand(band);
 		this.setAlbumTitle(albumTitle);
+		this.setAlbumTitleLower(albumTitleLower);
 		this.setReleaseYear(releaseYear);
-		this.setAlbumArt(albumArt);
+		this.setAlbumArtLarge(albumArtLarge);
+		this.setAlbumArtSmall(albumArtSmall);
 		this.setSongs(songs);
 	}
 	
@@ -85,6 +89,16 @@ public class Album
 		this.albumTitle = albumTitle;
 	}
 
+	public String getAlbumTitleLower() 
+	{
+		return albumTitleLower;
+	}
+
+	public void setAlbumTitleLower(String albumTitleLower) 
+	{
+		this.albumTitleLower = albumTitleLower;
+	}
+	
 	public Integer getReleaseYear() 
 	{
 		return releaseYear;
@@ -95,14 +109,24 @@ public class Album
 		this.releaseYear = releaseYear;
 	}
 	
-	public String getAlbumArt() 
+	public String getAlbumArtLarge() 
 	{
-		return albumArt;
+		return albumArtLarge;
 	}
 
-	public void setAlbumArt(String albumArt) 
+	public void setAlbumArtLarge(String albumArtLarge) 
 	{
-		this.albumArt = albumArt;
+		this.albumArtLarge = albumArtLarge;
+	}
+	
+	public String getAlbumArtSmall() 
+	{
+		return albumArtSmall;
+	}
+
+	public void setAlbumArtSmall(String albumArtSmall) 
+	{
+		this.albumArtSmall = albumArtSmall;
 	}
 	
 	/*

@@ -4,12 +4,14 @@
  * Package:         ac.uk.belfastmet.musicsaved.controller
  * Version:         1.0
  * Created:         11/11/2017
- * Updated:         12/12/2017 22.00
+ * Updated:         17/12/2017 18.00
  * Author:          Peter Wightman
  * Description:     This is the BRMCController Class
  */
 
 package ac.uk.belfastmet.musicsaved.controller;
+import java.util.Set;
+
 //Import Packages
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,24 +19,28 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import ac.uk.belfastmet.musicsaved.domain.Album;
 import ac.uk.belfastmet.musicsaved.repositories.AlbumRepository;
-import ac.uk.belfastmet.musicsaved.service.Spacemen3AlbumService;
+import ac.uk.belfastmet.musicsaved.repositories.BandRepository;
+import ac.uk.belfastmet.musicsaved.service.AlbumService;
 
 @Controller
 @RequestMapping("/spacemen3/")
 public class Spacemen3Controller 
 {
 	@Autowired
-	private Spacemen3AlbumService spacemen3AlbumService;
+	private AlbumService albumService;
+	
+	@Autowired
+	BandRepository bandRepository;
 	
 	@Autowired
 	AlbumRepository albumRepository;
 	
-	public Spacemen3Controller(AlbumRepository albumRepository)
+	public Spacemen3Controller(BandRepository bandRepository, AlbumRepository albumRepository)
 	{
 		super();
+		this.bandRepository = bandRepository;
 		this.albumRepository = albumRepository;
 	}
 	
@@ -57,9 +63,12 @@ public class Spacemen3Controller
 	@GetMapping("/albums/")
 	public String spacemen3Albums(Model model)
 	{
+		this.albumService = new AlbumService(bandRepository, albumRepository);
+		Set<Album> albums = this.albumService.getAllSpacemen3Albums();
+		model.addAttribute("albums", albums);
 		model.addAttribute("pageTitle", "Spacemen 3 Albums");
 		
-		return "spacemen3AlbumPage";
+		return "spacemen3AlbumsPage";
 	}
 	
 	@GetMapping("/media/")
@@ -77,8 +86,8 @@ public class Spacemen3Controller
 	@RequestMapping("/albums/{albumTitle}")
 	public String brmcDemos(@PathVariable("albumTitle") String albumTitle, Model model)
 	{
-		this.spacemen3AlbumService = new Spacemen3AlbumService(albumRepository);
-		Album album = this.spacemen3AlbumService.getSpacemen3Album(albumTitle);
+		this.albumService = new AlbumService(albumRepository);
+		Album album = this.albumService.getAlbum(albumTitle);
 		model.addAttribute("album", album);
 		model.addAttribute("pageTitle", album.getAlbumTitle());
 		

@@ -4,13 +4,14 @@
  * Package:         ac.uk.belfastmet.musicsaved.controller
  * Version:         1.0
  * Created:         11/11/2017
- * Updated:         12/12/2017 22.00
+ * Updated:         17/12/2017 18.00
  * Author:          Peter Wightman
  * Description:     This is the BRMCController Class
  */
 
 package ac.uk.belfastmet.musicsaved.controller;
 //Import Packages
+import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,21 +20,26 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import ac.uk.belfastmet.musicsaved.domain.Album;
 import ac.uk.belfastmet.musicsaved.repositories.AlbumRepository;
-import ac.uk.belfastmet.musicsaved.service.BrmcAlbumService;
+import ac.uk.belfastmet.musicsaved.repositories.BandRepository;
+import ac.uk.belfastmet.musicsaved.service.AlbumService;
 
 @Controller
 @RequestMapping("/brmc/")
 public class BRMCController 
 {
 	@Autowired
-	private BrmcAlbumService brmcAlbumService;
+	private AlbumService albumService;
+	
+	@Autowired
+	BandRepository bandRepository;
 	
 	@Autowired
 	AlbumRepository albumRepository;
 	
-	public BRMCController(AlbumRepository albumRepository)
+	public BRMCController(BandRepository bandRepository, AlbumRepository albumRepository)
 	{
 		super();
+		this.bandRepository = bandRepository;
 		this.albumRepository = albumRepository;
 	}
 	
@@ -56,9 +62,12 @@ public class BRMCController
 	@GetMapping("/albums/")
 	public String brmcAlbums(Model model)
 	{
+		this.albumService = new AlbumService(bandRepository, albumRepository);
+		Set<Album> albums = this.albumService.getAllBrmcAlbums();
+		model.addAttribute("albums", albums);
 		model.addAttribute("pageTitle", "BRMC Albums");
 		
-		return "brmcAlbumPage";
+		return "brmcAlbumsPage";
 	}
 	
 	@GetMapping("/media/")
@@ -74,10 +83,10 @@ public class BRMCController
 	//###################
 	
 	@RequestMapping("/albums/{albumTitle}")
-	public String brmcDemos(@PathVariable("albumTitle") String albumTitle, Model model)
+	public String brmcAlbum(@PathVariable("albumTitle") String albumTitle, Model model)
 	{
-		this.brmcAlbumService = new BrmcAlbumService(albumRepository);
-		Album album = this.brmcAlbumService.getBrmcAlbum(albumTitle);
+		this.albumService = new AlbumService(albumRepository);
+		Album album = this.albumService.getAlbum(albumTitle);
 		model.addAttribute("album", album);
 		model.addAttribute("pageTitle", album.getAlbumTitle());
 		
