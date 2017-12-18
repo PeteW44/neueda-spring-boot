@@ -4,7 +4,7 @@
  * Package:         ac.uk.belfastmet.musicsaved.domain
  * Version:         1.0
  * Created:         11/11/2017
- * Updated:         17/12/2017 18.00
+ * Updated:         18/12/2017 22.00
  * Author:          Peter Wightman
  * Description:     This is the Album Class
  */
@@ -21,6 +21,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
+
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
@@ -39,10 +41,12 @@ public class Album
 	private String albumTitleLower;
 	private Integer releaseYear;
 	private String albumArtLarge;
-	private String albumArtSmall
-	;
+	private String albumArtSmall;
+	private boolean isLive;
+	
 	// Collection of Songs
 	@OneToMany(mappedBy = "album", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@OrderBy("trackNum")
 	private Set<Song> songs = new HashSet<Song>();
 	
 	// Default Album Constructor
@@ -52,7 +56,7 @@ public class Album
 	}
 	
 	// Parameterised Album Constructor
-	public Album(Integer albumId, Band band, String albumTitle, String albumTitleLower, Integer releaseYear, String albumArtLarge, String albumArtSmall, Set<Song> songs)
+	public Album(Integer albumId, Band band, String albumTitle, String albumTitleLower, Integer releaseYear, String albumArtLarge, String albumArtSmall, boolean isLive, Set<Song> songs)
 	{
 		super();
 		this.setAlbumId(albumId);
@@ -62,6 +66,7 @@ public class Album
 		this.setReleaseYear(releaseYear);
 		this.setAlbumArtLarge(albumArtLarge);
 		this.setAlbumArtSmall(albumArtSmall);
+		this.setLive(isLive);
 		this.setSongs(songs);
 	}
 	
@@ -127,6 +132,16 @@ public class Album
 	public void setAlbumArtSmall(String albumArtSmall) 
 	{
 		this.albumArtSmall = albumArtSmall;
+	}
+	
+	public boolean isLive() 
+	{
+		return isLive;
+	}
+
+	public void setLive(boolean isLive) 
+	{
+		this.isLive = isLive;
 	}
 	
 	/*

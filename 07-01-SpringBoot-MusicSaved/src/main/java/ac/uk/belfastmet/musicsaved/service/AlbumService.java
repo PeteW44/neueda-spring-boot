@@ -4,7 +4,7 @@
  * Package:         ac.uk.belfastmet.musicsaved.service
  * Version:         1.0
  * Created:         17/11/2017
- * Updated:         17/12/2017 17.00
+ * Updated:         18/12/2017 22.00
  * Author:          Peter Wightman
  * Description:     This is the AlbumService Class
  */
@@ -81,6 +81,17 @@ public class AlbumService
 		Band band = bandRepository.findByBandName("Spacemen 3");
 		Set<Album> albums;
 		albums = (Set<Album>) albumRepository.findByBandOrderByReleaseYear(band);
+		
+		return albums;
+	}
+	
+	// ###################
+	// Get All Live Albums
+	// ###################
+	public Set<Album> getAllLiveAlbums()
+	{
+		Set<Album> albums;
+		albums = (Set<Album>) albumRepository.findByIsLiveOrderByReleaseYear(true);
 		
 		return albums;
 	}
