@@ -3,11 +3,11 @@
 <html lang="en" xmlns:th="Http:thymeleaf.org">
 	<head th:replace="layouts/header :: headFragment"></head>
 	<body class="content">
-		<header class="jumbotron text-center pinkFloydHeadImage">
+		<header class="jumbotron text-center homeHeadImage">
 			<div class="transparent">
-				<h1 class="text-center text-white"><b>Pink Floyd</b></h1>
-				<h2 class="text-center text-white"><b>Albums</b></h2>
-				<h3 class="text-center text-white"><b>Studio and Live</b></h3>
+				<h1 class="text-center text-white" th:text="${pageTitle1}"><b></b></h1>
+				<h2 class="text-center text-white" th:text="${pageTitle2}"><b></b></h2>
+				<h3 class="text-center text-white" th:text="${pageTitle3}"><b></b></h3>
 			</div>
 		</header>
 		<nav th:replace="layouts/nav :: navFragment"></nav>
@@ -15,15 +15,16 @@
 		<section>
 			<div class="container">
 				<div class="row">
-			    	<div class="col-4" th:each="album : ${albums}">
+				    <div class="col-4" th:each="album : ${albums}">
+			    		<h5 class="text-center text-white" th:text="${album.band.bandName}"></h5>
 			    		<h6 class="text-center text-white" th:text="${album.albumTitle}"></h6>
 			    		<a class="btn" th:href="${album.albumTitleLower} + '/'">
-			    			<button class="blackBackGround" type="button" name="btnPinkFloydAlbum">
+			    			<button class="blackBackGround" type="button" name="btnBrmcAlbum">
 								<img th:src="@{/} + ${album.albumArtSmall}"/>
 							</button>
 						</a>
 			    	</div>
-				</div>
+			    </div>
 			</div>
 		</section>
 		<br />

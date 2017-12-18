@@ -96,6 +96,17 @@ public class AlbumService
 		return albums;
 	}
 	
+	// #####################
+	// Get All Studio Albums
+	// #####################
+	public Set<Album> getAllStudioAlbums()
+	{
+		Set<Album> albums;
+		albums = (Set<Album>) albumRepository.findByIsLiveOrderByReleaseYear(false);
+		
+		return albums;
+	}
+		
 	// ################
 	// Get Single Album
 	// ################

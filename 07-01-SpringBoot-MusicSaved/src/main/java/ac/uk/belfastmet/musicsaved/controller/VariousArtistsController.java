@@ -24,8 +24,8 @@ import ac.uk.belfastmet.musicsaved.repositories.BandRepository;
 import ac.uk.belfastmet.musicsaved.service.AlbumService;
 
 @Controller
-@RequestMapping("/live/")
-public class LiveController 
+@RequestMapping("/variousartists/")
+public class VariousArtistsController 
 {
 	@Autowired
 	private AlbumService albumService;
@@ -36,22 +36,39 @@ public class LiveController
 	@Autowired
 	AlbumRepository albumRepository;
 	
-	public LiveController(BandRepository bandRepository, AlbumRepository albumRepository)
+	public VariousArtistsController(BandRepository bandRepository, AlbumRepository albumRepository)
 	{
 		super();
 		this.bandRepository = bandRepository;
 		this.albumRepository = albumRepository;
 	}
 	
-	@GetMapping("/albums/")
+	@GetMapping("/albums/live/")
 	public String liveAlbums(Model model)
 	{
 		this.albumService = new AlbumService(bandRepository, albumRepository);
 		Set<Album> albums = this.albumService.getAllLiveAlbums();
 		model.addAttribute("albums", albums);
-		model.addAttribute("pageTitle", "BRMC Albums");
+		model.addAttribute("pageTitle", "Live Albums");
+		model.addAttribute("pageTitle1", "Various Artists");
+		model.addAttribute("pageTitle2", "Live");
+		model.addAttribute("pageTitle3", "Albums");
 		
-		return "liveAlbumsPage";
+		return "albumsPage";
+	}
+	
+	@GetMapping("/albums/studio/")
+	public String studioAlbums(Model model)
+	{
+		this.albumService = new AlbumService(bandRepository, albumRepository);
+		Set<Album> albums = this.albumService.getAllStudioAlbums();
+		model.addAttribute("albums", albums);
+		model.addAttribute("pageTitle", "Studio Albums");
+		model.addAttribute("pageTitle1", "Various Artists");
+		model.addAttribute("pageTitle2", "Studio");
+		model.addAttribute("pageTitle3", "Albums");
+		
+		return "albumsPage";
 	}
 	
 	//###################

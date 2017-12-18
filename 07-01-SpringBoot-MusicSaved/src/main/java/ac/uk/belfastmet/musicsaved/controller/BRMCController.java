@@ -4,7 +4,7 @@
  * Package:         ac.uk.belfastmet.musicsaved.controller
  * Version:         1.0
  * Created:         11/11/2017
- * Updated:         17/12/2017 18.00
+ * Updated:         18/12/2017 23.30
  * Author:          Peter Wightman
  * Description:     This is the BRMCController Class
  */
@@ -66,8 +66,11 @@ public class BRMCController
 		Set<Album> albums = this.albumService.getAllBrmcAlbums();
 		model.addAttribute("albums", albums);
 		model.addAttribute("pageTitle", "BRMC Albums");
+		model.addAttribute("pageTitle1", "Black Rebel Motorcycle Club");
+		model.addAttribute("pageTitle2", "Studio and Live");
+		model.addAttribute("pageTitle3", "Albums");
 		
-		return "brmcAlbumsPage";
+		return "albumsPage";
 	}
 	
 	@GetMapping("/media/")

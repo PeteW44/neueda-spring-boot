@@ -4,7 +4,7 @@
  * Package:         ac.uk.belfastmet.musicsaved.controller
  * Version:         1.0
  * Created:         11/11/2017
- * Updated:         17/12/2017 18.00
+ * Updated:         18/12/2017 23.30
  * Author:          Peter Wightman
  * Description:     This is the PinkFloydController Class
  */
@@ -67,8 +67,11 @@ public class PinkFloydController
 		Set<Album> albums = this.albumService.getAllPinkFloydAlbums();
 		model.addAttribute("albums", albums);
 		model.addAttribute("pageTitle", "Pink Floyd Albums");
+		model.addAttribute("pageTitle1", "Pink Floyd");
+		model.addAttribute("pageTitle2", "Studio and Live");
+		model.addAttribute("pageTitle3", "Albums");
 		
-		return "pinkFloydAlbumsPage";
+		return "albumsPage";
 	}
 	
 	@GetMapping("/media/")
