@@ -48,7 +48,7 @@
     					</button>
 						<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 				            <li th:each="band : ${bands}">
-								 <a class="dropdown-item" th:href="@{/variousartists/} + ${band.bandNameLower} + @{/albums/}"
+								 <a class="dropdown-item" th:href="@{/variousartists/albums/band/} + ${band.bandNameLower} + @{/}"
 														 th:text="${band.bandName}"></a>
 							</li>
 				        </ul>
@@ -59,7 +59,7 @@
     					</button>
 						<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 							<li th:each="genre : ${genres}">
-								<a class="dropdown-item" th:href="@{/variousartists/albums/} + ${genre.genreNameLower} + @{/}"
+								<a class="dropdown-item" th:href="@{/variousartists/albums/genre/} + ${genre.genreNameLower} + @{/}"
 														 th:text="${genre.genreName}"></a>
 														
 							</li>
@@ -70,8 +70,8 @@
     						<span>Studio and Live</span>
     					</button>
 						<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-							<li><a class="dropdown-item" href="/variousartists/studio/albums/">Studio Albums</a></li>
-				            <li><a class="dropdown-item" href="/variousartists/live/albums/">Live Albums</a></li>
+							<li><a class="dropdown-item" href="/variousartists/albums/studio/all/">Studio Albums</a></li>
+				            <li><a class="dropdown-item" href="/variousartists/albums/live/all/">Live Albums</a></li>
 				        </ul>
 			        </li>
 			    </ul>

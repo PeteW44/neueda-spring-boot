@@ -55,7 +55,7 @@ public class VariousArtistsController
 		this.genreRepository = genreRepository;
 	}
 	
-	@GetMapping("/live/albums/")
+	@GetMapping("/albums/live/all/")
 	public String liveAlbums(Model model)
 	{
 		Set<Band> bands = this.albumService.getAllBands();
@@ -73,7 +73,7 @@ public class VariousArtistsController
 		return "albumsPage";
 	}
 	
-	@GetMapping("/studio/albums/")
+	@GetMapping("/albums/studio/all/")
 	public String studioAlbums(Model model)
 	{
 		Set<Band> bands = this.albumService.getAllBands();
@@ -91,7 +91,7 @@ public class VariousArtistsController
 		return "albumsPage";
 	}
 	
-	@GetMapping("/{bandNameLower}/albums/")
+	@GetMapping("/albums/band/{bandNameLower}/")
 	public String bandAlbums(@PathVariable("bandNameLower") String bandNameLower, Model model)
 	{
 		Band band = this.albumService.getBand(bandNameLower);
@@ -110,7 +110,7 @@ public class VariousArtistsController
 		return "albumsPage";
 	}
 	
-	@GetMapping("/albums/{genreNameLower}/")
+	@GetMapping("/albums/genre/{genreNameLower}/")
 	public String genreAlbums(@PathVariable("genreNameLower") String genreNameLower, Model model)
 	{
 		Genre genre = this.albumService.getGenre(genreNameLower);
@@ -133,7 +133,7 @@ public class VariousArtistsController
 	// Dynamic Album Page
 	//###################
 	
-	@RequestMapping("/albums/*/{albumTitle}")
+	@RequestMapping("/albums/*/*/{albumTitle}")
 	public String liveAlbum(@PathVariable("albumTitle") String albumTitle, Model model)
 	{
 		Album album = this.albumService.getAlbum(albumTitle);
