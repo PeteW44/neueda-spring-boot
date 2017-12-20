@@ -4,7 +4,7 @@
  * Package:         ac.uk.belfastmet.musicsaved.service
  * Version:         1.0
  * Created:         17/11/2017
- * Updated:         18/12/2017 22.00
+ * Updated:         20/12/2017 22.00
  * Author:          Peter Wightman
  * Description:     This is the AlbumService Class
  */
@@ -16,8 +16,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ac.uk.belfastmet.musicsaved.domain.Album;
 import ac.uk.belfastmet.musicsaved.domain.Band;
+import ac.uk.belfastmet.musicsaved.domain.Genre;
 import ac.uk.belfastmet.musicsaved.repositories.AlbumRepository;
 import ac.uk.belfastmet.musicsaved.repositories.BandRepository;
+import ac.uk.belfastmet.musicsaved.repositories.GenreRepository;
 
 @Service
 public class AlbumService 
@@ -28,59 +30,62 @@ public class AlbumService
 	@Autowired
 	AlbumRepository albumRepository;
 	
-	// Default Constructor
+	@Autowired
+	GenreRepository genreRepository;
+	
 	public AlbumService() 
 	{
 		super();
 	}
-		
-	// Constructor 1
-	public AlbumService(BandRepository bandRepository, AlbumRepository albumRepository) 
+	
+	public AlbumService(BandRepository bandRepository, GenreRepository genreRepository, AlbumRepository albumRepository) 
 	{
 		super();
 		this.bandRepository = bandRepository;
-		this.albumRepository = albumRepository;
-	}
-
-	// Constructor 2
-	public AlbumService(AlbumRepository albumRepository) 
-	{
-		super();
+		this.genreRepository = genreRepository;
 		this.albumRepository = albumRepository;
 	}
 	
-	// ###################
-	// Get All BRMC Albums
-	// ###################
-	public Set<Album> getAllBrmcAlbums()
-	{
-		Band band = bandRepository.findByBandName("Black Rebel Motorcycle Club");
-		Set<Album> albums;
-		albums = (Set<Album>) albumRepository.findByBandOrderByReleaseYear(band);
-		
-		return albums;
-	}
+//	// ###################
+//	// Get All BRMC Albums
+//	// ###################
+//	public Set<Album> getAllBrmcAlbums()
+//	{
+//		Band band = bandRepository.findByBandNameLower("brmc");
+//		Set<Album> albums = albumRepository.findByBandOrderByReleaseYear(band);
+//		
+//		return albums;
+//	}
+//	
+//	// #########################
+//	// Get All Pink Floyd Albums
+//	// #########################
+//	public Set<Album> getAllPinkFloydAlbums()
+//	{
+//		Band band = bandRepository.findByBandNameLower("pinkfloyd");
+//		Set<Album> albums = albumRepository.findByBandOrderByReleaseYear(band);
+//		
+//		return albums;
+//	}
+//	
+//	// #########################
+//	// Get All Spacemen 3 Albums
+//	// #########################
+//	public Set<Album> getAllSpacemen3Albums()
+//	{
+//		Band band = bandRepository.findByBandNameLower("spacemen3");
+//		Set<Album> albums = albumRepository.findByBandOrderByReleaseYear(band);
+//		
+//		return albums;
+//	}
 	
-	// #########################
-	// Get All Pink Floyd Albums
-	// #########################
-	public Set<Album> getAllPinkFloydAlbums()
+	// ###################
+	// Get All Band Albums
+	// ###################
+	public Set<Album> getAllBandAlbums(String bandNameLower)
 	{
-		Band band = bandRepository.findByBandName("Pink Floyd");
-		Set<Album> albums;
-		albums = (Set<Album>) albumRepository.findByBandOrderByReleaseYear(band);
-		
-		return albums;
-	}
-	
-	// #########################
-	// Get All Spacemen 3 Albums
-	// #########################
-	public Set<Album> getAllSpacemen3Albums()
-	{
-		Band band = bandRepository.findByBandName("Spacemen 3");
-		Set<Album> albums;
-		albums = (Set<Album>) albumRepository.findByBandOrderByReleaseYear(band);
+		Band band = bandRepository.findByBandNameLower(bandNameLower);
+		Set<Album> albums = albumRepository.findByBandOrderByReleaseYear(band);
 		
 		return albums;
 	}
@@ -90,8 +95,7 @@ public class AlbumService
 	// ###################
 	public Set<Album> getAllLiveAlbums()
 	{
-		Set<Album> albums;
-		albums = (Set<Album>) albumRepository.findByIsLiveOrderByReleaseYear(true);
+		Set<Album> albums = albumRepository.findByIsLiveOrderByReleaseYear(true);
 		
 		return albums;
 	}
@@ -101,10 +105,69 @@ public class AlbumService
 	// #####################
 	public Set<Album> getAllStudioAlbums()
 	{
-		Set<Album> albums;
-		albums = (Set<Album>) albumRepository.findByIsLiveOrderByReleaseYear(false);
+		Set<Album> albums = albumRepository.findByIsLiveOrderByReleaseYear(false);
 		
 		return albums;
+	}
+	
+	// #######################
+	// Get All Albums By Genre
+	// #######################
+	public Set<Album> getAllAlbumsByGenre(Genre genre)
+	{
+		Set<Album> albums = albumRepository.findByGenreOrderByReleaseYear(genre);
+		
+		return albums;
+	}
+	
+	// ######################
+	// Get All Albums By Band
+	// ######################
+	public Set<Album> getAllAlbumsByBand(Band band)
+	{
+		Set<Album> albums = albumRepository.findByBandOrderByReleaseYear(band);
+		
+		return albums;
+	}
+	
+	// ########
+	// Get Band
+	// ########
+	public Band getBand(String bandNameLower)
+	{
+		Band band = bandRepository.findByBandNameLower(bandNameLower);
+		
+		return band;
+	}
+	
+	// #########
+	// Get Genre
+	// #########
+	public Genre getGenre(String genreNameLower)
+	{
+		Genre genre = genreRepository.findByGenreNameLower(genreNameLower);
+		
+		return genre;
+	}
+	
+	// #############
+	// Get All Bands
+	// #############
+	public Set<Band> getAllBands()
+	{
+		Set<Band> bands = bandRepository.findAllByOrderByBandName();
+		
+		return bands;
+	}
+	
+	// ##############
+	// Get All Genres
+	// ##############
+	public Set<Genre> getAllGenres()
+	{
+		Set<Genre> genres = genreRepository.findAllByOrderByGenreName();
+		
+		return genres;
 	}
 		
 	// ################
