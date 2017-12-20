@@ -1,0 +1,45 @@
+<!--/*
+    HTML NAV
+  */-->
+
+<html lang="en" xmlns:th="Http:thymeleaf.org">
+	<body>
+		<nav class="navbar navbar-expand-sm navbar-dark navImage" th:fragment="navFragment">
+			<div class="container-fluid">
+			    <div class="navbar-header">
+			    	<a href="/" class="logo-link">
+			    		<img title="Home Page" src="/images/home.png" alt="Home" class="navbar-brand buttonImage"/>
+					</a>
+			    </div>
+			    <ul class="navbar-nav mr-auto">
+			    	<li class="dropdown">
+			    		<button class="btn btn-secondary dropdown-toggle text-white blackBackGround" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    						<span>Norther Ireland Constituencies</span>
+    					</button>
+						<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+							<li><a class="dropdown-item" href="/constituencies/">Constituency Map</a></li>
+							<li><a class="dropdown-item" href="/constituencies/eastantrim/">East Antrim</a></li>
+							<li><a class="dropdown-item" href="/constituencies/eastbelfast/">East Belfast</a></li>
+							<li><a class="dropdown-item" href="/constituencies/eastlondonderry/">East Londonderry</a></li>
+							<li><a class="dropdown-item" href="/constituencies/fermanaghandsouthtyrone/">Fermanagh and South Tyrone</a></li>
+							<li><a class="dropdown-item" href="/constituencies/foyle/">Foyle</a></li>
+							<li><a class="dropdown-item" href="/constituencies/laganvally/">Lagan Valley</a></li>
+							<li><a class="dropdown-item" href="/constituencies/midulster/">Mid Ulster</a></li>
+							<li><a class="dropdown-item" href="/constituencies/newryandarmagh/">Newry and Armagh</a></li>
+							<li><a class="dropdown-item" href="/constituencies/northantrim/">North Antrim</a></li>
+							<li><a class="dropdown-item" href="/constituencies/northbelfast/">North Belfast</a></li>
+							<li><a class="dropdown-item" href="/constituencies/northdown/">North Down</a></li>
+							<li><a class="dropdown-item" href="/constituencies/southantrim/">South Antrim</a></li>
+							<li><a class="dropdown-item" href="/constituencies/southbelfast/">South Belfast</a></li>
+							<li><a class="dropdown-item" href="/constituencies/southdown/">South Down</a></li>
+							<li><a class="dropdown-item" href="/constituencies/strangford/">Strangford</a></li>
+							<li><a class="dropdown-item" href="/constituencies/upperbann/">Upper Bann</a></li>
+							<li><a class="dropdown-item" href="/constituencies/westbelfast/">West Belfast</a></li>
+							<li><a class="dropdown-item" href="/constituencies/westtyrone/">West Tyrone</a></li>
+				        </ul>
+			        </li>
+			    </ul>
+			</div>
+		</nav>
+	</body>
+</html>

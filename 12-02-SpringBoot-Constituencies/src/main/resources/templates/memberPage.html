@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="Http:thymeleaf.org">
+	<head th:replace="layouts/header :: headFragment"></head>
+	<body class="content">
+		<header class="jumbotron text-center homeHeadImage">
+			<div class="transparent">
+				<h1 class="text-center text-white"><b>Coding Fury</b></h1>
+				<h2 class="text-center text-white"><b>Norther Ireland Constituencies</b></h2>
+			</div>
+		</header>
+		<nav th:replace="layouts/nav :: navFragment"></nav>
+		<br />
+		<section>
+			<h3 class="text-center text-white" th:text="${constituencyName}"></h3>
+			<h4 class="text-center text-white">Constituency Members</h4>
+			<table class="table table-striped" th:each="member : ${members}">
+				<thead>
+					<tr class="text-white">
+						<th width="150px">Key</th>
+						<th>Value</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="text-white">
+						<th>Name</th>
+						<td th:text="${member.memberPrefix + ' ' +  member.memberFirstName + ' ' + member.memberLastName}"></td>
+					</tr>
+					<tr class="text-white">
+						<th>Title</th>
+						<td th:text="${member.memberTitle}"></td>
+					</tr>
+					<tr class="text-white">
+						<th>Party</th>
+						<td th:text="${member.partyName}"></td>
+					</tr>
+					<tr class="text-white">
+						<th>Portrait</th>
+						<td>
+							<div  class="text-center" th:switch="${member.memberImgUrl}">
+								<p th:case="''" th:text="${member.memberImgUrl}">Member has no Photograph</p>
+								<p th:case="*">
+									<img src="" th:src="${member.memberImgUrl}"></img>
+                                </p>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+		<br />
+		<footer th:replace="layouts/footer :: footFragment"></footer>
+		<br />
+	</body>
+</html>

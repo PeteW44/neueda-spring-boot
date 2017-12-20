@@ -4,7 +4,7 @@
  * Package:         ac.uk.belfastmet.constituencies.domain
  * Version:         1.0
  * Created:         19/12/2017
- * Updated:         19/12/2017 16.00
+ * Updated:         20/12/2017 16.00
  * Author:          Peter Wightman
  * Description:     This is the Member Class
  */
@@ -55,4 +55,10 @@ public class Member
 	
 	@JsonProperty("ConstituencyId")
 	private String constituencyId;
+	
+	@JsonProperty("MemberImgUrl")
+	private String memberImgUrl;
+	
+	@JsonProperty("MemberPrefix")
+	private String  memberPrefix;
 }
