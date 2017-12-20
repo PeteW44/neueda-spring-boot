@@ -27,11 +27,12 @@ public class Band
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer bandId;
-	
+
 	// Instance Variables
 	private String bandName;
 	private String website;
 	private String origin;
+	private String genre;
 	
 	// Collection of Albums
 	@OneToMany(mappedBy = "band", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
@@ -44,13 +45,14 @@ public class Band
 	}
 	
 	// Parameterised Album Constructor
-	public Band(Integer bandId, String bandName, String website, String origin, Set<Album> albums)
+	public Band(Integer bandId, String bandName, String website, String origin, String genre, Set<Album> albums)
 	{
 		super();
 		this.setBandId(bandId);
 		this.setBandName(bandName);
 		this.setWebsite(website);
 		this.setOrigin(origin);
+		this.setGenre(origin);
 		this.setAlbums(albums);
 	}
 	
@@ -78,7 +80,7 @@ public class Band
 		this.bandName = bandName;
 	}
 
-	public String getWebsitee() 
+	public String getWebsite() 
 	{
 		return website;
 	}
@@ -96,6 +98,16 @@ public class Band
 	public void setOrigin(String origin) 
 	{
 		this.origin = origin;
+	}
+	
+	public String getGenre() 
+	{
+		return genre;
+	}
+
+	public void setGenre(String genre) 
+	{
+		this.genre = genre;
 	}
 	
 	/*
