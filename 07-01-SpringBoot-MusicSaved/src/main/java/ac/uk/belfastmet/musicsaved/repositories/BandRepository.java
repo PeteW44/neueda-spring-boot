@@ -4,18 +4,19 @@
  * Package:         ac.uk.belfastmet.musicsaved.service
  * Version:         1.0
  * Created:         13/11/2017
- * Updated:         17/12/2017 18.00
+ * Updated:         20/12/2017 22.00
  * Author:          Peter Wightman
  * Description:     This is the BandRepository Class
  */
 
 package ac.uk.belfastmet.musicsaved.repositories;
 // Import Packages
+import java.util.Set;
 import org.springframework.data.repository.CrudRepository;
 import ac.uk.belfastmet.musicsaved.domain.Band;
 
 public interface BandRepository extends CrudRepository<Band, Integer>
 {
-	Iterable<Band> findAll();
-	Band findByBandName(String bandName);
+	Set<Band> findAllByOrderByBandName();
+	Band findByBandNameLower(String bandNameLower);
 }

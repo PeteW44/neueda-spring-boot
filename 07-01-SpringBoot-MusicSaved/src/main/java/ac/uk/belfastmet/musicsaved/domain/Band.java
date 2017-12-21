@@ -4,7 +4,7 @@
  * Package:         ac.uk.belfastmet.musicsaved.domain
  * Version:         1.0
  * Created:         12/11/2017
- * Updated:         17/12/2017 18.00
+ * Updated:         20/12/2017 18.00
  * Author:          Peter Wightman
  * Description:     This is the Album Class
  */
@@ -27,9 +27,10 @@ public class Band
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer bandId;
-	
+
 	// Instance Variables
 	private String bandName;
+	private String bandNameLower;
 	private String website;
 	private String origin;
 	
@@ -44,11 +45,12 @@ public class Band
 	}
 	
 	// Parameterised Album Constructor
-	public Band(Integer bandId, String bandName, String website, String origin, Set<Album> albums)
+	public Band(Integer bandId, String bandName, String bandNameLower, String website, String origin, Set<Album> albums)
 	{
 		super();
 		this.setBandId(bandId);
 		this.setBandName(bandName);
+		this.setBandNameLower(bandNameLower);
 		this.setWebsite(website);
 		this.setOrigin(origin);
 		this.setAlbums(albums);
@@ -78,7 +80,17 @@ public class Band
 		this.bandName = bandName;
 	}
 
-	public String getWebsitee() 
+	public String getBandNameLower() 
+	{
+		return bandNameLower;
+	}
+
+	public void setBandNameLower(String bandNameLower) 
+	{
+		this.bandNameLower = bandNameLower;
+	}
+	
+	public String getWebsite() 
 	{
 		return website;
 	}
@@ -97,7 +109,7 @@ public class Band
 	{
 		this.origin = origin;
 	}
-	
+
 	/*
 	 * GET & SET Collection of Albums
 	 */

@@ -4,7 +4,7 @@
  * Package:         ac.uk.belfastmet.musicsaved.controller
  * Version:         1.0
  * Created:         11/11/2017
- * Updated:         18/12/2017 23.30
+ * Updated:         20/12/2017 22.00
  * Author:          Peter Wightman
  * Description:     This is the BRMCController Class
  */
@@ -16,11 +16,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import ac.uk.belfastmet.musicsaved.domain.Album;
+import ac.uk.belfastmet.musicsaved.domain.Band;
+import ac.uk.belfastmet.musicsaved.domain.Genre;
 import ac.uk.belfastmet.musicsaved.repositories.AlbumRepository;
 import ac.uk.belfastmet.musicsaved.repositories.BandRepository;
+import ac.uk.belfastmet.musicsaved.repositories.GenreRepository;
 import ac.uk.belfastmet.musicsaved.service.AlbumService;
 
 @Controller
@@ -36,16 +37,29 @@ public class BRMCController
 	@Autowired
 	AlbumRepository albumRepository;
 	
-	public BRMCController(BandRepository bandRepository, AlbumRepository albumRepository)
+	@Autowired
+	GenreRepository genreRepository;
+	
+	public BRMCController()
+	{
+		super();
+	}
+	
+	public BRMCController(BandRepository bandRepository, GenreRepository genreRepository, AlbumRepository albumRepository)
 	{
 		super();
 		this.bandRepository = bandRepository;
+		this.genreRepository = genreRepository;
 		this.albumRepository = albumRepository;
 	}
 	
 	@GetMapping("/")
 	public String brmcHome(Model model)
 	{
+		Set<Band> bands = this.albumService.getAllBands();
+		model.addAttribute("bands", bands);
+		Set<Genre> genres = this.albumService.getAllGenres();
+		model.addAttribute("genres", genres);
 		model.addAttribute("pageTitle", "BRMC Home");
 		
 		return "brmcHomePage";
@@ -54,45 +68,25 @@ public class BRMCController
 	@GetMapping("/bio/")
 	public String brmcBio(Model model)
 	{
+		Set<Band> bands = this.albumService.getAllBands();
+		model.addAttribute("bands", bands);
+		Set<Genre> genres = this.albumService.getAllGenres();
+		model.addAttribute("genres", genres);
 		model.addAttribute("pageTitle", "BRMC Bio");
 		
 		return "brmcBioPage";
 	}
 	
-	@GetMapping("/albums/")
-	public String brmcAlbums(Model model)
-	{
-		this.albumService = new AlbumService(bandRepository, albumRepository);
-		Set<Album> albums = this.albumService.getAllBrmcAlbums();
-		model.addAttribute("albums", albums);
-		model.addAttribute("pageTitle", "BRMC Albums");
-		model.addAttribute("pageTitle1", "Black Rebel Motorcycle Club");
-		model.addAttribute("pageTitle2", "Studio and Live");
-		model.addAttribute("pageTitle3", "Albums");
-		
-		return "albumsPage";
-	}
-	
 	@GetMapping("/media/")
 	public String brmcMedia(Model model)
 	{
+		Set<Band> bands = this.albumService.getAllBands();
+		model.addAttribute("bands", bands);
+		Set<Genre> genres = this.albumService.getAllGenres();
+		model.addAttribute("genres", genres);
+		
 		model.addAttribute("pageTitle", "BRMC Media");
 		
 		return "brmcMediaPage";
-	}
-	
-	//###################
-	// Dynamic Album Page
-	//###################
-	
-	@RequestMapping("/albums/{albumTitle}")
-	public String brmcAlbum(@PathVariable("albumTitle") String albumTitle, Model model)
-	{
-		this.albumService = new AlbumService(albumRepository);
-		Album album = this.albumService.getAlbum(albumTitle);
-		model.addAttribute("album", album);
-		model.addAttribute("pageTitle", album.getAlbumTitle());
-		
-		return "albumPage";
 	}
 }

@@ -4,7 +4,7 @@
  * Package:         ac.uk.belfastmet.musicsaved.controller
  * Version:         1.0
  * Created:         18/11/2017
- * Updated:         18/12/2017 22.00
+ * Updated:         20/12/2017 22.00
  * Author:          Peter Wightman
  * Description:     This is the LiveController Class
  */
@@ -19,8 +19,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import ac.uk.belfastmet.musicsaved.domain.Album;
+import ac.uk.belfastmet.musicsaved.domain.Band;
+import ac.uk.belfastmet.musicsaved.domain.Genre;
 import ac.uk.belfastmet.musicsaved.repositories.AlbumRepository;
 import ac.uk.belfastmet.musicsaved.repositories.BandRepository;
+import ac.uk.belfastmet.musicsaved.repositories.GenreRepository;
 import ac.uk.belfastmet.musicsaved.service.AlbumService;
 
 @Controller
@@ -36,19 +39,32 @@ public class VariousArtistsController
 	@Autowired
 	AlbumRepository albumRepository;
 	
-	public VariousArtistsController(BandRepository bandRepository, AlbumRepository albumRepository)
+	@Autowired
+	GenreRepository genreRepository;
+	
+	public VariousArtistsController()
+	{
+		super();
+	}
+	
+	public VariousArtistsController(BandRepository bandRepository, GenreRepository genreRepository, AlbumRepository albumRepository)
 	{
 		super();
 		this.bandRepository = bandRepository;
 		this.albumRepository = albumRepository;
+		this.genreRepository = genreRepository;
 	}
 	
-	@GetMapping("/albums/live/")
+	@GetMapping("/albums/live/all/")
 	public String liveAlbums(Model model)
 	{
-		this.albumService = new AlbumService(bandRepository, albumRepository);
+		Set<Band> bands = this.albumService.getAllBands();
+		model.addAttribute("bands", bands);
+		Set<Genre> genres = this.albumService.getAllGenres();
+		model.addAttribute("genres", genres);
 		Set<Album> albums = this.albumService.getAllLiveAlbums();
 		model.addAttribute("albums", albums);
+		
 		model.addAttribute("pageTitle", "Live Albums");
 		model.addAttribute("pageTitle1", "Various Artists");
 		model.addAttribute("pageTitle2", "Live");
@@ -57,15 +73,57 @@ public class VariousArtistsController
 		return "albumsPage";
 	}
 	
-	@GetMapping("/albums/studio/")
+	@GetMapping("/albums/studio/all/")
 	public String studioAlbums(Model model)
 	{
-		this.albumService = new AlbumService(bandRepository, albumRepository);
+		Set<Band> bands = this.albumService.getAllBands();
+		model.addAttribute("bands", bands);
+		Set<Genre> genres = this.albumService.getAllGenres();
+		model.addAttribute("genres", genres);
 		Set<Album> albums = this.albumService.getAllStudioAlbums();
 		model.addAttribute("albums", albums);
+		
 		model.addAttribute("pageTitle", "Studio Albums");
 		model.addAttribute("pageTitle1", "Various Artists");
 		model.addAttribute("pageTitle2", "Studio");
+		model.addAttribute("pageTitle3", "Albums");
+		
+		return "albumsPage";
+	}
+	
+	@GetMapping("/albums/band/{bandNameLower}/")
+	public String bandAlbums(@PathVariable("bandNameLower") String bandNameLower, Model model)
+	{
+		Band band = this.albumService.getBand(bandNameLower);
+		Set<Band> bands = this.albumService.getAllBands();
+		model.addAttribute("bands", bands);
+		Set<Genre> genres = this.albumService.getAllGenres();
+		model.addAttribute("genres", genres);
+		Set<Album> albums = this.albumService.getAllAlbumsByBand(band);
+		model.addAttribute("albums", albums);
+		
+		model.addAttribute("pageTitle", "Albums By Band");
+		model.addAttribute("pageTitle1", band.getBandName());
+		model.addAttribute("pageTitle2", "Studio and Live");
+		model.addAttribute("pageTitle3", "Albums");
+		
+		return "albumsPage";
+	}
+	
+	@GetMapping("/albums/genre/{genreNameLower}/")
+	public String genreAlbums(@PathVariable("genreNameLower") String genreNameLower, Model model)
+	{
+		Genre genre = this.albumService.getGenre(genreNameLower);
+		Set<Band> bands = this.albumService.getAllBands();
+		model.addAttribute("bands", bands);
+		Set<Genre> genres = this.albumService.getAllGenres();
+		model.addAttribute("genres", genres);
+		Set<Album> albums = this.albumService.getAllAlbumsByGenre(genre);
+		model.addAttribute("albums", albums);
+		
+		model.addAttribute("pageTitle", "Albums By Genre");
+		model.addAttribute("pageTitle1", "Various Artists");
+		model.addAttribute("pageTitle2", genre.getGenreName());
 		model.addAttribute("pageTitle3", "Albums");
 		
 		return "albumsPage";
@@ -75,11 +133,14 @@ public class VariousArtistsController
 	// Dynamic Album Page
 	//###################
 	
-	@RequestMapping("/albums/{albumTitle}")
+	@RequestMapping("/albums/*/*/{albumTitle}")
 	public String liveAlbum(@PathVariable("albumTitle") String albumTitle, Model model)
 	{
-		this.albumService = new AlbumService(albumRepository);
 		Album album = this.albumService.getAlbum(albumTitle);
+		Set<Band> bands = this.albumService.getAllBands();
+		model.addAttribute("bands", bands);
+		Set<Genre> genres = this.albumService.getAllGenres();
+		model.addAttribute("genres", genres);
 		
 		model.addAttribute("album", album);
 		model.addAttribute("pageTitle", album.getAlbumTitle());

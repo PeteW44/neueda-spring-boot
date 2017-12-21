@@ -7,7 +7,7 @@
 			<div class="transparent">
  				<h1 class="text-center text-white" th:text="${album.band.bandName}"><b></b></h1>
 				<h2 class="text-center text-white" th:text="${album.albumTitle}"><b></b></h2>
-				<h3 class="text-center text-white" th:text="${album.releaseYear}"><b></b></h3>
+				<h3 class="text-center text-white" th:text="${album.genre.genreName}"><b></b></h3>
 			</div>
 		</header>
 		<nav th:replace="layouts/nav :: navFragment"></nav>
@@ -22,6 +22,9 @@
 				<tbody>
 					<tr>
 						<td class="text-center"><img class="image" th:src="@{/} + ${album.albumArtLarge}" /></td>
+					</tr>
+					<tr class="col-12 text-white">
+						<td class="text-center" th:text="${'Released: ' + album.releaseYear}"><b></b></td>
 					</tr>
 				</tbody>
 			</table>

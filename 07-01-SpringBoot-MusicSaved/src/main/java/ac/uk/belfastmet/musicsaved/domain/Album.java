@@ -4,7 +4,7 @@
  * Package:         ac.uk.belfastmet.musicsaved.domain
  * Version:         1.0
  * Created:         11/11/2017
- * Updated:         18/12/2017 22.00
+ * Updated:         20/12/2017 22.00
  * Author:          Peter Wightman
  * Description:     This is the Album Class
  */
@@ -36,6 +36,10 @@ public class Album
 	@ManyToOne(fetch = FetchType.LAZY)
 	private Band band;
 	
+	@NotEmpty
+	@ManyToOne(fetch = FetchType.LAZY)
+	private Genre genre;
+	
 	// Instance Variables
 	private String albumTitle;
 	private String albumTitleLower;
@@ -54,13 +58,14 @@ public class Album
 	{
 		super();
 	}
-	
+
 	// Parameterised Album Constructor
-	public Album(Integer albumId, Band band, String albumTitle, String albumTitleLower, Integer releaseYear, String albumArtLarge, String albumArtSmall, boolean isLive, Set<Song> songs)
+	public Album(Integer albumId, Band band, Genre genre, String albumTitle, String albumTitleLower, Integer releaseYear, String albumArtLarge, String albumArtSmall, boolean isLive, Set<Song> songs)
 	{
 		super();
 		this.setAlbumId(albumId);
 		this.setBand(band);
+		this.setGenre(genre);
 		this.setAlbumTitle(albumTitle);
 		this.setAlbumTitleLower(albumTitleLower);
 		this.setReleaseYear(releaseYear);
@@ -158,6 +163,16 @@ public class Album
 		this.band = band;
 	}
 
+	public Genre getGenre() 
+	{
+		return genre;
+	}
+
+	public void setGenre(Genre genre) 
+	{
+		this.genre = genre;
+	}
+	
 	public Set<Song> getSongs() 
 	{
 		return songs;
