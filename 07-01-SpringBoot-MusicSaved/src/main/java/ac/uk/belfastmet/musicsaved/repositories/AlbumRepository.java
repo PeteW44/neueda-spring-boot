@@ -19,7 +19,7 @@ import ac.uk.belfastmet.musicsaved.domain.Genre;
 
 public interface AlbumRepository extends CrudRepository<Album, Integer>
 {
-	Set<Album> findAll();
+	Set<Album> findAllByOrderByReleaseYear();
 	Album findByAlbumTitleLower(String albumTitleLower);
 	Album findOne(int albumId);
 	Set<Album> findByBandOrderByReleaseYear(Band band);

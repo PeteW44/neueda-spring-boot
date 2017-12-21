@@ -46,38 +46,55 @@ public class AlbumService
 		this.albumRepository = albumRepository;
 	}
 	
-//	// ###################
-//	// Get All BRMC Albums
-//	// ###################
-//	public Set<Album> getAllBrmcAlbums()
-//	{
-//		Band band = bandRepository.findByBandNameLower("brmc");
-//		Set<Album> albums = albumRepository.findByBandOrderByReleaseYear(band);
-//		
-//		return albums;
-//	}
-//	
-//	// #########################
-//	// Get All Pink Floyd Albums
-//	// #########################
-//	public Set<Album> getAllPinkFloydAlbums()
-//	{
-//		Band band = bandRepository.findByBandNameLower("pinkfloyd");
-//		Set<Album> albums = albumRepository.findByBandOrderByReleaseYear(band);
-//		
-//		return albums;
-//	}
-//	
-//	// #########################
-//	// Get All Spacemen 3 Albums
-//	// #########################
-//	public Set<Album> getAllSpacemen3Albums()
-//	{
-//		Band band = bandRepository.findByBandNameLower("spacemen3");
-//		Set<Album> albums = albumRepository.findByBandOrderByReleaseYear(band);
-//		
-//		return albums;
-//	}
+	// ########
+	// Get Band
+	// ########
+	public Band getBand(String bandNameLower)
+	{
+		Band band = bandRepository.findByBandNameLower(bandNameLower);
+		
+		return band;
+	}
+	
+	// #########
+	// Get Genre
+	// #########
+	public Genre getGenre(String genreNameLower)
+	{
+		Genre genre = genreRepository.findByGenreNameLower(genreNameLower);
+		
+		return genre;
+	}
+	
+	// #############
+	// Get All Bands
+	// #############
+	public Set<Band> getAllBands()
+	{
+		Set<Band> bands = bandRepository.findAllByOrderByBandName();
+		
+		return bands;
+	}
+	
+	// ##############
+	// Get All Genres
+	// ##############
+	public Set<Genre> getAllGenres()
+	{
+		Set<Genre> genres = genreRepository.findAllByOrderByGenreName();
+		
+		return genres;
+	}
+	
+	// ##############
+	// Get All Albums
+	// ##############
+	public Set<Album> getAllAlbums()
+	{
+		Set<Album> albums = albumRepository.findAllByOrderByReleaseYear();
+		
+		return albums;
+	}
 	
 	// ###################
 	// Get All Band Albums
@@ -128,46 +145,6 @@ public class AlbumService
 		Set<Album> albums = albumRepository.findByBandOrderByReleaseYear(band);
 		
 		return albums;
-	}
-	
-	// ########
-	// Get Band
-	// ########
-	public Band getBand(String bandNameLower)
-	{
-		Band band = bandRepository.findByBandNameLower(bandNameLower);
-		
-		return band;
-	}
-	
-	// #########
-	// Get Genre
-	// #########
-	public Genre getGenre(String genreNameLower)
-	{
-		Genre genre = genreRepository.findByGenreNameLower(genreNameLower);
-		
-		return genre;
-	}
-	
-	// #############
-	// Get All Bands
-	// #############
-	public Set<Band> getAllBands()
-	{
-		Set<Band> bands = bandRepository.findAllByOrderByBandName();
-		
-		return bands;
-	}
-	
-	// ##############
-	// Get All Genres
-	// ##############
-	public Set<Genre> getAllGenres()
-	{
-		Set<Genre> genres = genreRepository.findAllByOrderByGenreName();
-		
-		return genres;
 	}
 		
 	// ################

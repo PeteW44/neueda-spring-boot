@@ -129,14 +129,85 @@ public class VariousArtistsController
 		return "albumsPage";
 	}
 	
+	@GetMapping("/albums/crud/")
+	public String crudAlbums(Model model)
+	{
+		Set<Band> bands = this.albumService.getAllBands();
+		model.addAttribute("bands", bands);
+		Set<Genre> genres = this.albumService.getAllGenres();
+		model.addAttribute("genres", genres);
+		Set<Album> albums = this.albumService.getAllAlbums();
+		model.addAttribute("albums", albums);
+		
+		model.addAttribute("pageTitle", "All Albums List");
+		model.addAttribute("pageTitle1", "Various Artists");
+		model.addAttribute("pageTitle2", "All Albums List");
+		model.addAttribute("pageTitle3", "C.R.U.D.");
+		
+		return "albumsListPage";
+	}
+	
+	@GetMapping("/albums/crud/view/{albumTitleLower}/")
+	public String viewAlbums(@PathVariable("albumTitleLower") String albumTitleLower, Model model)
+	{
+		Set<Band> bands = this.albumService.getAllBands();
+		model.addAttribute("bands", bands);
+		Set<Genre> genres = this.albumService.getAllGenres();
+		model.addAttribute("genres", genres);
+		Album album = this.albumService.getAlbum(albumTitleLower);
+		model.addAttribute("album", album);
+		
+		model.addAttribute("pageTitle", "View Albums");
+		model.addAttribute("pageTitle1", "Various Artists");
+		model.addAttribute("pageTitle2", "View Album");
+		model.addAttribute("pageTitle3", "C.R.U.D.");
+		
+		return "albumPage";
+	}
+	
+	@GetMapping("/albums/crud/edit/{albumTitleLower}/")
+	public String editAlbums(@PathVariable("albumTitleLower") String albumTitleLower, Model model)
+	{
+		Set<Band> bands = this.albumService.getAllBands();
+		model.addAttribute("bands", bands);
+		Set<Genre> genres = this.albumService.getAllGenres();
+		model.addAttribute("genres", genres);
+		Album album = this.albumService.getAlbum(albumTitleLower);
+		model.addAttribute("album", album);
+		
+		model.addAttribute("pageTitle", "Edit Album");
+		model.addAttribute("pageTitle1", "Various Artists");
+		model.addAttribute("pageTitle2", "Edit Album");
+		model.addAttribute("pageTitle3", "C.R.U.D.");
+		
+		return "albumEditPage";
+	}
+	
+	@GetMapping("/albums/crud/delete/")
+	public String deleteAlbums(Model model)
+	{
+		Set<Band> bands = this.albumService.getAllBands();
+		model.addAttribute("bands", bands);
+		Set<Genre> genres = this.albumService.getAllGenres();
+		model.addAttribute("genres", genres);
+		Set<Album> albums = this.albumService.getAllAlbums();
+		model.addAttribute("albums", albums);
+		
+		model.addAttribute("pageTitle", "All Albums List");
+		model.addAttribute("pageTitle1", "Various Artists");
+		model.addAttribute("pageTitle2", "All Albums List");
+		model.addAttribute("pageTitle3", "C.R.U.D.");
+		
+		return "albumsListPage";
+	}
 	//###################
 	// Dynamic Album Page
 	//###################
 	
-	@RequestMapping("/albums/*/*/{albumTitle}")
-	public String liveAlbum(@PathVariable("albumTitle") String albumTitle, Model model)
+	@RequestMapping("/albums/*/*/{albumTitleLower}")
+	public String liveAlbum(@PathVariable("albumTitleLower") String albumTitleLower, Model model)
 	{
-		Album album = this.albumService.getAlbum(albumTitle);
+		Album album = this.albumService.getAlbum(albumTitleLower);
 		Set<Band> bands = this.albumService.getAllBands();
 		model.addAttribute("bands", bands);
 		Set<Genre> genres = this.albumService.getAllGenres();
