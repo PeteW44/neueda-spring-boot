@@ -13,31 +13,29 @@
 		<nav th:replace="layouts/nav :: navFragment"></nav>
 		<br />
 		<section>
-			<h3 class="text-center text-white">All Albums List</h3>
+			<h3 class="text-center text-white">All Genres List</h3>
 			<table class="table table-striped">
 				<thead>
 					<tr class="text-white">
-						<th>Band</th>
-						<th>Title</th>
-						<th>Released</th>
+						<th>Name</th>
+						<th>Name (Lower)</th>
 						<th>View</th>
 						<th>Edit</th>
 						<th>Delete</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr class="text-white" th:each="album : ${albums}">
-						<td th:text="${album.Band.bandName}"></td>
-						<td th:text="${album.albumTitle}"></td>
-						<td th:text="${album.releaseYear}"></td>
+					<tr class="text-white" th:each="genre : ${genres}">
+						<td th:text="${genre.genreName}"></td>
+						<td th:text="${genre.genreNameLower}"></td>
 						<td class="crudButtonTdWidth">
-							<a class="btn btn-light fsSmall crudButtonWidth" th:href="@{view/} + ${album.albumTitleLower} + @{/}"><b>View</b></a>
+							<a class="btn btn-light fsSmall crudButtonWidth" th:href="@{view/} + ${genre.genreNameLower} + @{/}"><b>View</b></a>
 						</td>
 						<td class="crudButtonTdWidth">
-							<a class="btn btn-light fsSmall crudButtonWidth" th:href="@{edit/} + ${album.albumTitleLower} + @{/}"><b>Edit</b></a> 
+							<a class="btn btn-light fsSmall crudButtonWidth" th:href="@{edit/} + ${genre.genreNameLower} + @{/}"><b>Edit</b></a> 
 						</td>
 						<td class="crudButtonTdWidth">
-							<a class="btn btn-light fsSmall crudButtonWidth" th:href="@{delete/} + ${album.albumId} + @{/}"><b>Delete</b></a>
+							<a class="btn btn-light fsSmall crudButtonWidth" th:href="@{delete/} + ${genre.genreId} + @{/}"><b>Delete</b></a>
 						</td>
 					</tr>
 				</tbody>

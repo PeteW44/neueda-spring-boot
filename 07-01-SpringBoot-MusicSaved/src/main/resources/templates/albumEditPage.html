@@ -5,66 +5,80 @@
 	<body class="content">
 		<header class="jumbotron text-center homeHeadImage">
 			<div class="transparent">
-				<h1 class="text-center text-white"><b></b></h1>
-				<h2 class="text-center text-white"><b></b></h2>
-				<h3 class="text-center text-white"><b></b></h3>
+				<h1 class="text-center text-white" th:text="${pageTitle1}"><b></b></h1>
+				<h2 class="text-center text-white" th:text="${pageTitle2}"><b></b></h2>
+				<h3 class="text-center text-white" th:text="${pageTitle3}"><b></b></h3>
 			</div>
 		</header>
 		<nav th:replace="layouts/nav :: navFragment"></nav>
 		<br />
 		<section>
-			<h6 class="text-center text-white" th:text="${pageTitle}"></h6>
+			<h4 class="text-center text-white"><b>Album Details</b></h4>
 			<br />
 			<div class="container">
 				<form class="form-horizontal" th:action="@{/variousartists/albums/crud/save/}" th:object="${album}" method="post">
 					<!-- hidden field is important! -->
 					<input type="hidden" th:field="${album.albumId}" />
 					
-					<div class="container">
-						<div class="row">
-					    	<div class="col-6">
-					    		<div class="form-group is-invalid" th:classappend="${#fields.hasErrors('albumTitle')}? 'has-error'">
-									<div class="control-label">
-										<label class="text-white right">Passenger:</label>
-										<input class="form-control" type="text" name="albumTitle" th:field="${album.albumTitle}" />
-										<span th:if="${#fields.hasErrors('albumTitle')}"
-											  th:errors="*{albumTitle}"
-											  th:class="help-block">Album Errors</span>
-									</div>
-								</div>
-					    	</div>
-					    </div>
-					    <h4 class="text-center text-white"><b>Album Details</b></h4>
-					    <div class="row">
-					    	<div class="col-3">
-					    		<label class="text-white right">Title: <input class="form-control" type="text" name="albumTitle" th:field="${album.albumTitle}" /></label>
-							</div>
-					    	<div class="col-3">
-								<label class="text-white right">|Title (lower): <input class="form-control" type="text" name="albumTitleLower" th:field="${album.albumTitleLower}" /></label>
-					    	</div>
-					    	<div class="col-3">
-					    		<label class="text-white right">Released: <input class="form-control" type="text" name="releaseYear" th:field="${album.releaseYear}" /></label>
-							</div>
-					    	<div class="col-3">
-								<label class="text-white right" for="isLiveTrue">Is Live?: <input class="form-control" type="radio" name="isLiveTrue" th:field="${album.isLive}" />Yes</label>
-<!-- 								<label class="text-white right" for="isLiveFalse"><input class="form-control" type="radio" name="isLiveFalse" th:field="${album.isLive}" />No</label> -->
-					    	</div>
-					    </div>
-					    <div class="row">
-					    	<div class="col-6">
-					    		<label class="text-white right">Artwork: <input class="form-control" type="text" name="albumArtLarge" th:field="${album.albumArtLarge}" /></label>
-							</div>
-					    	<div class="col-6">
-								<label class="text-white right">Artwork (Hi Res): <input class="form-control" type="text" name="albumArtSmall" th:field="${album.albumArtSmall}" /></label>
-					    	</div>
-					    </div>
-					    <br />
-					    <div class="row">
-					    	<div class="col-3">
-					    		<button type="submit" class="btn btn-default">Save</button>
-					    	</div>
-					    </div>
+					<div class="row">
+				    	<div class="col-6">
+							<label class="text-white">Select Band:</label>
+							<br />
+							<select id="ddlBand" class="form-control btn btn-light dropdown-toggle dropdown-toggle-split text-left" data-toggle="dropdown" th:field="${album.band.bandId}">
+								<option class="dropdown-item" th:each="band : ${bands}"
+															  th:text="${band.bandName}"
+															  th:value="${band.bandId}">
+								</option>
+	    					</select>
+						</div>
 					</div>
+					<br />
+					<div class="row">
+						<div class="col-3">
+				    		<label class="text-white">Released: <input class="form-control" type="text" name="releaseYear" th:field="${album.releaseYear}" /></label>
+						</div>
+				    	<div class="col-3" data-toggle="checked">
+							<label class="text-white" for="isLive">Is Live?</label>
+							<br />
+							<input class="text-white" th:checked="${album.isLive}" type="checkbox" name="isLive" />
+						</div>
+					</div>
+					<br />
+					<div class="row">
+				    	<div class="col-6">
+							<label class="text-white">Album Title:</label>
+							<br />
+							<input class="form-control" type="text" name="albumTitle" th:field="${album.albumTitle}" />
+				    	</div>
+				    	<div class="col-6">
+							<label class="text-white">Album Title (Lower):</label>
+							<br />
+							<input class="form-control" type="text" name="albumTitleLower" th:field="${album.albumTitleLower}" />
+				    	</div>
+				    </div>
+				    
+				    <br />
+				    <div class="row">
+				    	<div class="col-12">
+				    		<label class="text-white">Artwork (Hi Res):</label>
+				    		<br />
+				    		<input class="form-control" type="text" name="albumArtLarge" th:field="${album.albumArtLarge}" />
+						</div>
+					</div>
+					<br />
+				    <div class="row">
+				    	<div class="col-12">
+							<label class="text-white">Artwork:</label>
+							<br />
+							<input class="form-control" type="text" name="albumArtSmall" th:field="${album.albumArtSmall}" />
+				    	</div>
+				    </div>
+				    <br />
+				    <div class="row">
+				    	<div class="col-3">
+				    		<button type="submit" class="btn btn-default">Save</button>
+				    	</div>
+				    </div>
 				</form>
 			</div>
 		</section>

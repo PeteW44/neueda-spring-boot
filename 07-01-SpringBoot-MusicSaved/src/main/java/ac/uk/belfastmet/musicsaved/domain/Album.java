@@ -4,7 +4,7 @@
  * Package:         ac.uk.belfastmet.musicsaved.domain
  * Version:         1.0
  * Created:         11/11/2017
- * Updated:         20/12/2017 22.00
+ * Updated:         23/12/2017 18.00
  * Author:          Peter Wightman
  * Description:     This is the Album Class
  */
@@ -46,7 +46,9 @@ public class Album
 	private Integer releaseYear;
 	private String albumArtLarge;
 	private String albumArtSmall;
-	private boolean isLive;
+	
+	@NotEmpty
+	private Boolean isLive;
 	
 	// Collection of Songs
 	@OneToMany(mappedBy = "album", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
@@ -60,7 +62,7 @@ public class Album
 	}
 
 	// Parameterised Album Constructor
-	public Album(Integer albumId, Band band, Genre genre, String albumTitle, String albumTitleLower, Integer releaseYear, String albumArtLarge, String albumArtSmall, boolean isLive, Set<Song> songs)
+	public Album(Integer albumId, Band band, Genre genre, String albumTitle, String albumTitleLower, Integer releaseYear, String albumArtLarge, String albumArtSmall, Boolean isLive, Set<Song> songs)
 	{
 		super();
 		this.setAlbumId(albumId);
@@ -71,7 +73,7 @@ public class Album
 		this.setReleaseYear(releaseYear);
 		this.setAlbumArtLarge(albumArtLarge);
 		this.setAlbumArtSmall(albumArtSmall);
-		this.setLive(isLive);
+		this.setIsLive(isLive);
 		this.setSongs(songs);
 	}
 	
@@ -139,12 +141,12 @@ public class Album
 		this.albumArtSmall = albumArtSmall;
 	}
 	
-	public boolean isLive() 
+	public Boolean getIsLive() 
 	{
 		return isLive;
 	}
 
-	public void setLive(boolean isLive) 
+	public void setIsLive(Boolean isLive) 
 	{
 		this.isLive = isLive;
 	}

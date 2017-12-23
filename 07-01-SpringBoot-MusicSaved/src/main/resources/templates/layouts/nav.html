@@ -12,74 +12,79 @@
 					</a>
 			    </div>
 			    <ul class="navbar-nav mr-auto">
-			    	<li class="dropdown">
-			    		<button class="btn btn-secondary dropdown-toggle text-white blackBackGround" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    						<span>BRMC</span>
-    					</button>
-						<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-							<li><a class="dropdown-item" href="/brmc/bio/">Biography</a></li>
-							<li><a class="dropdown-item" href="/brmc/">Images</a></li>
-				            <li><a class="dropdown-item" href="/brmc/media/">Media</a></li>
-				        </ul>
-			        </li>
-			    	<li class="dropdown">
-			    		<button class="btn btn-secondary dropdown-toggle text-white blackBackGround" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    						<span>Pink Floyd</span>
-    					</button>
-						<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-				            <li><a class="dropdown-item" href="/pinkfloyd/bio/">Biography</a></li>
-				            <li><a class="dropdown-item" href="/pinkfloyd/">Images</a></li>
-				            <li><a class="dropdown-item" href="/pinkfloyd/media/">Media</a></li>
-				        </ul>
-			        </li>
 			        <li class="dropdown">
-			        	<button class="btn btn-secondary dropdown-toggle text-white blackBackGround" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    						<span>Spacemen 3</span>
-    					</button>
+						<button class="btn btn-secondary dropdown-toggle text-white blackBackGround" type="button" id="dropdownMenuButton"
+							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<span><b class="caret">Bands</b></span>
+						</button>
 						<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-				            <li><a class="dropdown-item" href="/spacemen3/bio/">Biography</a></li>
-				            <li><a class="dropdown-item" href="/spacemen3/">Images</a></li>
-				            <li><a class="dropdown-item" href="/spacemen3/media/">Media</a></li>
-				        </ul>
-			        </li>
-			        <li class="dropdown">
-			        	<button class="btn btn-secondary dropdown-toggle text-white blackBackGround" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    						<span>Bands</span>
-    					</button>
-						<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-				            <li th:each="band : ${bands}">
-								 <a class="dropdown-item" th:href="@{/variousartists/albums/band/} + ${band.bandNameLower} + @{/}"
-														 th:text="${band.bandName}"></a>
+							<li class="dropdown-submenu">
+								<a href="#" class="dropdown-item dropdown-toggle" data-toggle="dropdown"><span>BRMC<b class="caret"></b></span></a>
+								<ul class="dropdown-menu">
+									<li><a class="dropdown-item" href="/brmc/bio/">Biography</a></li>
+									<li><a class="dropdown-item" href="/brmc/images/">Images</a></li>
+						            <li><a class="dropdown-item" href="/brmc/media/">Media</a></li>
+								</ul>
 							</li>
-				        </ul>
-			        </li>
-			        <li class="dropdown">
-			        	<button class="btn btn-secondary dropdown-toggle text-white blackBackGround" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    						<span>Genre</span>
-    					</button>
-						<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-							<li th:each="genre : ${genres}">
-								<a class="dropdown-item" th:href="@{/variousartists/albums/genre/} + ${genre.genreNameLower} + @{/}"
-														 th:text="${genre.genreName}"></a>
-														
+							<li class="dropdown-submenu">
+								<a href="#" class="dropdown-item dropdown-toggle" data-toggle="dropdown"><span>Pink Floyd<b class="caret"></b></span></a>
+								<ul class="dropdown-menu">
+									<li><a class="dropdown-item" href="/pinkfloyd/bio/">Biography</a></li>
+						            <li><a class="dropdown-item" href="/pinkfloyd/images/">Images</a></li>
+						            <li><a class="dropdown-item" href="/pinkfloyd/media/">Media</a></li>
+								</ul>
 							</li>
-				        </ul>
-			        </li>
+							<li class="dropdown-submenu">
+								<a href="#" class="dropdown-item dropdown-toggle" data-toggle="dropdown"><span>Spacemen 3<b class="caret"></b></span></a>
+								<ul class="dropdown-menu">
+									<li><a class="dropdown-item" href="/spacemen3/bio/">Biography</a></li>
+						            <li><a class="dropdown-item" href="/spacemen3/images/">Images</a></li>
+						            <li><a class="dropdown-item" href="/spacemen3/media/">Media</a></li>
+								</ul>
+							</li>
+						</ul>
+					</li>
 			        <li class="dropdown">
-			        	<button class="btn btn-secondary dropdown-toggle text-white blackBackGround" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    						<span>Studio and Live</span>
-    					</button>
-						<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-							<li><a class="dropdown-item" href="/variousartists/albums/studio/all/">Studio Albums</a></li>
-				            <li><a class="dropdown-item" href="/variousartists/albums/live/all/">Live Albums</a></li>
-				        </ul>
-			        </li>
+						<button class="btn btn-secondary dropdown-toggle text-white blackBackGround" type="button" id="dropdownMenuButton"
+							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<span><b class="caret">Albums</b></span>
+						</button>
+						<ul class="dropdown-menu">
+							<li class="dropdown-submenu">
+								<a href="#" class="dropdown-item dropdown-toggle" data-toggle="dropdown"><span>Band<b class="caret"></b></span></a>
+								<ul class="dropdown-menu">
+									<li th:each="band : ${bands}">
+										 <a class="dropdown-item" th:href="@{/albums/band/} + ${band.bandNameLower} + @{/}"
+																 th:text="${band.bandName}"></a>
+									</li>
+								</ul>
+							</li>
+							<li class="dropdown-submenu">
+								<a href="#" class="dropdown-item dropdown-toggle" data-toggle="dropdown"><span>Genre<b class="caret"></b></span></a>
+								<ul class="dropdown-menu">
+									<li th:each="genre : ${genres}">
+										<a class="dropdown-item" th:href="@{/albums/genre/} + ${genre.genreNameLower} + @{/}"
+																 th:text="${genre.genreName}"></a>
+									</li>
+								</ul>
+							</li>
+							<li class="dropdown-submenu">
+								<a href="#" class="dropdown-item dropdown-toggle" data-toggle="dropdown"><span>Studio and Live<b class="caret"></b></span></a>
+								<ul class="dropdown-menu">
+									<li><a class="dropdown-item" href="/albums/studio/all/">Studio</a></li>
+									<li><a class="dropdown-item" href="/albums/live/all/">Live</a></li>
+								</ul>
+							</li>
+						</ul>
+					</li>
 			        <li class="dropdown">
-			        	<button class="btn btn-secondary dropdown-toggle text-white blackBackGround" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			        	<button class="btn btn-secondary dropdown-toggle text-white blackBackGround" type="button" id="dropdownMenuButton"
+			        		data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     						<span>CRUD</span>
     					</button>
 						<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-							<li><a class="dropdown-item" href="/variousartists/albums/crud/">Album List</a></li>
+							<li><a class="dropdown-item" href="/albums/crud/">Album List</a></li>
+							<li><a class="dropdown-item" href="/genres/crud/">Genre List</a></li>
 				        </ul>
 			        </li>
 			    </ul>

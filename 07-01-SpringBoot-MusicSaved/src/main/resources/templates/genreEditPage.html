@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="Http:thymeleaf.org">
+	<head th:replace="layouts/header :: headFragment"></head>
+	<body class="content">
+		<header class="jumbotron text-center homeHeadImage">
+			<div class="transparent">
+				<h1 class="text-center text-white" th:text="${pageTitle1}"><b></b></h1>
+				<h2 class="text-center text-white" th:text="${pageTitle2}"><b></b></h2>
+				<h3 class="text-center text-white" th:text="${pageTitle3}"><b></b></h3>
+			</div>
+		</header>
+		<nav th:replace="layouts/nav :: navFragment"></nav>
+		<br />
+		<section>
+			<h4 class="text-center text-white"><b>Album Details</b></h4>
+			<br />
+			<div class="container">
+				<form class="form-horizontal" th:action="@{/genre/crud/save/}" th:object="${genre}" method="post">
+					<!-- hidden field is important! -->
+					<input type="hidden" th:field="${genre.genreId}" />
+					
+					<div class="row">
+				    	<div class="col-6">
+							<label class="text-white">Genre:</label>
+							<br />
+							<input class="form-control" type="text" name="genreName" th:field="${genre.genreName}" />
+				    	</div>
+				    	<div class="col-6">
+							<label class="text-white">Genre (Lower):</label>
+							<br />
+							<input class="form-control" type="text" name="genreNameLower" th:field="${genre.genreNameLower}" />
+				    	</div>
+				    </div>
+				    <br />
+				    <div class="row">
+				    	<div class="col-3">
+				    		<button type="submit" class="btn btn-default">Save</button>
+				    	</div>
+				    </div>
+				</form>
+			</div>
+		</section>
+		<br />
+		<footer th:replace="layouts/footer :: footFragment"></footer>
+		<br />
+	</body>
+</html>

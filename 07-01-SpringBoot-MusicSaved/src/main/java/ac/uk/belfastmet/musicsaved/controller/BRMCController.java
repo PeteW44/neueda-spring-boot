@@ -4,7 +4,7 @@
  * Package:         ac.uk.belfastmet.musicsaved.controller
  * Version:         1.0
  * Created:         11/11/2017
- * Updated:         20/12/2017 22.00
+ * Updated:         23/12/2017 18.00
  * Author:          Peter Wightman
  * Description:     This is the BRMCController Class
  */
@@ -19,50 +19,31 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import ac.uk.belfastmet.musicsaved.domain.Band;
 import ac.uk.belfastmet.musicsaved.domain.Genre;
-import ac.uk.belfastmet.musicsaved.repositories.AlbumRepository;
-import ac.uk.belfastmet.musicsaved.repositories.BandRepository;
-import ac.uk.belfastmet.musicsaved.repositories.GenreRepository;
-import ac.uk.belfastmet.musicsaved.service.AlbumService;
+import ac.uk.belfastmet.musicsaved.service.MusicService;
 
 @Controller
 @RequestMapping("/brmc/")
 public class BRMCController 
 {
 	@Autowired
-	private AlbumService albumService;
-	
-	@Autowired
-	BandRepository bandRepository;
-	
-	@Autowired
-	AlbumRepository albumRepository;
-	
-	@Autowired
-	GenreRepository genreRepository;
+	private MusicService albumService;
 	
 	public BRMCController()
 	{
 		super();
 	}
 	
-	public BRMCController(BandRepository bandRepository, GenreRepository genreRepository, AlbumRepository albumRepository)
-	{
-		super();
-		this.bandRepository = bandRepository;
-		this.genreRepository = genreRepository;
-		this.albumRepository = albumRepository;
-	}
-	
-	@GetMapping("/")
-	public String brmcHome(Model model)
+	@GetMapping("/images/")
+	public String brmcImages(Model model)
 	{
 		Set<Band> bands = this.albumService.getAllBands();
 		model.addAttribute("bands", bands);
 		Set<Genre> genres = this.albumService.getAllGenres();
 		model.addAttribute("genres", genres);
-		model.addAttribute("pageTitle", "BRMC Home");
 		
-		return "brmcHomePage";
+		model.addAttribute("pageTitle", "BRMC Images");
+		
+		return "brmcImagesPage";
 	}
 	
 	@GetMapping("/bio/")
@@ -72,6 +53,7 @@ public class BRMCController
 		model.addAttribute("bands", bands);
 		Set<Genre> genres = this.albumService.getAllGenres();
 		model.addAttribute("genres", genres);
+		
 		model.addAttribute("pageTitle", "BRMC Bio");
 		
 		return "brmcBioPage";

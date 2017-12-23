@@ -15,27 +15,28 @@
 		<section>
 			<table class="table table-striped">
 				<thead>
-					<tr class="text-white">
-						<th class="text-center">Album Art</th>
+					<tr>
+						<th colspan="2" class="text-white text-center">Album Art</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
-						<td class="text-center"><img class="image" th:src="@{/} + ${album.albumArtLarge}" /></td>
+						<td colspan="2" class="text-center"><img class="image" th:src="@{/} + ${album.albumArtLarge}" /></td>
 					</tr>
-					<tr class="col-12 text-white">
-						<td class="text-center" th:text="${'Released: ' + album.releaseYear}"><b></b></td>
+					<tr>
+						<td class="col-6 text-white text-center" th:text="${'Released: ' + album.releaseYear}"><b></b></td>
+						<td class="col-6 text-white text-center" th:text="${'Live: ' + album.isLive}"><b></b></td>
 					</tr>
 				</tbody>
 			</table>
 			<table class="table table-striped">
 				<thead>
-					<tr class="text-white">
-						<th class="text-center">Album Tracks</th>
+					<tr>
+						<th class="text-white text-center">Album Tracks</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr class="text-white">
+					<tr>
 						<td>
 							<table style="background-color: black;" class="table table-striped">
 								<thead>

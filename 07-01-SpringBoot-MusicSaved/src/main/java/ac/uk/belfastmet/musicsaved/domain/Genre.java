@@ -4,7 +4,7 @@
  * Package:         ac.uk.belfastmet.musicsaved.domain
  * Version:         1.0
  * Created:         19/11/2017
- * Updated:         20/12/2017 23.00
+ * Updated:         23/12/2017 18.00
  * Author:          Peter Wightman
  * Description:     This is the Genre Class
  */
@@ -39,7 +39,7 @@ public class Genre
 		super();
 		this.setGenreId(genreId);
 		this.setGenreName(genreName);
-		this.setGenreName(genreName);
+		this.setGenreNameLower(genreNameLower);
 	}
 	
 	/*

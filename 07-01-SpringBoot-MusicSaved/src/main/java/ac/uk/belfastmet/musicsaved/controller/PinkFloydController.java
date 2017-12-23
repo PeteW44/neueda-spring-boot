@@ -4,7 +4,7 @@
  * Package:         ac.uk.belfastmet.musicsaved.controller
  * Version:         1.0
  * Created:         11/11/2017
- * Updated:         20/12/2017 22.00
+ * Updated:         23/12/2017 18.00
  * Author:          Peter Wightman
  * Description:     This is the PinkFloydController Class
  */
@@ -19,41 +19,21 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import ac.uk.belfastmet.musicsaved.domain.Band;
 import ac.uk.belfastmet.musicsaved.domain.Genre;
-import ac.uk.belfastmet.musicsaved.repositories.AlbumRepository;
-import ac.uk.belfastmet.musicsaved.repositories.BandRepository;
-import ac.uk.belfastmet.musicsaved.repositories.GenreRepository;
-import ac.uk.belfastmet.musicsaved.service.AlbumService;
+import ac.uk.belfastmet.musicsaved.service.MusicService;
 
 @Controller
 @RequestMapping("/pinkfloyd/")
 public class PinkFloydController 
 {
 	@Autowired
-	private AlbumService albumService;
-	
-	@Autowired
-	BandRepository bandRepository;
-	
-	@Autowired
-	AlbumRepository albumRepository;
-	
-	@Autowired
-	GenreRepository genreRepository;
+	private MusicService albumService;
 	
 	public PinkFloydController()
 	{
 		super();
 	}
-	
-	public PinkFloydController(BandRepository bandRepository, GenreRepository genreRepository, AlbumRepository albumRepository)
-	{
-		super();
-		this.bandRepository = bandRepository;
-		this.genreRepository = genreRepository;
-		this.albumRepository = albumRepository;
-	}
-	
-	@GetMapping("/")
+
+	@GetMapping("/images/")
 	public String pinkFloydHome(Model model)
 	{
 		Set<Band> bands = this.albumService.getAllBands();
@@ -61,9 +41,9 @@ public class PinkFloydController
 		Set<Genre> genres = this.albumService.getAllGenres();
 		model.addAttribute("genres", genres);
 		
-		model.addAttribute("pageTitle", "Pink Floyd Home");
+		model.addAttribute("pageTitle", "Pink Floyd Images");
 		
-		return "pinkFloydHomePage";
+		return "pinkFloydImagesPage";
 	}
 	
 	@GetMapping("/bio/")

@@ -1,12 +1,12 @@
 /*
- * Class:           AlbumService.java
+ * Class:           MusicService.java
  * Project:         Music Demo
  * Package:         ac.uk.belfastmet.musicsaved.service
  * Version:         1.0
  * Created:         17/11/2017
- * Updated:         20/12/2017 22.00
+ * Updated:         23/12/2017 18.00
  * Author:          Peter Wightman
- * Description:     This is the AlbumService Class
+ * Description:     This is the MusicService Class
  */
 
 package ac.uk.belfastmet.musicsaved.service;
@@ -22,7 +22,7 @@ import ac.uk.belfastmet.musicsaved.repositories.BandRepository;
 import ac.uk.belfastmet.musicsaved.repositories.GenreRepository;
 
 @Service
-public class AlbumService 
+public class MusicService 
 {
 	@Autowired
 	BandRepository bandRepository;
@@ -33,12 +33,12 @@ public class AlbumService
 	@Autowired
 	GenreRepository genreRepository;
 	
-	public AlbumService() 
+	public MusicService() 
 	{
 		super();
 	}
 	
-	public AlbumService(BandRepository bandRepository, GenreRepository genreRepository, AlbumRepository albumRepository) 
+	public MusicService(BandRepository bandRepository, GenreRepository genreRepository, AlbumRepository albumRepository) 
 	{
 		super();
 		this.bandRepository = bandRepository;
