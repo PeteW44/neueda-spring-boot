@@ -16,38 +16,36 @@
 			<div class="alert alert-success" role="alert" th:if="${message}">
 				<p th:text="${message}"></p>
 			</div>
-			<h3 class="text-center text-white">Albums List</h3>
+			<h3 class="text-center text-white">Bands List</h3>
 			<table class="table table-striped">
 				<thead>
 					<tr class="text-white">
-						<th>Band</th>
-						<th>Title</th>
-						<th>Released</th>
+						<th>Name</th>
+						<th>Name (Lower)</th>
 						<th>View</th>
 						<th>Edit</th>
 						<th>Delete</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr class="text-white" th:each="album : ${albums}">
-						<td th:text="${album.band.bandName}"></td>
-						<td th:text="${album.albumTitle}"></td>
-						<td th:text="${album.releaseYear}"></td>
+					<tr class="text-white" th:each="band : ${bands}">
+						<td th:text="${band.bandName}"></td>
+						<td th:text="${band.bandNameLower}"></td>
 						<td class="crudButtonTdWidth">
-							<a class="btn btn-light fsSmall crudButtonWidth" th:href="@{view/} + ${album.albumTitleLower} + @{/}"><b>View</b></a>
+							<a class="btn btn-light fsSmall crudButtonWidth" th:href="@{view/} + ${band.bandNameLower} + @{/}"><b>View</b></a>
 						</td>
 						<td class="crudButtonTdWidth">
-							<a class="btn btn-light fsSmall crudButtonWidth" th:href="@{edit/} + ${album.albumTitleLower} + @{/}"><b>Edit</b></a> 
+							<a class="btn btn-light fsSmall crudButtonWidth" th:href="@{edit/} + ${band.bandNameLower} + @{/}"><b>Edit</b></a> 
 						</td>
 						<td class="crudButtonTdWidth">
-							<a class="btn btn-light fsSmall crudButtonWidth" th:href="@{delete/} + ${album.albumId} + @{/}"><b>Delete</b></a>
+							<a class="btn btn-light fsSmall crudButtonWidth" th:href="@{delete/} + ${band.bandId} + @{/}"><b>Delete</b></a>
 						</td>
 					</tr>
 				</tbody>
 			</table>
 			<div class="row">
 		    	<div class="col-3">
-		    		<a class="btn btn-light" href="/albums/crud/add/" role="button"><b>Add</b></a>
+		    		<a class="btn btn-light" href="/bands/crud/add/" role="button"><b>Add</b></a>
 		    	</div>
 		    </div>
 		</section>

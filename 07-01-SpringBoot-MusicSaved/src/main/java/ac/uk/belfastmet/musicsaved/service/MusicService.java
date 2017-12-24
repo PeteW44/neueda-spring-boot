@@ -156,4 +156,58 @@ public class MusicService
 		
 		return album;
 	}
+	
+	// ###########
+	// Delete Band
+	// ###########
+	public void deleteBand(Integer bandId) 
+	{
+		bandRepository.delete(bandId);
+	}
+	
+	// ############
+	// Delete Genre
+	// ############
+	public void deleteGenre(Integer genreId) 
+	{
+		genreRepository.delete(genreId);
+	}
+	
+	// ############
+	// Delete Album
+	// ############
+	public void deleteAlbum(Integer albumId) 
+	{
+		albumRepository.delete(albumId);
+	}
+	
+	// #########
+	// Save Band
+	// #########
+	public Band saveBand(Band band) 
+	{
+		bandRepository.save(band);
+		
+		return band;
+	}
+
+	// ##########
+	// Save Genre
+	// ##########
+	public Genre saveGenre(Genre genre) 
+	{
+		genreRepository.save(genre);
+		
+		return genre;
+	}
+	
+	// ##########
+	// Save Album
+	// ##########
+	public Album saveAlbum(Album album) 
+	{
+		albumRepository.save(album);
+		
+		return album;
+	}
 }

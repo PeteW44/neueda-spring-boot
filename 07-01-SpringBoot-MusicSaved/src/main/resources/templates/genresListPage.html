@@ -13,7 +13,10 @@
 		<nav th:replace="layouts/nav :: navFragment"></nav>
 		<br />
 		<section>
-			<h3 class="text-center text-white">All Genres List</h3>
+			<div class="alert alert-success" role="alert" th:if="${message}">
+				<p th:text="${message}"></p>
+			</div>
+			<h3 class="text-center text-white">Genres List</h3>
 			<table class="table table-striped">
 				<thead>
 					<tr class="text-white">
@@ -40,6 +43,11 @@
 					</tr>
 				</tbody>
 			</table>
+			<div class="row">
+		    	<div class="col-3">
+		    		<a class="btn btn-light" href="/genres/crud/add/" role="button"><b>Add</b></a>
+		    	</div>
+		    </div>
 		</section>
 		<br />
 		<footer th:replace="layouts/footer :: footFragment"></footer>

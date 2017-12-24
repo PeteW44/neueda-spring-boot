@@ -13,23 +13,39 @@
 		<nav th:replace="layouts/nav :: navFragment"></nav>
 		<br />
 		<section>
-			<h4 class="text-center text-white"><b>Genre Details</b></h4>
+			<h4 class="text-center text-white"><b>Album Details</b></h4>
 			<br />
 			<div class="container">
-				<form class="form-horizontal" th:action="@{/genres/crud/save/}" th:object="${genre}" method="post">
+				<form class="form-horizontal" th:action="@{/bands/crud/save/}" th:object="${band}" method="post">
 					<!-- hidden field is important! -->
-					<input type="hidden" th:field="${genre.genreId}" />
+					<input type="hidden" th:field="${band.bandId}" />
 					
 					<div class="row">
 				    	<div class="col-6">
-							<label class="text-white">Genre:</label>
+							<label class="text-white">Band:</label>
 							<br />
-							<input class="form-control" type="text" name="genreName" th:field="${genre.genreName}" />
+							<input class="form-control" type="text" name="bandName" th:field="${band.bandName}" />
 				    	</div>
 				    	<div class="col-6">
-							<label class="text-white">Genre (Lower):</label>
+							<label class="text-white">Band (Lower):</label>
 							<br />
-							<input class="form-control" type="text" name="genreNameLower" th:field="${genre.genreNameLower}" />
+							<input class="form-control" type="text" name="bandNameLower" th:field="${band.bandNameLower}" />
+				    	</div>
+				    </div>
+				    <br />
+				    <div class="row">
+				    	<div class="col-12">
+							<label class="text-white">Origin:</label>
+							<br />
+							<input class="form-control" type="text" name="bandOrigin" th:field="${band.origin}" />
+				    	</div>
+				    	 </div>
+				    <br />
+				    <div class="row">
+				    	<div class="col-12">
+							<label class="text-white">Website:</label>
+							<br />
+							<input class="form-control" type="text" name="bandWebsite" th:field="${band.website}" />
 				    	</div>
 				    </div>
 				    <br />

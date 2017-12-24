@@ -24,7 +24,9 @@
 				    	<div class="col-6">
 							<label class="text-white">Select Band:</label>
 							<br />
-							<select id="ddlBand" class="form-control btn btn-light dropdown-toggle dropdown-toggle-split text-left" data-toggle="dropdown" th:field="${album.band.bandId}">
+							<select id="ddlBand" class="form-control btn btn-light dropdown-toggle dropdown-toggle-split text-left"
+								data-toggle="dropdown" th:field="${album.band.bandId}">
+								<option value="" hidden="hidden" selected="selected">Please Select a Band....</option>
 								<option class="dropdown-item" th:each="band : ${bands}"
 															  th:text="${band.bandName}"
 															  th:value="${band.bandId}">
@@ -71,6 +73,36 @@
 							<label class="text-white">Artwork:</label>
 							<br />
 							<input class="form-control" type="text" name="albumArtSmall" th:field="${album.albumArtSmall}" />
+				    	</div>
+				    </div>
+				    <br />
+				    <div class="row">
+				    	<div class="col-12">
+							<label class="text-white">Album Tracks:</label>
+				    	</div>
+				    </div>
+				     <div class="row">
+				    	<div class="col-1">
+							<label class="text-white">Number:</label>
+				    	</div>
+				    	<div class="col-9">
+							<label class="text-white">Title:</label>
+				    	</div>
+				    	<div class="col-2">
+							<label class="text-white">Length:</label>
+				    	</div>
+				    </div>
+				    <div class="row" th:each="song : ${album.songs}">
+				    	<div class="col-1 padInput">
+							<input class="form-control" type="text" name="trackNum" th:value="${song.trackNum}" />
+				    	</div>
+				    	<br />
+				    	<div class="col-9 padInput">
+							<input class="form-control" type="text" name="trackTitle" th:value="${song.trackTitle}" />
+				    	</div>
+				    	<br />
+				    	<div class="col-2 padInput">
+							<input class="form-control" type="text" name="trackLength" th:value="${song.trackLength}" />
 				    	</div>
 				    </div>
 				    <br />
