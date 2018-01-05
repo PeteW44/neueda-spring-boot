@@ -4,7 +4,7 @@
  * Package:         ac.uk.belfastmet.musicsaved.controller
  * Version:         1.0
  * Created:         23/11/2017
- * Updated:         23/12/2017 18.00
+ * Updated:         05/01/2018 22.00
  * Author:          Peter Wightman
  * Description:     This is the BandController Class
  */
@@ -128,10 +128,10 @@ public class BandController
 	//############
 	// Delete Band
 	//############
-	@GetMapping("/crud/delete/{bandNameLower}/")
-	public String deleteBandCrud(@PathVariable("bandNameLower") String bandNameLower, RedirectAttributes redirectAtts)
+	@GetMapping("/crud/delete/{bandId}/")
+	public String deleteBandCrud(@PathVariable("bandId") Integer bandId, RedirectAttributes redirectAtts)
 	{
-		Band band = this.albumService.getBand(bandNameLower);
+		Band band = this.albumService.getBand(bandId);
 		this.albumService.deleteBand(band.getBandId());
 		redirectAtts.addFlashAttribute("message", "Band was Deleted");
 		

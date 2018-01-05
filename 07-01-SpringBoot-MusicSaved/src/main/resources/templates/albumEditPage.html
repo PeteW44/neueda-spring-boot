@@ -16,7 +16,7 @@
 			<h4 class="text-center text-white"><b>Album Details</b></h4>
 			<br />
 			<div class="container">
-				<form class="form-horizontal" th:action="@{/variousartists/albums/crud/save/}" th:object="${album}" method="post">
+				<form class="form-horizontal" th:action="@{/albums/crud/save/}" th:object="${album}" method="post">
 					<!-- hidden field is important! -->
 					<input type="hidden" th:field="${album.albumId}" />
 					
@@ -33,6 +33,18 @@
 								</option>
 	    					</select>
 						</div>
+						<div class="col-6">
+							<label class="text-white">Select Genre:</label>
+							<br />
+							<select id="ddlGenre" class="form-control btn btn-light dropdown-toggle dropdown-toggle-split text-left"
+								data-toggle="dropdown" th:field="${album.genre.genreId}">
+								<option value="" hidden="hidden" selected="selected">Please Select a Genre....</option>
+								<option class="dropdown-item" th:each="genre : ${genres}"
+															  th:text="${genre.genreName}"
+															  th:value="${genre.genreId}">
+								</option>
+	    					</select>
+						</div>
 					</div>
 					<br />
 					<div class="row">
@@ -42,7 +54,7 @@
 				    	<div class="col-3" data-toggle="checked">
 							<label class="text-white" for="isLive">Is Live?</label>
 							<br />
-							<input class="text-white" th:checked="${album.isLive}" type="checkbox" name="isLive" />
+							<input class="text-white" th:checked="${album.isLive} ? 'checked'" type="checkbox" name="isLive" />
 						</div>
 					</div>
 					<br />
@@ -78,7 +90,7 @@
 				    <br />
 				    <div class="row">
 				    	<div class="col-12">
-							<label class="text-white">Album Tracks:</label>
+							<h4 class="text-center text-white"><b>Album Tracks</b></h4>
 				    	</div>
 				    </div>
 				     <div class="row">
@@ -108,7 +120,9 @@
 				    <br />
 				    <div class="row">
 				    	<div class="col-3">
-				    		<button type="submit" class="btn btn-default">Save</button>
+				    		<button id="add" type="button" class="btn btn-default" onclick="">Add Track</button>
+				    		<button id="clear" type="reset" class="btn btn-default">Clear</button>
+				    		<button id="save" type="submit" class="btn btn-default">Save</button>
 				    	</div>
 				    </div>
 				</form>

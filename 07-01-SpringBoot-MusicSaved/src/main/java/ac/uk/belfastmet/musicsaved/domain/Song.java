@@ -4,7 +4,7 @@
  * Package:         ac.uk.belfastmet.musicsaved.domain
  * Version:         1.0
  * Created:         11/11/2017
- * Updated:         20/12/2017 18.00
+ * Updated:         05/01/2018 22.00
  * Author:          Peter Wightman
  * Description:     This is the Song Class
  */
@@ -16,9 +16,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-
-import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 public class Song 
@@ -26,14 +25,13 @@ public class Song
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer songId;
-	
-	@NotEmpty
+
 	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="albumId")
 	private Album album;
 	
 	// Instance Variables
 	private Integer trackNum;
-
 	private String trackTitle;
 	private String trackLength;
 	

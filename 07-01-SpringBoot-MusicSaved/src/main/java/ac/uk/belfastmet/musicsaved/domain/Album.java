@@ -4,7 +4,7 @@
  * Package:         ac.uk.belfastmet.musicsaved.domain
  * Version:         1.0
  * Created:         11/11/2017
- * Updated:         23/12/2017 18.00
+ * Updated:         05/01/2018 22.00
  * Author:          Peter Wightman
  * Description:     This is the Album Class
  */
@@ -19,11 +19,10 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
-
-import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 public class Album 
@@ -32,12 +31,12 @@ public class Album
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer albumId;
 	
-	@NotEmpty
 	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="bandId")
 	private Band band;
 	
-	@NotEmpty
 	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="genreId")
 	private Genre genre;
 	
 	// Instance Variables
@@ -46,8 +45,6 @@ public class Album
 	private Integer releaseYear;
 	private String albumArtLarge;
 	private String albumArtSmall;
-	
-	@NotEmpty
 	private Boolean isLive;
 	
 	// Collection of Songs

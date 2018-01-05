@@ -4,7 +4,7 @@
  * Package:         ac.uk.belfastmet.musicsaved.controller
  * Version:         1.0
  * Created:         18/11/2017
- * Updated:         23/12/2017 18.00
+ * Updated:         05/01/2018 01.00
  * Author:          Peter Wightman
  * Description:     This is the LiveController Class
  */
@@ -12,11 +12,16 @@
 package ac.uk.belfastmet.musicsaved.controller;
 //Import Packages
 import java.util.Set;
+
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import ac.uk.belfastmet.musicsaved.domain.Album;
@@ -231,13 +236,32 @@ public class AlbumController
 	//#############
 	// Delete Album
 	//#############
-	@GetMapping("/crud/delete/{albumTitleLower}/")
-	public String deleteAlbumCrud(@PathVariable("albumTitleLower") String albumTitleLower, RedirectAttributes redirectAtts)
+	@GetMapping("/crud/delete/{albumId}/")
+	public String deleteAlbumCrud(@PathVariable("albumId") Integer albumId, RedirectAttributes redirectAtts)
 	{
-		Album album = this.albumService.getAlbum(albumTitleLower);
+		Album album = this.albumService.getAlbum(albumId);
 		this.albumService.deleteAlbum(album.getAlbumId());
 		redirectAtts.addFlashAttribute("message", "Album was Deleted");
 		
 		return "redirect:/albums/crud/";
+	}
+	
+	//###########
+	// Save Album
+	//###########
+	@PostMapping("/crud/save/")
+	public String saveAlbum(@Valid Album album, BindingResult bindingResult, Model model)
+	{
+		if(bindingResult.hasErrors())
+		{
+			return "albumEditPage";
+		}
+		
+		else
+		{
+			Album savedAlbum = this.albumService.saveAlbum(album);
+			
+			return "redirect:/albums/crud/view/" + savedAlbum.getAlbumTitleLower() + "/";
+		}
 	}
 }

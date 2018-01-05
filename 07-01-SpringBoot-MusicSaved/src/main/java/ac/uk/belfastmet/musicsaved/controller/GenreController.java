@@ -4,7 +4,7 @@
  * Package:         ac.uk.belfastmet.musicsaved.controller
  * Version:         1.0
  * Created:         23/11/2017
- * Updated:         23/12/2017 18.00
+ * Updated:         05/01/2018 22.00
  * Author:          Peter Wightman
  * Description:     This is the GenreController Class
  */
@@ -128,10 +128,10 @@ public class GenreController
 	//#############
 	// Delete Genre
 	//#############
-	@GetMapping("/crud/delete/{genreNameLower}/")
-	public String deleteGenreCrud(@PathVariable("genreNameLower") String genreNameLower, RedirectAttributes redirectAtts)
+	@GetMapping("/crud/delete/{genreId}/")
+	public String deleteGenreCrud(@PathVariable("genreId") Integer genreId, RedirectAttributes redirectAtts)
 	{
-		Genre genre = this.albumService.getGenre(genreNameLower);
+		Genre genre = this.albumService.getGenre(genreId);
 		this.albumService.deleteGenre(genre.getGenreId());
 		redirectAtts.addFlashAttribute("message", "Genre was Deleted");
 		

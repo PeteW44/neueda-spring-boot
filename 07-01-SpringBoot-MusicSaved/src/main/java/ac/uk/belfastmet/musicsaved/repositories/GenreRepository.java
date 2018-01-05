@@ -4,7 +4,7 @@
  * Package:         ac.uk.belfastmet.musicsaved.service
  * Version:         1.0
  * Created:         20/11/2017
- * Updated:         20/12/2017 22.00
+ * Updated:         05/01/2018 22.00
  * Author:          Peter Wightman
  * Description:     This is the GenreRepository Class
  */
@@ -19,4 +19,5 @@ public interface GenreRepository extends CrudRepository<Genre, Integer>
 {
 	Set<Genre> findAllByOrderByGenreName();
 	Genre findByGenreNameLower(String genreNameLower);
+	Genre findOne(int genreId);
 }

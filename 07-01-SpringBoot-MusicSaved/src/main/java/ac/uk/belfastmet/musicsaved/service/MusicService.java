@@ -4,7 +4,7 @@
  * Package:         ac.uk.belfastmet.musicsaved.service
  * Version:         1.0
  * Created:         17/11/2017
- * Updated:         23/12/2017 18.00
+ * Updated:         05/01/2018 22.00
  * Author:          Peter Wightman
  * Description:     This is the MusicService Class
  */
@@ -46,9 +46,9 @@ public class MusicService
 		this.albumRepository = albumRepository;
 	}
 	
-	// ########
-	// Get Band
-	// ########
+	// ################
+	// Get Band By Name
+	// ################
 	public Band getBand(String bandNameLower)
 	{
 		Band band = bandRepository.findByBandNameLower(bandNameLower);
@@ -56,14 +56,54 @@ public class MusicService
 		return band;
 	}
 	
-	// #########
-	// Get Genre
-	// #########
+	// ##############
+	// Get Band By ID
+	// ##############
+	public Band getBand(Integer bandId)
+	{
+		Band band = bandRepository.findOne(bandId);
+		
+		return band;
+	}
+		
+	// #################
+	// Get Genre By Name
+	// #################
 	public Genre getGenre(String genreNameLower)
 	{
 		Genre genre = genreRepository.findByGenreNameLower(genreNameLower);
 		
 		return genre;
+	}
+	
+	// #########
+	// Get Genre By ID
+	// #########
+	public Genre getGenre(Integer genreId)
+	{
+		Genre genre = genreRepository.findOne(genreId);
+		
+		return genre;
+	}
+	
+	// #################
+	// Get Album By Name
+	// #################
+	public Album getAlbum(String albumTitleLower)
+	{
+		Album album = albumRepository.findByAlbumTitleLower(albumTitleLower);
+		
+		return album;
+	}
+	
+	// ###############
+	// Get Album By ID
+	// ###############
+	public Album getAlbum(Integer albumId)
+	{
+		Album album = albumRepository.findOne(albumId);
+		
+		return album;
 	}
 	
 	// #############
@@ -145,16 +185,6 @@ public class MusicService
 		Set<Album> albums = albumRepository.findByBandOrderByReleaseYear(band);
 		
 		return albums;
-	}
-		
-	// ################
-	// Get Single Album
-	// ################
-	public Album getAlbum(String albumTitleLower)
-	{
-		Album album = albumRepository.findByAlbumTitleLower(albumTitleLower);
-		
-		return album;
 	}
 	
 	// ###########
