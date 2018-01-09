@@ -4,7 +4,7 @@
  * Package:         ac.uk.belfastmet.musicsaved.service
  * Version:         1.0
  * Created:         13/11/2017
- * Updated:         05/01/2018 22.00
+ * Updated:         09/01/2018 17.00
  * Author:          Peter Wightman
  * Description:     This is the AlbumRepository Class
  */
@@ -24,5 +24,6 @@ public interface AlbumRepository extends CrudRepository<Album, Integer>
 	Album findOne(int albumId);
 	Set<Album> findByBandOrderByReleaseYear(Band band);
 	Set<Album> findByIsLiveOrderByReleaseYear(boolean isLive);
+	Set<Album> findAllByIsLiveIsNullOrderByReleaseYear();
 	Set<Album> findByGenreOrderByReleaseYear(Genre genre);
 }

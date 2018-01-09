@@ -4,7 +4,7 @@
  * Package:         ac.uk.belfastmet.musicsaved.service
  * Version:         1.0
  * Created:         17/11/2017
- * Updated:         05/01/2018 22.00
+ * Updated:         09/01/2018 17.00
  * Author:          Peter Wightman
  * Description:     This is the MusicService Class
  */
@@ -76,9 +76,9 @@ public class MusicService
 		return genre;
 	}
 	
-	// #########
+	// ###############
 	// Get Genre By ID
-	// #########
+	// ###############
 	public Genre getGenre(Integer genreId)
 	{
 		Genre genre = genreRepository.findOne(genreId);
@@ -162,7 +162,7 @@ public class MusicService
 	// #####################
 	public Set<Album> getAllStudioAlbums()
 	{
-		Set<Album> albums = albumRepository.findByIsLiveOrderByReleaseYear(false);
+		Set<Album> albums = albumRepository.findAllByIsLiveIsNullOrderByReleaseYear();
 		
 		return albums;
 	}

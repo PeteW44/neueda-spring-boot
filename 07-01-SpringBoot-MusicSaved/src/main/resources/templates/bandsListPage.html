@@ -21,7 +21,6 @@
 				<thead>
 					<tr class="text-white">
 						<th>Name</th>
-						<th>Name (Lower)</th>
 						<th>View</th>
 						<th>Edit</th>
 						<th>Delete</th>
@@ -30,7 +29,6 @@
 				<tbody>
 					<tr class="text-white" th:each="band : ${bands}">
 						<td th:text="${band.bandName}"></td>
-						<td th:text="${band.bandNameLower}"></td>
 						<td class="crudButtonTdWidth">
 							<a class="btn btn-light fsSmall crudButtonWidth" th:href="@{view/} + ${band.bandNameLower} + @{/}"><b>View</b></a>
 						</td>

@@ -191,7 +191,7 @@ public class AlbumController
 		model.addAttribute("pageTitle1", album.getBand().getBandName());
 		model.addAttribute("pageTitle2", album.getAlbumTitle());
 		model.addAttribute("pageTitle3", album.getReleaseYear());
-		return "albumPage";
+		return "albumViewPage";
 	}
 	
 //	@GetMapping("/crud/view/{albumTitleLower}/")

@@ -21,7 +21,6 @@
 				<thead>
 					<tr class="text-white">
 						<th>Name</th>
-						<th>Name (Lower)</th>
 						<th>View</th>
 						<th>Edit</th>
 						<th>Delete</th>
@@ -30,7 +29,6 @@
 				<tbody>
 					<tr class="text-white" th:each="genre : ${genres}">
 						<td th:text="${genre.genreName}"></td>
-						<td th:text="${genre.genreNameLower}"></td>
 						<td class="crudButtonTdWidth">
 							<a class="btn btn-light fsSmall crudButtonWidth" th:href="@{view/} + ${genre.genreNameLower} + @{/}"><b>View</b></a>
 						</td>
