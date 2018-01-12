@@ -46,6 +46,7 @@ public class AlbumServiceImpl implements AlbumService
 	// #################
 	// Get Album By Name
 	// #################
+	@Override
 	public Album getAlbumByName(String albumTitleLower)
 	{
 		Album album = albumRepository.findOneByAlbumTitleLower(albumTitleLower);
@@ -56,6 +57,7 @@ public class AlbumServiceImpl implements AlbumService
 	// ###############
 	// Get Album By ID
 	// ###############
+	@Override
 	public Album getAlbumById(Integer albumId)
 	{
 		Album album = albumRepository.findOneByAlbumId(albumId);
@@ -66,6 +68,7 @@ public class AlbumServiceImpl implements AlbumService
 	// ##############
 	// Get All Albums
 	// ##############
+	@Override
 	public Collection<Album> getAllAlbums()
 	{
 		Collection<Album> albums = albumRepository.findAllByOrderByReleaseYear();
@@ -76,6 +79,7 @@ public class AlbumServiceImpl implements AlbumService
 	// ###################
 	// Get All Band Albums
 	// ###################
+	@Override
 	public Collection<Album> getAllBandAlbums(String bandNameLower)
 	{
 		Band band = bandRepository.findOneByBandNameLower(bandNameLower);
@@ -87,6 +91,7 @@ public class AlbumServiceImpl implements AlbumService
 	// ###################
 	// Get All Live Albums
 	// ###################
+	@Override
 	public Collection<Album> getAllLiveAlbums()
 	{
 		Collection<Album> albums = albumRepository.findByIsLiveOrderByReleaseYear(true);
@@ -97,6 +102,7 @@ public class AlbumServiceImpl implements AlbumService
 	// #####################
 	// Get All Studio Albums
 	// #####################
+	@Override
 	public Collection<Album> getAllStudioAlbums()
 	{
 		Collection<Album> albums = albumRepository.findAllByIsLiveIsNullOrderByReleaseYear();
@@ -107,6 +113,7 @@ public class AlbumServiceImpl implements AlbumService
 	// #######################
 	// Get All Albums By Genre
 	// #######################
+	@Override
 	public Collection<Album> getAllAlbumsByGenre(Genre genre)
 	{
 		Collection<Album> albums = albumRepository.findByGenreOrderByReleaseYear(genre);
@@ -117,6 +124,7 @@ public class AlbumServiceImpl implements AlbumService
 	// ######################
 	// Get All Albums By Band
 	// ######################
+	@Override
 	public Collection<Album> getAllAlbumsByBand(Band band)
 	{
 		Collection<Album> albums = albumRepository.findByBandOrderByReleaseYear(band);
@@ -127,6 +135,7 @@ public class AlbumServiceImpl implements AlbumService
 	// ############
 	// Delete Album
 	// ############
+	@Override
 	public void deleteAlbum(Integer albumId)
 	{
 		albumRepository.delete(albumId);
@@ -135,6 +144,7 @@ public class AlbumServiceImpl implements AlbumService
 	// ##########
 	// Save Album
 	// ##########
+	@Override
 	public Album saveAlbum(Album album)
 	{
 		albumRepository.save(album);

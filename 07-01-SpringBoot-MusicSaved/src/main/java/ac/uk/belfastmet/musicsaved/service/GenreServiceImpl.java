@@ -39,6 +39,7 @@ public class GenreServiceImpl implements GenreService
 	// #################
 	// Get Genre By Name
 	// #################
+	@Override
 	public Genre getGenreByName(String genreNameLower)
 	{
 		Genre genre = genreRepository.findOneByGenreNameLower(genreNameLower);
@@ -49,6 +50,7 @@ public class GenreServiceImpl implements GenreService
 	// ###############
 	// Get Genre By ID
 	// ###############
+	@Override
 	public Genre getGenreById(Integer genreId)
 	{
 		Genre genre = genreRepository.findOneByGenreId(genreId);
@@ -59,6 +61,7 @@ public class GenreServiceImpl implements GenreService
 	// ##############
 	// Get All Genres
 	// ##############
+	@Override
 	public Collection<Genre> getAllGenres()
 	{
 		Collection<Genre> genres = genreRepository.findAllByOrderByGenreName();
@@ -69,6 +72,7 @@ public class GenreServiceImpl implements GenreService
 	// ############
 	// Delete Genre
 	// ############
+	@Override
 	public void deleteGenre(Integer genreId)
 	{
 		genreRepository.delete(genreId);
@@ -77,6 +81,7 @@ public class GenreServiceImpl implements GenreService
 	// ##########
 	// Save Genre
 	// ##########
+	@Override
 	public Genre saveGenre(Genre genre)
 	{
 		genreRepository.save(genre);

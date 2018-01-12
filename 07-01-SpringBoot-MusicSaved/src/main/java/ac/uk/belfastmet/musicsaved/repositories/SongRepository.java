@@ -13,11 +13,13 @@ package ac.uk.belfastmet.musicsaved.repositories;
 // Import Packages
 import java.util.Collection;
 import org.springframework.data.repository.CrudRepository;
+import ac.uk.belfastmet.musicsaved.domain.Album;
 import ac.uk.belfastmet.musicsaved.domain.Song;
 
 public interface SongRepository extends CrudRepository<Song, Integer>
 {
-	Song findByTrackTitle(String trackTitle);
+	Song findOneByTrackTitle(String songTitle);
+	Song findOneBySongId(int songId);
 	
-	Collection<Song> findAll();
+	Collection<Song> findByAlbum(Album album);
 }

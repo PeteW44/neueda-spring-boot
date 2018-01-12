@@ -50,6 +50,7 @@ public class BandServiceImpl implements BandService
 	// ##############
 	// Get Band By ID
 	// ##############
+	@Override
 	public Band getBandById(Integer bandId)
 	{
 		Band band = bandRepository.findOneByBandId(bandId);
@@ -60,6 +61,7 @@ public class BandServiceImpl implements BandService
 	// #############
 	// Get All Bands
 	// #############
+	@Override
 	public Collection<Band> getAllBands()
 	{
 		Collection<Band> bands = bandRepository.findAllByOrderByBandName();
@@ -70,6 +72,7 @@ public class BandServiceImpl implements BandService
 	// ###########
 	// Delete Band
 	// ###########
+	@Override
 	public void deleteBand(Integer bandId)
 	{
 		bandRepository.delete(bandId);
@@ -78,6 +81,7 @@ public class BandServiceImpl implements BandService
 	// #########
 	// Save Band
 	// #########
+	@Override
 	public Band saveBand(Band band)
 	{
 		bandRepository.save(band);
