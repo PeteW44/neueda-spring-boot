@@ -4,14 +4,14 @@
  * Package:         ac.uk.belfastmet.musicsaved.service
  * Version:         1.0
  * Created:         13/11/2017
- * Updated:         09/01/2018 17.00
+ * Updated:         12/01/2018 17.00
  * Author:          Peter Wightman
  * Description:     This is the AlbumRepository Class
  */
 
 package ac.uk.belfastmet.musicsaved.repositories;
 // Import Packages
-import java.util.Set;
+import java.util.Collection;
 import org.springframework.data.repository.CrudRepository;
 import ac.uk.belfastmet.musicsaved.domain.Album;
 import ac.uk.belfastmet.musicsaved.domain.Band;
@@ -19,11 +19,12 @@ import ac.uk.belfastmet.musicsaved.domain.Genre;
 
 public interface AlbumRepository extends CrudRepository<Album, Integer>
 {
-	Set<Album> findAllByOrderByReleaseYear();
-	Album findByAlbumTitleLower(String albumTitleLower);
-	Album findOne(int albumId);
-	Set<Album> findByBandOrderByReleaseYear(Band band);
-	Set<Album> findByIsLiveOrderByReleaseYear(boolean isLive);
-	Set<Album> findAllByIsLiveIsNullOrderByReleaseYear();
-	Set<Album> findByGenreOrderByReleaseYear(Genre genre);
+	Album findOneByAlbumTitleLower(String albumTitleLower);
+	Album findOneByAlbumId(int albumId);
+	
+	Collection<Album> findAllByOrderByReleaseYear();
+	Collection<Album> findByBandOrderByReleaseYear(Band band);
+	Collection<Album> findByIsLiveOrderByReleaseYear(boolean isLive);
+	Collection<Album> findAllByIsLiveIsNullOrderByReleaseYear();
+	Collection<Album> findByGenreOrderByReleaseYear(Genre genre);
 }

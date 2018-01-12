@@ -4,20 +4,21 @@
  * Package:         ac.uk.belfastmet.musicsaved.service
  * Version:         1.0
  * Created:         20/11/2017
- * Updated:         05/01/2018 22.00
+ * Updated:         12/01/2018 17.00
  * Author:          Peter Wightman
  * Description:     This is the GenreRepository Class
  */
 
 package ac.uk.belfastmet.musicsaved.repositories;
 // Import Packages
-import java.util.Set;
+import java.util.Collection;
 import org.springframework.data.repository.CrudRepository;
 import ac.uk.belfastmet.musicsaved.domain.Genre;
 
 public interface GenreRepository extends CrudRepository<Genre, Integer>
 {
-	Set<Genre> findAllByOrderByGenreName();
-	Genre findByGenreNameLower(String genreNameLower);
-	Genre findOne(int genreId);
+	Genre findOneByGenreNameLower(String genreNameLower);
+	Genre findOneByGenreId(int genreId);
+	
+	Collection<Genre> findAllByOrderByGenreName();
 }

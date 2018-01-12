@@ -4,14 +4,14 @@
  * Package:         ac.uk.belfastmet.musicsaved.controller
  * Version:         1.0
  * Created:         11/11/2017
- * Updated:         23/12/2017 18.00
+ * Updated:         12/01/2018 17.00
  * Author:          Peter Wightman
  * Description:     This is the PinkFloydController Class
  */
 
 package ac.uk.belfastmet.musicsaved.controller;
 //Import Packages
-import java.util.Set;
+import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,26 +19,39 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import ac.uk.belfastmet.musicsaved.domain.Band;
 import ac.uk.belfastmet.musicsaved.domain.Genre;
-import ac.uk.belfastmet.musicsaved.service.MusicService;
+import ac.uk.belfastmet.musicsaved.service.BandServiceImpl;
+import ac.uk.belfastmet.musicsaved.service.GenreServiceImpl;
 
 @Controller
 @RequestMapping("/pinkfloyd/")
 public class PinkFloydController 
 {
 	@Autowired
-	private MusicService albumService;
+	private BandServiceImpl bandService;
 	
+	@Autowired
+	private GenreServiceImpl genreService;
+	
+	// Default Constructor
 	public PinkFloydController()
 	{
 		super();
+	}
+	
+	// Parameterised Constructor
+	public PinkFloydController(BandServiceImpl bandService, GenreServiceImpl genreService)
+	{
+		super();
+		this.bandService = bandService;
+		this.genreService = genreService;
 	}
 
 	@GetMapping("/images/")
 	public String pinkFloydHome(Model model)
 	{
-		Set<Band> bands = this.albumService.getAllBands();
+		Collection<Band> bands = this.bandService.getAllBands();
 		model.addAttribute("bands", bands);
-		Set<Genre> genres = this.albumService.getAllGenres();
+		Collection<Genre> genres = this.genreService.getAllGenres();
 		model.addAttribute("genres", genres);
 		
 		model.addAttribute("pageTitle", "Pink Floyd Images");
@@ -49,9 +62,9 @@ public class PinkFloydController
 	@GetMapping("/bio/")
 	public String pinkFloydBio(Model model)
 	{
-		Set<Band> bands = this.albumService.getAllBands();
+		Collection<Band> bands = this.bandService.getAllBands();
 		model.addAttribute("bands", bands);
-		Set<Genre> genres = this.albumService.getAllGenres();
+		Collection<Genre> genres = this.genreService.getAllGenres();
 		model.addAttribute("genres", genres);
 		
 		model.addAttribute("pageTitle", "Pink Floyd Bio");
@@ -62,9 +75,9 @@ public class PinkFloydController
 	@GetMapping("/media/")
 	public String pinkfloydMedia(Model model)
 	{
-		Set<Band> bands = this.albumService.getAllBands();
+		Collection<Band> bands = this.bandService.getAllBands();
 		model.addAttribute("bands", bands);
-		Set<Genre> genres = this.albumService.getAllGenres();
+		Collection<Genre> genres = this.genreService.getAllGenres();
 		model.addAttribute("genres", genres);
 		
 		model.addAttribute("pageTitle", "Pink Floyd Media");

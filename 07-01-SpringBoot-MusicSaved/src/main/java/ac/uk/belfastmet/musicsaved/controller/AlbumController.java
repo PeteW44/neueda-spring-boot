@@ -4,17 +4,15 @@
  * Package:         ac.uk.belfastmet.musicsaved.controller
  * Version:         1.0
  * Created:         18/11/2017
- * Updated:         05/01/2018 01.00
+ * Updated:         12/01/2018 17.00
  * Author:          Peter Wightman
  * Description:     This is the LiveController Class
  */
 
 package ac.uk.belfastmet.musicsaved.controller;
 //Import Packages
-import java.util.Set;
-
+import java.util.Collection;
 import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,18 +25,36 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import ac.uk.belfastmet.musicsaved.domain.Album;
 import ac.uk.belfastmet.musicsaved.domain.Band;
 import ac.uk.belfastmet.musicsaved.domain.Genre;
-import ac.uk.belfastmet.musicsaved.service.MusicService;
+import ac.uk.belfastmet.musicsaved.service.BandServiceImpl;
+import ac.uk.belfastmet.musicsaved.service.GenreServiceImpl;
+import ac.uk.belfastmet.musicsaved.service.AlbumServiceImpl;
 
 @Controller
 @RequestMapping("/albums/")
 public class AlbumController 
 {
 	@Autowired
-	private MusicService albumService;
+	private BandServiceImpl bandService;
 	
+	@Autowired
+	private GenreServiceImpl genreService;
+	
+	@Autowired
+	private AlbumServiceImpl albumService;
+	
+	// Default Constructor
 	public AlbumController()
 	{
 		super();
+	}
+	
+	// Parameterised Constructor
+	public AlbumController(BandServiceImpl bandService, GenreServiceImpl genreService, AlbumServiceImpl albumService)
+	{
+		super();
+		this.bandService = bandService;
+		this.genreService = genreService;
+		this.albumService = albumService;
 	}
 	
 	//#################
@@ -47,11 +63,11 @@ public class AlbumController
 	@GetMapping("/live/all/")
 	public String liveAlbums(Model model)
 	{
-		Set<Band> bands = this.albumService.getAllBands();
+		Collection<Band> bands = this.bandService.getAllBands();
 		model.addAttribute("bands", bands);
-		Set<Genre> genres = this.albumService.getAllGenres();
+		Collection<Genre> genres = this.genreService.getAllGenres();
 		model.addAttribute("genres", genres);
-		Set<Album> albums = this.albumService.getAllLiveAlbums();
+		Collection<Album> albums = this.albumService.getAllLiveAlbums();
 		model.addAttribute("albums", albums);
 		
 		model.addAttribute("pageTitle", "Live Albums");
@@ -68,11 +84,11 @@ public class AlbumController
 	@GetMapping("/studio/all/")
 	public String studioAlbums(Model model)
 	{
-		Set<Band> bands = this.albumService.getAllBands();
+		Collection<Band> bands = this.bandService.getAllBands();
 		model.addAttribute("bands", bands);
-		Set<Genre> genres = this.albumService.getAllGenres();
+		Collection<Genre> genres = this.genreService.getAllGenres();
 		model.addAttribute("genres", genres);
-		Set<Album> albums = this.albumService.getAllStudioAlbums();
+		Collection<Album> albums = this.albumService.getAllStudioAlbums();
 		model.addAttribute("albums", albums);
 		
 		model.addAttribute("pageTitle", "Studio Albums");
@@ -89,12 +105,12 @@ public class AlbumController
 	@GetMapping("/band/{bandNameLower}/")
 	public String bandAlbums(@PathVariable("bandNameLower") String bandNameLower, Model model)
 	{
-		Band band = this.albumService.getBand(bandNameLower);
-		Set<Band> bands = this.albumService.getAllBands();
+		Band band = this.bandService.getBandByName(bandNameLower);
+		Collection<Band> bands = this.bandService.getAllBands();
 		model.addAttribute("bands", bands);
-		Set<Genre> genres = this.albumService.getAllGenres();
+		Collection<Genre> genres = this.genreService.getAllGenres();
 		model.addAttribute("genres", genres);
-		Set<Album> albums = this.albumService.getAllAlbumsByBand(band);
+		Collection<Album> albums = this.albumService.getAllAlbumsByBand(band);
 		model.addAttribute("albums", albums);
 		
 		model.addAttribute("pageTitle", "Albums By Band");
@@ -111,12 +127,12 @@ public class AlbumController
 	@GetMapping("/genre/{genreNameLower}/")
 	public String genreAlbums(@PathVariable("genreNameLower") String genreNameLower, Model model)
 	{
-		Genre genre = this.albumService.getGenre(genreNameLower);
-		Set<Band> bands = this.albumService.getAllBands();
+		Genre genre = this.genreService.getGenreByName(genreNameLower);
+		Collection<Band> bands = this.bandService.getAllBands();
 		model.addAttribute("bands", bands);
-		Set<Genre> genres = this.albumService.getAllGenres();
+		Collection<Genre> genres = this.genreService.getAllGenres();
 		model.addAttribute("genres", genres);
-		Set<Album> albums = this.albumService.getAllAlbumsByGenre(genre);
+		Collection<Album> albums = this.albumService.getAllAlbumsByGenre(genre);
 		model.addAttribute("albums", albums);
 		
 		model.addAttribute("pageTitle", "Albums By Genre");
@@ -137,11 +153,11 @@ public class AlbumController
 	@GetMapping("/crud/")
 	public String crudAlbums(Model model)
 	{
-		Set<Band> bands = this.albumService.getAllBands();
+		Collection<Band> bands = this.bandService.getAllBands();
 		model.addAttribute("bands", bands);
-		Set<Genre> genres = this.albumService.getAllGenres();
+		Collection<Genre> genres = this.genreService.getAllGenres();
 		model.addAttribute("genres", genres);
-		Set<Album> albums = this.albumService.getAllAlbums();
+		Collection<Album> albums = this.albumService.getAllAlbums();
 		model.addAttribute("albums", albums);
 		
 		model.addAttribute("pageTitle", "Album List");
@@ -158,11 +174,11 @@ public class AlbumController
 	@GetMapping("/crud/add/")
 	public String addAlbumCrud(Model model)
 	{
-		Set<Band> bands = this.albumService.getAllBands();
+		Collection<Band> bands = this.bandService.getAllBands();
 		model.addAttribute("bands", bands);
-		Set<Genre> genres = this.albumService.getAllGenres();
+		Collection<Genre> genres = this.genreService.getAllGenres();
 		model.addAttribute("genres", genres);
-		Set<Album> albums = this.albumService.getAllAlbums();
+		Collection	<Album> albums = this.albumService.getAllAlbums();
 		model.addAttribute("albums", albums);
 		model.addAttribute("album", new Album());
 		
@@ -180,11 +196,11 @@ public class AlbumController
 	@RequestMapping("/*/*/{albumTitleLower}")
 	public String viewAlbum(@PathVariable("albumTitleLower") String albumTitleLower, Model model)
 	{
-		Set<Band> bands = this.albumService.getAllBands();
+		Collection<Band> bands = this.bandService.getAllBands();
 		model.addAttribute("bands", bands);
-		Set<Genre> genres = this.albumService.getAllGenres();
+		Collection<Genre> genres = this.genreService.getAllGenres();
 		model.addAttribute("genres", genres);
-		Album album = this.albumService.getAlbum(albumTitleLower);
+		Album album = this.albumService.getAlbumByName(albumTitleLower);
 		model.addAttribute("album", album);
 		
 		model.addAttribute("pageTitle", album.getAlbumTitle());
@@ -218,11 +234,11 @@ public class AlbumController
 	@GetMapping("/crud/edit/{albumTitleLower}/")
 	public String editAlbumCrud(@PathVariable("albumTitleLower") String albumTitleLower, Model model)
 	{
-		Set<Band> bands = this.albumService.getAllBands();
+		Collection<Band> bands = this.bandService.getAllBands();
 		model.addAttribute("bands", bands);
-		Set<Genre> genres = this.albumService.getAllGenres();
+		Collection<Genre> genres = this.genreService.getAllGenres();
 		model.addAttribute("genres", genres);
-		Album album = this.albumService.getAlbum(albumTitleLower);
+		Album album = this.albumService.getAlbumByName(albumTitleLower);
 		model.addAttribute("album", album);
 		
 		model.addAttribute("pageTitle", "Edit Album");
@@ -239,7 +255,7 @@ public class AlbumController
 	@GetMapping("/crud/delete/{albumId}/")
 	public String deleteAlbumCrud(@PathVariable("albumId") Integer albumId, RedirectAttributes redirectAtts)
 	{
-		Album album = this.albumService.getAlbum(albumId);
+		Album album = this.albumService.getAlbumById(albumId);
 		this.albumService.deleteAlbum(album.getAlbumId());
 		redirectAtts.addFlashAttribute("message", "Album was Deleted");
 		

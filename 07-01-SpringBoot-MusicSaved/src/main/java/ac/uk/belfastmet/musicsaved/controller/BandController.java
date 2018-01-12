@@ -4,17 +4,15 @@
  * Package:         ac.uk.belfastmet.musicsaved.controller
  * Version:         1.0
  * Created:         23/11/2017
- * Updated:         05/01/2018 22.00
+ * Updated:         12/01/2018 17.00
  * Author:          Peter Wightman
  * Description:     This is the BandController Class
  */
 
 package ac.uk.belfastmet.musicsaved.controller;
 //Import Packages
-import java.util.Set;
-
+import java.util.Collection;
 import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,18 +24,31 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import ac.uk.belfastmet.musicsaved.domain.Band;
 import ac.uk.belfastmet.musicsaved.domain.Genre;
-import ac.uk.belfastmet.musicsaved.service.MusicService;
+import ac.uk.belfastmet.musicsaved.service.BandServiceImpl;
+import ac.uk.belfastmet.musicsaved.service.GenreServiceImpl;
 
 @Controller
 @RequestMapping("/bands/")
 public class BandController 
 {
 	@Autowired
-	private MusicService albumService;
+	private BandServiceImpl bandService;
 	
+	@Autowired
+	private GenreServiceImpl genreService;
+	
+	// Default Constructor
 	public BandController()
 	{
 		super();
+	}
+	
+	// Parameterised Constructor
+	public BandController(BandServiceImpl bandService, GenreServiceImpl genreService)
+	{
+		super();
+		this.bandService = bandService;
+		this.genreService = genreService;
 	}
 
 	/*
@@ -50,9 +61,9 @@ public class BandController
 	@GetMapping("/crud/")
 	public String bandCrud(Model model)
 	{
-		Set<Band> bands = this.albumService.getAllBands();
+		Collection<Band> bands = this.bandService.getAllBands();
 		model.addAttribute("bands", bands);
-		Set<Genre> genres = this.albumService.getAllGenres();
+		Collection<Genre> genres = this.genreService.getAllGenres();
 		model.addAttribute("genres", genres);
 		
 		model.addAttribute("pageTitle", "Band List");
@@ -69,9 +80,9 @@ public class BandController
 	@GetMapping("/crud/add/")
 	public String addBandCrud(Model model)
 	{
-		Set<Band> bands = this.albumService.getAllBands();
+		Collection<Band> bands = this.bandService.getAllBands();
 		model.addAttribute("bands", bands);
-		Set<Genre> genres = this.albumService.getAllGenres();
+		Collection<Genre> genres = this.genreService.getAllGenres();
 		model.addAttribute("genres", genres);
 		model.addAttribute("band", new Band());
 		
@@ -89,11 +100,11 @@ public class BandController
 	@GetMapping("/crud/view/{bandNameLower}/")
 	public String viewAlbum(@PathVariable("bandNameLower") String bandNameLower, Model model)
 	{
-		Set<Band> bands = this.albumService.getAllBands();
+		Collection<Band> bands = this.bandService.getAllBands();
 		model.addAttribute("bands", bands);
-		Set<Genre> genres = this.albumService.getAllGenres();
+		Collection<Genre> genres = this.genreService.getAllGenres();
 		model.addAttribute("genres", genres);
-		Band band = this.albumService.getBand(bandNameLower);
+		Band band = this.bandService.getBandByName(bandNameLower);
 		model.addAttribute("band", band);
 		
 		model.addAttribute("pageTitle", "View Band");
@@ -110,11 +121,11 @@ public class BandController
 	@GetMapping("/crud/edit/{bandNameLower}/")
 	public String editBandCrud(@PathVariable("bandNameLower") String bandNameLower, Model model)
 	{
-		Set<Band> bands = this.albumService.getAllBands();
+		Collection<Band> bands = this.bandService.getAllBands();
 		model.addAttribute("bands", bands);
-		Set<Genre> genres = this.albumService.getAllGenres();
+		Collection<Genre> genres = this.genreService.getAllGenres();
 		model.addAttribute("genres", genres);
-		Band band = this.albumService.getBand(bandNameLower);
+		Band band = this.bandService.getBandByName(bandNameLower);
 		model.addAttribute("band", band);
 		
 		model.addAttribute("pageTitle", "Edit Band");
@@ -131,8 +142,8 @@ public class BandController
 	@GetMapping("/crud/delete/{bandId}/")
 	public String deleteBandCrud(@PathVariable("bandId") Integer bandId, RedirectAttributes redirectAtts)
 	{
-		Band band = this.albumService.getBand(bandId);
-		this.albumService.deleteBand(band.getBandId());
+		Band band = this.bandService.getBandById(bandId);
+		this.bandService.deleteBand(band.getBandId());
 		redirectAtts.addFlashAttribute("message", "Band was Deleted");
 		
 		return "redirect:/bands/crud/";
@@ -151,7 +162,7 @@ public class BandController
 		
 		else
 		{
-			Band savedBand = this.albumService.saveBand(band);
+			Band savedBand = this.bandService.saveBand(band);
 			
 			return "redirect:/bands/crud/view/" + savedBand.getBandNameLower() + "/";
 		}

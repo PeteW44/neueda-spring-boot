@@ -4,17 +4,15 @@
  * Package:         ac.uk.belfastmet.musicsaved.controller
  * Version:         1.0
  * Created:         23/11/2017
- * Updated:         05/01/2018 22.00
+ * Updated:         12/01/2018 17.00
  * Author:          Peter Wightman
  * Description:     This is the GenreController Class
  */
 
 package ac.uk.belfastmet.musicsaved.controller;
 //Import Packages
-import java.util.Set;
-
+import java.util.Collection;
 import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,18 +24,31 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import ac.uk.belfastmet.musicsaved.domain.Band;
 import ac.uk.belfastmet.musicsaved.domain.Genre;
-import ac.uk.belfastmet.musicsaved.service.MusicService;
+import ac.uk.belfastmet.musicsaved.service.BandServiceImpl;
+import ac.uk.belfastmet.musicsaved.service.GenreServiceImpl;
 
 @Controller
 @RequestMapping("/genres/")
 public class GenreController 
 {
 	@Autowired
-	private MusicService albumService;
+	private BandServiceImpl bandService;
 	
+	@Autowired
+	private GenreServiceImpl genreService;
+	
+	// Default Constructor
 	public GenreController()
 	{
 		super();
+	}
+	
+	// Parameterised Constructor
+	public GenreController(BandServiceImpl bandService, GenreServiceImpl genreService)
+	{
+		super();
+		this.bandService = bandService;
+		this.genreService = genreService;
 	}
 
 	/*
@@ -50,9 +61,9 @@ public class GenreController
 	@GetMapping("/crud/")
 	public String genreCrud(Model model)
 	{
-		Set<Band> bands = this.albumService.getAllBands();
+		Collection<Band> bands = this.bandService.getAllBands();
 		model.addAttribute("bands", bands);
-		Set<Genre> genres = this.albumService.getAllGenres();
+		Collection<Genre> genres = this.genreService.getAllGenres();
 		model.addAttribute("genres", genres);
 		
 		model.addAttribute("pageTitle", "Genre List");
@@ -69,9 +80,9 @@ public class GenreController
 	@GetMapping("/crud/add/")
 	public String addGenreCrud(Model model)
 	{
-		Set<Band> bands = this.albumService.getAllBands();
+		Collection<Band> bands = this.bandService.getAllBands();
 		model.addAttribute("bands", bands);
-		Set<Genre> genres = this.albumService.getAllGenres();
+		Collection<Genre> genres = this.genreService.getAllGenres();
 		model.addAttribute("genres", genres);
 		model.addAttribute("genre", new Genre());
 		
@@ -89,11 +100,11 @@ public class GenreController
 	@GetMapping("/crud/view/{genreNameLower}/")
 	public String viewGenre(@PathVariable("genreNameLower") String genreNameLower, Model model)
 	{
-		Set<Band> bands = this.albumService.getAllBands();
+		Collection<Band> bands = this.bandService.getAllBands();
 		model.addAttribute("bands", bands);
-		Set<Genre> genres = this.albumService.getAllGenres();
+		Collection<Genre> genres = this.genreService.getAllGenres();
 		model.addAttribute("genres", genres);
-		Genre genre = this.albumService.getGenre(genreNameLower);
+		Genre genre = this.genreService.getGenreByName(genreNameLower);
 		model.addAttribute("genre", genre);
 		
 		model.addAttribute("pageTitle", "View Genre");
@@ -110,11 +121,11 @@ public class GenreController
 	@GetMapping("/crud/edit/{genreNameLower}/")
 	public String editGenreCrud(@PathVariable("genreNameLower") String genreNameLower, Model model)
 	{
-		Set<Band> bands = this.albumService.getAllBands();
+		Collection<Band> bands = this.bandService.getAllBands();
 		model.addAttribute("bands", bands);
-		Set<Genre> genres = this.albumService.getAllGenres();
+		Collection<Genre> genres = this.genreService.getAllGenres();
 		model.addAttribute("genres", genres);
-		Genre genre = this.albumService.getGenre(genreNameLower);
+		Genre genre = this.genreService.getGenreByName(genreNameLower);
 		model.addAttribute("genre", genre);
 		
 		model.addAttribute("pageTitle", "Edit Genre");
@@ -131,8 +142,8 @@ public class GenreController
 	@GetMapping("/crud/delete/{genreId}/")
 	public String deleteGenreCrud(@PathVariable("genreId") Integer genreId, RedirectAttributes redirectAtts)
 	{
-		Genre genre = this.albumService.getGenre(genreId);
-		this.albumService.deleteGenre(genre.getGenreId());
+		Genre genre = this.genreService.getGenreById(genreId);
+		this.genreService.deleteGenre(genre.getGenreId());
 		redirectAtts.addFlashAttribute("message", "Genre was Deleted");
 		
 		return "redirect:/genres/crud/";
@@ -151,7 +162,7 @@ public class GenreController
 		
 		else
 		{
-			Genre savedGenre = this.albumService.saveGenre(genre);
+			Genre savedGenre = this.genreService.saveGenre(genre);
 			
 			return "redirect:/genres/crud/view/" + savedGenre.getGenreNameLower() + "/";
 		}
