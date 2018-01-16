@@ -118,9 +118,29 @@
 				    	</div>
 				    </div>
 				    <br />
+				    <div id="NewSongDiv" class="row" hidden="true">
+				   		<div class="row">
+				   			<div class="col-1 padInput">
+								<input class="form-control" type="text" name="trackNum2" />
+					    	</div>
+					    	<br />
+					    	<div class="col-9 padInput">
+								<input class="form-control" type="text" name="trackTitle2" />
+					    	</div>
+					    	<br />
+					    	<div class="col-2 padInput">
+								<input class="form-control" type="text" name="trackLength2" />
+					    	</div>
+				   		</div>
+				    	<div class="row">
+					    	<div class="col-3">
+					    		<button id="save" type="submit" class="btn btn-default">Save</button>
+					    	</div>
+					    </div>
+				    </div>
 				    <div class="row">
 				    	<div class="col-3">
-				    		<button id="add" type="button" class="btn btn-default" onclick="">Add Track</button>
+				    		<button id="add" type="button" class="btn btn-default" onclick="AddSongClick()">Add Track</button>
 				    		<button id="clear" type="reset" class="btn btn-default">Clear</button>
 				    		<button id="save" type="submit" class="btn btn-default">Save</button>
 				    	</div>
@@ -131,5 +151,6 @@
 		<br />
 		<footer th:replace="layouts/footer :: footFragment"></footer>
 		<br />
+		<script src="../JavaScript/AddSongClick.js"></script>
 	</body>
 </html>

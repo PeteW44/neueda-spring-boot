@@ -14,7 +14,7 @@ package ac.uk.belfastmet.musicsaved.service;
 import java.util.Collection;
 import ac.uk.belfastmet.musicsaved.domain.Genre;
 
-public interface GenreService 
+public interface IGenreService 
 {
 	Genre getGenreByName(String genreNameLower);
 	Genre getGenreById(Integer genreId);

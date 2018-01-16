@@ -15,7 +15,7 @@ import java.util.Collection;
 import ac.uk.belfastmet.musicsaved.domain.Album;
 import ac.uk.belfastmet.musicsaved.domain.Song;
 
-public interface SongService 
+public interface ISongService 
 {
 	Song getSongByName(String songTitle);
 	Song getSongById(Integer songId);

@@ -20,7 +20,7 @@ import ac.uk.belfastmet.musicsaved.repositories.BandRepository;
 import ac.uk.belfastmet.musicsaved.repositories.SongRepository;
 
 @Service
-public class SongServiceImpl implements SongService
+public class SongServiceImpl implements ISongService
 {
 	@Autowired
 	BandRepository bandRepository;

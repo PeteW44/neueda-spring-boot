@@ -21,7 +21,7 @@ import ac.uk.belfastmet.musicsaved.repositories.AlbumRepository;
 import ac.uk.belfastmet.musicsaved.repositories.BandRepository;
 
 @Service
-public class AlbumServiceImpl implements AlbumService
+public class AlbumServiceImpl implements IAlbumService
 {
 	@Autowired
 	BandRepository bandRepository;

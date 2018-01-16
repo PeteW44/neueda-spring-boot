@@ -16,7 +16,7 @@ import ac.uk.belfastmet.musicsaved.domain.Album;
 import ac.uk.belfastmet.musicsaved.domain.Band;
 import ac.uk.belfastmet.musicsaved.domain.Genre;
 
-public interface AlbumService 
+public interface IAlbumService 
 {
 	Album getAlbumByName(String albumTitleLower);
 	Album getAlbumById(Integer albumId);

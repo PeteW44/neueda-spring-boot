@@ -18,7 +18,7 @@ import ac.uk.belfastmet.musicsaved.domain.Genre;
 import ac.uk.belfastmet.musicsaved.repositories.GenreRepository;
 
 @Service
-public class GenreServiceImpl implements GenreService
+public class GenreServiceImpl implements IGenreService
 {
 	@Autowired
 	GenreRepository genreRepository;

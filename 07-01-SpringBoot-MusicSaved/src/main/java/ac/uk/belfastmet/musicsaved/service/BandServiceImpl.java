@@ -18,7 +18,7 @@ import ac.uk.belfastmet.musicsaved.domain.Band;
 import ac.uk.belfastmet.musicsaved.repositories.BandRepository;
 
 @Service
-public class BandServiceImpl implements BandService
+public class BandServiceImpl implements IBandService
 {
 	@Autowired
 	BandRepository bandRepository;

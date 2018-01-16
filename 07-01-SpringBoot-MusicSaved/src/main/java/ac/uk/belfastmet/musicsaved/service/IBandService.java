@@ -14,7 +14,7 @@ package ac.uk.belfastmet.musicsaved.service;
 import java.util.Collection;
 import ac.uk.belfastmet.musicsaved.domain.Band;
 
-public interface BandService 
+public interface IBandService 
 {
 	Band getBandByName(String bandNameLower);
 	Band getBandById(Integer bandId);
